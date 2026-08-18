@@ -20,7 +20,10 @@ body {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  background: #000000; /* shows briefly while the image loads */
+}
+
+.hero--fill {
+  background: #000000; /* shows briefly while a full-bleed day-page image loads */
 }
 
 .hero-image {
@@ -32,8 +35,21 @@ body {
   image-rendering: -moz-crisp-edges;
 }
 
+/* The homepage's grid canvas is sized to its own content (see
+   script.js) and centered on the viewport, rather than stretched to
+   fill it -- that way the square grid is never cropped or zoomed,
+   whatever the screen's aspect ratio. */
+.hero-canvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+}
+
 .brand-label {
-  position: absolute;
+  position: fixed;
   top: 1.25rem;
   left: 1.25rem;
   background: #ffffff;
@@ -50,7 +66,7 @@ body {
 }
 
 .hero-actions {
-  position: absolute;
+  position: fixed;
   bottom: 1.25rem;
   right: 1.25rem;
   display: flex;

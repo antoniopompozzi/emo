@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 
-from pipeline.postprocess import pixelate
+from pipeline.postprocess import pixelate, quantize_grid, render_grid
 
 
 def test_output_size_matches_grid_times_px_per_cell():
@@ -41,3 +41,18 @@ def test_cell_edges_are_hard_no_antialiasing():
     # Within a single rendered cell (10px here) all values must be identical.
     cell = arr[0:10, 0:10]
     assert len(set(cell.flatten().tolist())) == 1
+
+
+def test_quantize_grid_shape_matches_grid_size():
+    source = Image.new("RGB", (300, 150), color=(90, 90, 90))
+    grid = quantize_grid(source, grid_size=20, gray_levels=8)
+    assert grid.shape == (20, 20)
+    assert grid.dtype == np.uint8
+
+
+def test_render_grid_is_consistent_with_pixelate():
+    source = Image.new("RGB", (64, 64), color=(50, 150, 250))
+    grid = quantize_grid(source, grid_size=8, gray_levels=5)
+    rendered = render_grid(grid, px_per_cell=6)
+    combined = pixelate(source, grid_size=8, gray_levels=5, px_per_cell=6)
+    assert np.array_equal(np.array(rendered), np.array(combined))

@@ -17,16 +17,23 @@ GitHub Actions schedule, at no recurring cost.
    to [Pollinations.ai](https://pollinations.ai) (free, no API key) to render a source image.
 4. **Pixelation** ([pipeline/postprocess.py](pipeline/postprocess.py)) — a fixed, deterministic
    transform turns *any* source image into EMO's visual signature: grayscale → box-filter
-   downsample to a grid of cells → quantize to a handful of gray levels → render each cell as a
-   sharp-edged solid block. This step never calls an AI model, so the output style is always
-   consistent.
+   downsample to a grid of cells (`quantize_grid`) → quantize to a handful of gray levels →
+   render each cell as a sharp-edged solid block (`render_grid`). This step never calls an AI
+   model, so the output style is always consistent.
 5. **Archive** ([pipeline/archive.py](pipeline/archive.py)) — write the day's `final.png`,
-   unprocessed `source.png`, `metadata.json` (concept, explanation, headlines, render params),
-   and `exchange_log.json` (the full Claude + Pollinations request/response trace) to
-   `archive/<YYYY-MM-DD>/`.
+   unprocessed `source.png`, `grid_values.json` (the quantized gray-value grid behind
+   `final.png`, used by the homepage's `<canvas>` renderer), `metadata.json` (concept,
+   explanation, headlines, render params), and `exchange_log.json` (the full Claude +
+   Pollinations request/response trace) to `archive/<YYYY-MM-DD>/`.
 6. **Site** ([website/build_site.py](website/build_site.py)) — render the static site from
-   every `archive/*/metadata.json`: today's image and explanation up front, a thumbnail gallery
-   of every previous day underneath.
+   every `archive/*/metadata.json`: the homepage shows today's grid full-screen with an "EMO"
+   label and "WHY THIS IMAGE?" / "ARCHIVE" buttons overlaid; `/archive/` lists every previous
+   day as a thumbnail gallery; `days/<date>/` gives each day its own permanent page.
+   The homepage draws its grid on a `<canvas>` from `grid_values.json` (see
+   [website/static/script.js](website/static/script.js)) instead of showing `final.png`
+   directly, so the cell size can adapt to any screen — phone or desktop, portrait or
+   landscape — without cropping the square image or blowing it up past its native
+   resolution. Individual day pages still show the plain `final.png` full-bleed.
 
 Dates use UTC throughout, matching the GitHub Actions schedule.
 
@@ -60,8 +67,9 @@ pipeline/
   main.py                   orchestrates one full daily run
 website/
   build_site.py             renders the static site from archive/
-  templates/                Jinja2 templates (base/index/day)
+  templates/                Jinja2 templates (base/index/day/archive)
   static/style.css
+  static/script.js          homepage grid canvas + "why this image?" modal
 archive/                    one folder per published day (committed to the repo)
 tests/                      pytest tests, mainly for postprocess.py and the fallback paths
 .github/workflows/daily.yml scheduled pipeline run + site build + GitHub Pages deploy

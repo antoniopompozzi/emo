@@ -55,9 +55,14 @@ def build(config: dict) -> Path:
     site_title = config["site"]["title"]
 
     for day in days:
+        day_source_dir = archive_root / day["_dir_name"]
         day_out_dir = output_root / "days" / day["_dir_name"]
         day_out_dir.mkdir(parents=True, exist_ok=True)
-        shutil.copy(archive_root / day["_dir_name"] / "final.png", day_out_dir / "final.png")
+        shutil.copy(day_source_dir / "final.png", day_out_dir / "final.png")
+
+        grid_values_path = day_source_dir / "grid_values.json"
+        if grid_values_path.exists():
+            shutil.copy(grid_values_path, day_out_dir / "grid_values.json")
 
     (output_root / "index.html").write_text(
         env.get_template("index.html").render(site_title=site_title, root="", today=days[0] if days else None),

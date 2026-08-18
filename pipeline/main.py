@@ -48,12 +48,10 @@ def run() -> Path:
     image_result = image_source.fetch_source_image(concept_result["concept"], config, logger)
 
     pp_cfg = config["postprocess"]
-    final_image = postprocess.pixelate(
-        image_result["image"],
-        grid_size=pp_cfg["grid_size"],
-        gray_levels=pp_cfg["gray_levels"],
-        px_per_cell=pp_cfg["px_per_cell"],
+    grid = postprocess.quantize_grid(
+        image_result["image"], grid_size=pp_cfg["grid_size"], gray_levels=pp_cfg["gray_levels"]
     )
+    final_image = postprocess.render_grid(grid, px_per_cell=pp_cfg["px_per_cell"])
 
     metadata = {
         "date": date_str,
@@ -73,7 +71,7 @@ def run() -> Path:
 
     archive_root = REPO_ROOT / config["paths"]["archive_dir"]
     day_dir = archive.write_day(
-        date_str, archive_root, final_image, image_result["image"], metadata, logger.to_dict()
+        date_str, archive_root, final_image, image_result["image"], grid, metadata, logger.to_dict()
     )
     print(f"Wrote {day_dir}")
     return day_dir

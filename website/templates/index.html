@@ -2,8 +2,10 @@
 {% block content %}
 {% if today %}
 <div class="hero">
-  <img class="hero-image" src="{{ root }}days/{{ today._dir_name }}/final.png"
-       alt="EMO's image for {{ today.date }}">
+  <canvas id="hero-canvas" class="hero-canvas"
+          data-grid-url="{{ root }}days/{{ today._dir_name }}/grid_values.json"
+          data-image-url="{{ root }}days/{{ today._dir_name }}/final.png"
+          role="img" aria-label="EMO's image for {{ today.date }}"></canvas>
 
   <div class="brand-label"><a class="brand-text" href="{{ root }}index.html">EMO</a></div>
 
