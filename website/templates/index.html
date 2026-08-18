@@ -1,33 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 {% if today %}
-<section class="today">
-  <a href="{{ root }}days/{{ today._dir_name }}/">
-    <img class="today-image" src="{{ root }}days/{{ today._dir_name }}/final.png"
-         alt="EMO's image for {{ today.date }}" width="480" height="480">
-  </a>
-  <div class="today-text">
-    <h1>{{ today.date }}</h1>
-    <p class="explanation">{{ today.explanation }}</p>
-    {% if today.concept_used_fallback or today.image_used_fallback %}
-    <p class="fallback-note">Note: today's generation used a fallback step. See this day's page for details.</p>
-    {% endif %}
-  </div>
-</section>
-{% else %}
-<p>No images have been published yet.</p>
-{% endif %}
+<div class="hero">
+  <img class="hero-image" src="{{ root }}days/{{ today._dir_name }}/final.png"
+       alt="EMO's image for {{ today.date }}">
 
-<section class="gallery">
-  <h2>Archive</h2>
-  <div class="gallery-grid">
-    {% for d in days %}
-    <a class="gallery-item" href="{{ root }}days/{{ d._dir_name }}/" title="{{ d.date }}">
-      <img src="{{ root }}days/{{ d._dir_name }}/final.png" alt="EMO's image for {{ d.date }}"
-           loading="lazy" width="150" height="150">
-      <span>{{ d.date }}</span>
-    </a>
-    {% endfor %}
+  <div class="brand-label"><a class="brand-text" href="{{ root }}index.html">EMO</a></div>
+
+  <div class="hero-actions">
+    <button type="button" class="pixel-btn" id="why-btn">WHY THIS IMAGE?</button>
+    <a class="pixel-btn" href="{{ root }}archive/">ARCHIVE</a>
   </div>
-</section>
+</div>
+
+<dialog id="why-modal" class="why-modal">
+  <button type="button" class="modal-close" id="why-close" aria-label="Close">&times;</button>
+  <h2>{{ today.date }}</h2>
+  <p class="explanation">{{ today.explanation }}</p>
+  {% if today.concept_used_fallback or today.image_used_fallback %}
+  <p class="fallback-note">
+    Note: today's generation used a fallback step —
+    {%- if today.concept_used_fallback %} the AI concept step failed, so a fixed placeholder concept was used{% endif -%}
+    {%- if today.concept_used_fallback and today.image_used_fallback %};{% endif -%}
+    {%- if today.image_used_fallback %} the image generation service was unavailable, so a local placeholder was pixelated instead{% endif -%}.
+  </p>
+  {% endif %}
+  {% if today.headlines %}
+  <h3>Headlines read that day</h3>
+  <ul class="headlines-list">
+    {% for h in today.headlines %}
+    <li><a href="{{ h.link }}" target="_blank" rel="noopener">{{ h.title }}</a>{% if h.summary %} — {{ h.summary }}{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</dialog>
+{% else %}
+<p class="empty-state">No images have been published yet.</p>
+{% endif %}
 {% endblock %}

@@ -1,78 +1,181 @@
-:root {
-  --bg: #f5f5f3;
-  --fg: #111111;
-  --muted: #555555;
-  --border: #111111;
-}
-
 * { box-sizing: border-box; }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
-  color: var(--fg);
+}
+
+body {
+  background: #ffffff;
+  color: #000000;
   font-family: 'Courier New', ui-monospace, monospace;
   line-height: 1.5;
 }
 
-.site-header {
-  padding: 2rem 1.5rem 1rem;
-  border-bottom: 2px solid var(--border);
+/* ---- Hero (today / single day page): the pixelated image fills the viewport ---- */
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #000000; /* shows briefly while the image loads */
 }
 
-.site-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--fg);
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+}
+
+.brand-label {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: #ffffff;
+  border: 2px solid #000000;
+  padding: 0.5rem 0.75rem;
+}
+
+.brand-text {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1.5rem;
+  color: #000000;
   text-decoration: none;
+  letter-spacing: 0.05em;
 }
 
-.site-tagline {
-  margin: 0.5rem 0 0;
-  color: var(--muted);
+.hero-actions {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pixel-btn {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 0.65rem;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 0.65rem 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+}
+
+.pixel-btn:hover,
+.pixel-btn:focus-visible {
+  background: #000000;
+  color: #ffffff;
+}
+
+.empty-state {
+  padding: 2rem;
+  font-family: 'Courier New', ui-monospace, monospace;
+}
+
+/* ---- "Why this image?" modal ---- */
+
+.why-modal {
+  position: fixed;
+  margin: auto;
+  max-width: 520px;
+  width: min(90vw, 520px);
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 3px solid #000000;
+  padding: 1.5rem;
+  background: #ffffff;
+  color: #000000;
+}
+
+.why-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.why-modal h2 {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
   font-size: 0.9rem;
+  margin: 0 1.5rem 1rem 0;
 }
 
-main {
-  max-width: 900px;
+.why-modal h3 {
+  font-size: 0.95rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  border: none;
+  background: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #000000;
+}
+
+.explanation {
+  margin: 0;
+}
+
+.fallback-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #444444;
+}
+
+.headlines-list {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.headlines-list li {
+  margin-bottom: 0.5rem;
+}
+
+.headlines-list a {
+  color: #000000;
+}
+
+/* ---- Archive page ---- */
+
+.archive-page {
+  max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
 
-.today, .day-detail {
+.archive-header {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
   align-items: center;
-  text-align: center;
-  margin-bottom: 3rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.today-image, .day-image {
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-  image-rendering: pixelated;
-  border: 2px solid var(--border);
+.brand-label-inline {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1.1rem;
+  color: #000000;
+  text-decoration: none;
+  border: 2px solid #000000;
+  padding: 0.4rem 0.6rem;
 }
 
-.explanation {
-  max-width: 60ch;
-  margin: 0 auto;
-}
-
-.fallback-note {
-  max-width: 60ch;
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-style: italic;
-}
-
-.gallery h2 {
-  border-top: 2px solid var(--border);
-  padding-top: 1.5rem;
+.archive-header h1 {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .gallery-grid {
@@ -87,7 +190,7 @@ main {
   align-items: center;
   gap: 0.35rem;
   text-decoration: none;
-  color: var(--fg);
+  color: #000000;
   font-size: 0.75rem;
 }
 
@@ -96,46 +199,11 @@ main {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   image-rendering: pixelated;
-  border: 1px solid var(--border);
+  image-rendering: -moz-crisp-edges;
+  border: 1px solid #000000;
 }
 
-details {
-  width: 100%;
-  max-width: 60ch;
-  text-align: left;
-  border: 1px solid var(--border);
-  padding: 0.75rem 1rem;
-}
-
-details summary {
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.day-nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 480px;
-}
-
-.day-nav a {
-  color: var(--fg);
-}
-
-.site-footer {
-  text-align: center;
-  padding: 1.5rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  border-top: 2px solid var(--border);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111111;
-    --fg: #f5f5f3;
-    --muted: #aaaaaa;
-    --border: #f5f5f3;
-  }
+@media (max-width: 480px) {
+  .brand-text { font-size: 1.1rem; }
+  .pixel-btn { font-size: 0.55rem; padding: 0.5rem 0.6rem; }
 }

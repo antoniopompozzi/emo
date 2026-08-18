@@ -59,21 +59,23 @@ def build(config: dict) -> Path:
         day_out_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy(archive_root / day["_dir_name"] / "final.png", day_out_dir / "final.png")
 
-    index_template = env.get_template("index.html")
     (output_root / "index.html").write_text(
-        index_template.render(site_title=site_title, root="", today=days[0] if days else None, days=days),
+        env.get_template("index.html").render(site_title=site_title, root="", today=days[0] if days else None),
+        encoding="utf-8",
+    )
+
+    archive_out_dir = output_root / "archive"
+    archive_out_dir.mkdir(parents=True, exist_ok=True)
+    (archive_out_dir / "index.html").write_text(
+        env.get_template("archive.html").render(site_title=site_title, root="../", days=days),
         encoding="utf-8",
     )
 
     day_template = env.get_template("day.html")
-    for i, day in enumerate(days):
-        prev_day = days[i + 1] if i + 1 < len(days) else None  # older
-        next_day = days[i - 1] if i > 0 else None  # newer
+    for day in days:
         day_out_dir = output_root / "days" / day["_dir_name"]
         (day_out_dir / "index.html").write_text(
-            day_template.render(
-                site_title=site_title, root="../../", day=day, prev_day=prev_day, next_day=next_day
-            ),
+            day_template.render(site_title=site_title, root="../../", day=day),
             encoding="utf-8",
         )
 
