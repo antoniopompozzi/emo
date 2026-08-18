@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: "0 6 * * *"  # 06:00 UTC every day
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths-ignore:
+      - "archive/**"  # the pipeline's own archive commits shouldn't trigger another run
 
 permissions:
   contents: write
@@ -29,12 +33,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # Only the schedule and manual runs should generate a new day's
+      # image; a plain push to main (e.g. a site/template change) just
+      # rebuilds and redeploys from whatever is already in archive/.
       - name: Run daily pipeline
+        if: github.event_name != 'push'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m pipeline.main
 
       - name: Commit new archive entry
+        if: github.event_name != 'push'
         run: |
           git config user.name "emo-bot"
           git config user.email "actions@github.com"

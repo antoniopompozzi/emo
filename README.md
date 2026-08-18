@@ -97,5 +97,11 @@ executes the pipeline, commits the new `archive/<date>/` folder, rebuilds the si
 it to GitHub Pages. The only secret it needs is `ANTHROPIC_API_KEY`
 (Settings → Secrets and variables → Actions). Pollinations.ai needs no key.
 
+The same workflow also runs on every push to `main` (ignoring pushes that only touch
+`archive/`, i.e. its own commits) — but on a push it skips straight to rebuilding and
+redeploying the site from whatever is already in `archive/`, without running the pipeline
+again. That's what makes template/CSS/JS changes go live immediately, instead of sitting
+unpublished until the next scheduled run.
+
 To enable publishing: in the repository's Settings → Pages, set the source to
 "GitHub Actions".
