@@ -5,14 +5,35 @@
       "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "status": "ok",
       "item_count": 12,
-      "timestamp": "2026-08-18T17:43:41.143423+00:00"
+      "timestamp": "2026-08-18T17:51:32.503406+00:00"
     }
   ],
   "claude": [
     {
+      "attempt": 1,
+      "status": "error",
+      "request": "Today's international headlines:\n- UK 'supports Ukraine 100%', Burnham says, after Russia's drone warning: Russia accuses the UK of escalating the Ukraine war by supplying British-made drones as the prime minister vows to support Kyiv in its \"hour of need\".\n- Inside secret police warehouse as Germany targets small boats gangs: German authorities seize dinghies and life jackets during their first raids under a new law that cracks down on smuggling.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- Hayden Panettiere's ex Wladimir Klitschko says family in 'profound shock and grief': The former heavyweight boxing champion shares a child with the Heroes actress, who died on Sunday.\n- Kariba ferry death toll rises to 93, making it Zimbabwe's deadliest transport disaster: Recovery efforts continue in what is the country's deadliest transport disaster.\n- Pakistan top court orders ex-PM Imran Khan be moved to hospital from jail: Imran Khan has been imprisoned since 2023 on corruption charges which he says were politically motivated.\n- Disney and ABC sue Trump's media regulator to stop early licence renewal: The network accuses the administration of retaliating against ABC because it \"disapproves of what ABC broadcasts\".\n- Nigeria influencer arrested after seizure of cocaine worth $28m destined for the UK: Afolabi Kazeem Micheal has not commented on allegations he is linked to a global drug trafficking network.\n- US announces new sanctions on top ICC figures: The Trump administration has vowed to dismantle the international court \"brick by brick\".\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- Indian student leader ends hunger strike after 16 days: Devendra Nath Mahto was part of a larger protest which began weeks ago, demanding exam reforms in Jharkhand state.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAe18bPo1ZTp2uzQCPYn'}",
+      "timestamp": "2026-08-18T17:51:32.928683+00:00"
+    },
+    {
+      "attempt": 2,
+      "status": "error",
+      "request": "Today's international headlines:\n- UK 'supports Ukraine 100%', Burnham says, after Russia's drone warning: Russia accuses the UK of escalating the Ukraine war by supplying British-made drones as the prime minister vows to support Kyiv in its \"hour of need\".\n- Inside secret police warehouse as Germany targets small boats gangs: German authorities seize dinghies and life jackets during their first raids under a new law that cracks down on smuggling.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- Hayden Panettiere's ex Wladimir Klitschko says family in 'profound shock and grief': The former heavyweight boxing champion shares a child with the Heroes actress, who died on Sunday.\n- Kariba ferry death toll rises to 93, making it Zimbabwe's deadliest transport disaster: Recovery efforts continue in what is the country's deadliest transport disaster.\n- Pakistan top court orders ex-PM Imran Khan be moved to hospital from jail: Imran Khan has been imprisoned since 2023 on corruption charges which he says were politically motivated.\n- Disney and ABC sue Trump's media regulator to stop early licence renewal: The network accuses the administration of retaliating against ABC because it \"disapproves of what ABC broadcasts\".\n- Nigeria influencer arrested after seizure of cocaine worth $28m destined for the UK: Afolabi Kazeem Micheal has not commented on allegations he is linked to a global drug trafficking network.\n- US announces new sanctions on top ICC figures: The Trump administration has vowed to dismantle the international court \"brick by brick\".\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- Indian student leader ends hunger strike after 16 days: Devendra Nath Mahto was part of a larger protest which began weeks ago, demanding exam reforms in Jharkhand state.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAe1X5zZYhwoqfNxgCLQ'}",
+      "timestamp": "2026-08-18T17:51:38.097211+00:00"
+    },
+    {
+      "attempt": 3,
+      "status": "error",
+      "request": "Today's international headlines:\n- UK 'supports Ukraine 100%', Burnham says, after Russia's drone warning: Russia accuses the UK of escalating the Ukraine war by supplying British-made drones as the prime minister vows to support Kyiv in its \"hour of need\".\n- Inside secret police warehouse as Germany targets small boats gangs: German authorities seize dinghies and life jackets during their first raids under a new law that cracks down on smuggling.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- Hayden Panettiere's ex Wladimir Klitschko says family in 'profound shock and grief': The former heavyweight boxing champion shares a child with the Heroes actress, who died on Sunday.\n- Kariba ferry death toll rises to 93, making it Zimbabwe's deadliest transport disaster: Recovery efforts continue in what is the country's deadliest transport disaster.\n- Pakistan top court orders ex-PM Imran Khan be moved to hospital from jail: Imran Khan has been imprisoned since 2023 on corruption charges which he says were politically motivated.\n- Disney and ABC sue Trump's media regulator to stop early licence renewal: The network accuses the administration of retaliating against ABC because it \"disapproves of what ABC broadcasts\".\n- Nigeria influencer arrested after seizure of cocaine worth $28m destined for the UK: Afolabi Kazeem Micheal has not commented on allegations he is linked to a global drug trafficking network.\n- US announces new sanctions on top ICC figures: The Trump administration has vowed to dismantle the international court \"brick by brick\".\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- Indian student leader ends hunger strike after 16 days: Devendra Nath Mahto was part of a larger protest which began weeks ago, demanding exam reforms in Jharkhand state.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAe2Gyhm9pL5ptJ3fuXR'}",
+      "timestamp": "2026-08-18T17:51:48.419581+00:00"
+    },
+    {
       "status": "fallback_used",
-      "error": "ANTHROPIC_API_KEY not set",
-      "timestamp": "2026-08-18T17:43:41.143906+00:00"
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAe2Gyhm9pL5ptJ3fuXR'}",
+      "timestamp": "2026-08-18T17:51:48.419596+00:00"
     }
   ],
   "pollinations": [
@@ -20,7 +41,7 @@
       "attempt": 1,
       "status": "ok",
       "prompt": "A single sheet of paper covered edge to edge with tightly packed horizontal lines of static, like an untuned television screen or an unreadable telegram, lit from one side so the texture casts long soft shadows, minimalist studio composition, high contrast, no legible text.",
-      "timestamp": "2026-08-18T17:43:41.552192+00:00"
+      "timestamp": "2026-08-18T17:51:48.797887+00:00"
     }
   ]
 }
