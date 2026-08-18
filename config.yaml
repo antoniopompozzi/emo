@@ -1,0 +1,36 @@
+# EMO pipeline configuration.
+# Everything that is safe to tune without touching code lives here.
+
+news:
+  primary_feed_url: "http://feeds.bbci.co.uk/news/world/rss.xml"
+  fallback_feed_url: "https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en"
+  max_items: 12
+  request_timeout_seconds: 15
+
+claude:
+  model: "claude-haiku-4-5-20251001"
+  max_tokens: 1024
+  request_timeout_seconds: 30
+  max_retries: 3
+  retry_backoff_seconds: 5
+
+pollinations:
+  base_url: "https://image.pollinations.ai/prompt"
+  model: "flux"
+  width: 1024
+  height: 1024
+  request_timeout_seconds: 90
+  max_retries: 4
+  retry_backoff_seconds: 10
+
+postprocess:
+  grid_size: 96      # cells per side of the pixelation grid
+  gray_levels: 10    # number of quantized gray tones
+  px_per_cell: 10    # output pixels per cell -> final image is grid_size * px_per_cell
+
+site:
+  title: "EMO"
+
+paths:
+  archive_dir: "archive"
+  site_output_dir: "_site"

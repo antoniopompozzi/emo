@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+{% if today %}
+<section class="today">
+  <a href="{{ root }}days/{{ today._dir_name }}/">
+    <img class="today-image" src="{{ root }}days/{{ today._dir_name }}/final.png"
+         alt="EMO's image for {{ today.date }}" width="480" height="480">
+  </a>
+  <div class="today-text">
+    <h1>{{ today.date }}</h1>
+    <p class="explanation">{{ today.explanation }}</p>
+    {% if today.concept_used_fallback or today.image_used_fallback %}
+    <p class="fallback-note">Note: today's generation used a fallback step. See this day's page for details.</p>
+    {% endif %}
+  </div>
+</section>
+{% else %}
+<p>No images have been published yet.</p>
+{% endif %}
+
+<section class="gallery">
+  <h2>Archive</h2>
+  <div class="gallery-grid">
+    {% for d in days %}
+    <a class="gallery-item" href="{{ root }}days/{{ d._dir_name }}/" title="{{ d.date }}">
+      <img src="{{ root }}days/{{ d._dir_name }}/final.png" alt="EMO's image for {{ d.date }}"
+           loading="lazy" width="150" height="150">
+      <span>{{ d.date }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
