@@ -1,0 +1,47 @@
+{
+  "news": [
+    {
+      "source": "bbc_world",
+      "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "status": "ok",
+      "item_count": 12,
+      "timestamp": "2026-08-18T16:05:40.439745+00:00"
+    }
+  ],
+  "claude": [
+    {
+      "attempt": 1,
+      "status": "error",
+      "request": "Today's international headlines:\n- UK 'supports Ukraine 100%', Burnham says, after Russia's drone warning: Russia accuses the UK of escalating the Ukraine war by supplying British-made drones as the prime minister vows to support Kyiv in its \"hour of need\".\n- Inside secret police warehouse as Germany targets small boats gangs: German authorities seize dinghies and life jackets during their first raids under a new law that cracks down on smuggling.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- Hayden Panettiere's ex Wladimir Klitschko says family in 'profound shock and grief': The former heavyweight boxing champion shares a child with the Heroes actress, who died on Sunday.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- Student killed in Philippines Catholic school shooting: The alleged shooter, also a student, later took his own life.\n- Indian student leader ends hunger strike after 16 days: Devendra Nath Mahto was part of a larger protest which began weeks ago, demanding exam reforms in Jharkhand state.\n- Zambia's Hichilema re-elected president as main rival in hiding over alleged threats: Hakainde Hichilema says he was “truly humbled” by the victory and promised to work for all Zambians.\n- Norway's king admitted to hospital and put on sick leave: The 89-year-old - one of Europe's longest-serving monarchs - is suffering from a rare blood condition.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAVvtBgVNu1gxUSF6SSc'}",
+      "timestamp": "2026-08-18T16:05:40.666365+00:00"
+    },
+    {
+      "attempt": 2,
+      "status": "error",
+      "request": "Today's international headlines:\n- UK 'supports Ukraine 100%', Burnham says, after Russia's drone warning: Russia accuses the UK of escalating the Ukraine war by supplying British-made drones as the prime minister vows to support Kyiv in its \"hour of need\".\n- Inside secret police warehouse as Germany targets small boats gangs: German authorities seize dinghies and life jackets during their first raids under a new law that cracks down on smuggling.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- Hayden Panettiere's ex Wladimir Klitschko says family in 'profound shock and grief': The former heavyweight boxing champion shares a child with the Heroes actress, who died on Sunday.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- Student killed in Philippines Catholic school shooting: The alleged shooter, also a student, later took his own life.\n- Indian student leader ends hunger strike after 16 days: Devendra Nath Mahto was part of a larger protest which began weeks ago, demanding exam reforms in Jharkhand state.\n- Zambia's Hichilema re-elected president as main rival in hiding over alleged threats: Hakainde Hichilema says he was “truly humbled” by the victory and promised to work for all Zambians.\n- Norway's king admitted to hospital and put on sick leave: The 89-year-old - one of Europe's longest-serving monarchs - is suffering from a rare blood condition.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAVwGJwmRuePVjtCx4xk'}",
+      "timestamp": "2026-08-18T16:05:45.787654+00:00"
+    },
+    {
+      "attempt": 3,
+      "status": "error",
+      "request": "Today's international headlines:\n- UK 'supports Ukraine 100%', Burnham says, after Russia's drone warning: Russia accuses the UK of escalating the Ukraine war by supplying British-made drones as the prime minister vows to support Kyiv in its \"hour of need\".\n- Inside secret police warehouse as Germany targets small boats gangs: German authorities seize dinghies and life jackets during their first raids under a new law that cracks down on smuggling.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- Hayden Panettiere's ex Wladimir Klitschko says family in 'profound shock and grief': The former heavyweight boxing champion shares a child with the Heroes actress, who died on Sunday.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- IVF staff accused of misleading UK parents about sperm and egg donors in northern Cyprus: Multiple children are feared to have been conceived using sperm and egg donors which were not the ones selected by the parents.\n- China censors public mourning as it holds former premier's funeral: While hailing Zhu’s legacy, authorities are wary that the nostalgia could lead to criticisms of Xi’s rule.\n- Student killed in Philippines Catholic school shooting: The alleged shooter, also a student, later took his own life.\n- Indian student leader ends hunger strike after 16 days: Devendra Nath Mahto was part of a larger protest which began weeks ago, demanding exam reforms in Jharkhand state.\n- Zambia's Hichilema re-elected president as main rival in hiding over alleged threats: Hakainde Hichilema says he was “truly humbled” by the victory and promised to work for all Zambians.\n- Norway's king admitted to hospital and put on sick leave: The 89-year-old - one of Europe's longest-serving monarchs - is suffering from a rare blood condition.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAVx1aD4GigSag6d4T9r'}",
+      "timestamp": "2026-08-18T16:05:55.915271+00:00"
+    },
+    {
+      "status": "fallback_used",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeAVx1aD4GigSag6d4T9r'}",
+      "timestamp": "2026-08-18T16:05:55.915286+00:00"
+    }
+  ],
+  "pollinations": [
+    {
+      "attempt": 1,
+      "status": "ok",
+      "prompt": "A single sheet of paper covered edge to edge with tightly packed horizontal lines of static, like an untuned television screen or an unreadable telegram, lit from one side so the texture casts long soft shadows, minimalist studio composition, high contrast, no legible text.",
+      "timestamp": "2026-08-18T16:05:56.253687+00:00"
+    }
+  ]
+}
