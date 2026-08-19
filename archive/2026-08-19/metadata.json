@@ -1,14 +1,24 @@
 {
   "date": "2026-08-19",
-  "concept": "A single sheet of paper covered edge to edge with tightly packed horizontal lines of static, like an untuned television screen or an unreadable telegram, lit from one side so the texture casts long soft shadows, minimalist studio composition, high contrast, no legible text.",
-  "explanation": "Today EMO could not read the news or reason about it -- the usual signal never arrived. In its place: static, a picture of noise standing in for information that never reached it. This is not a comment on the day's events, only an honest record that, on this occasion, part of the process broke down before the news could be seen.",
-  "concept_used_fallback": true,
+  "concept": "A stark composition divided by a harsh horizontal line: above, a small silhouette of a child's hand reaching upward into a blank void; below, fragmented geometric shapes in dark gray suggesting rubble, concrete blocks, and twisted metal scattered across a ground plane. The overall mood is one of absence and loss, rendered in bold contrasts with minimal detail—simplified forms that read clearly even when heavily pixelated. The style is minimalist and memorial, almost sculptural.",
+  "explanation": "Today's headlines are dominated by violence, separation, and death across multiple continents—a five-year-old killed in Gaza, mass casualties in Brazil and Kenya, remains surfacing in drained reservoirs, deportations tearing families apart. Rather than depicting any single incident, this image channels the underlying current of loss and disconnection running through nearly every story. The upward-reaching hand represents all those separated from safety or life itself; the fragmented forms below represent the material and human wreckage left behind. It's a quiet, somber acknowledgment of collective tragedy.",
+  "concept_used_fallback": false,
   "image_used_fallback": false,
   "headlines": [
+    {
+      "title": "Israel confirms it opened fire on vehicle carrying five-year-old Hind Rajab in Gaza",
+      "summary": "She initially survived the attack but her body was recovered days later in Gaza City in 2024.",
+      "link": "https://www.bbc.co.uk/news/articles/crl7yjlpx2po?at_medium=RSS&at_campaign=rss"
+    },
     {
       "title": "Sacked Ukrainian defence minister calls for presidential election",
       "summary": "Martial law has been in place in Ukraine since February 2022, under which elections are suspended.",
       "link": "https://www.bbc.co.uk/news/articles/cdew8n9erlwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Mushroom murderer trial undermined by 'catastrophic' hotel mix-up, appeal court told",
+      "summary": "Erin Patterson's defence team appeal against her conviction for killing relatives with a beef Wellington laced with toxic mushrooms.",
+      "link": "https://www.bbc.co.uk/news/articles/czjlxenlgkko?at_medium=RSS&at_campaign=rss"
     },
     {
       "title": "Trump pauses new tariffs on Canada for three days, saying deal close",
@@ -16,24 +26,34 @@
       "link": "https://www.bbc.co.uk/news/articles/cy9wz79ze29o?at_medium=RSS&at_campaign=rss"
     },
     {
-      "title": "Meta hooked children on Facebook and Instagram, US court hears",
-      "summary": "Meta argued social media addiction does not exist, as a trial stemming from a major lawsuit brought by US states started.",
-      "link": "https://www.bbc.co.uk/news/articles/cly5r7vr7q1o?at_medium=RSS&at_campaign=rss"
-    },
-    {
       "title": "South Korea shortens war games with US, citing Washington request",
       "summary": "It comes after Trump announced plans to curtail joint military exercises with South Korea, citing a \"very good\" relationship with North Korea's Kim Jong Un.",
       "link": "https://www.bbc.co.uk/news/articles/cnvn0j31qj8o?at_medium=RSS&at_campaign=rss"
     },
     {
-      "title": "French civil servant drugged us to make us urinate on ourselves, say accusers",
-      "summary": "More than 200 women accuse Christian Nègre of drugging them to make them urinate - two share their stories.",
-      "link": "https://www.bbc.co.uk/news/articles/crrv48lenwgo?at_medium=RSS&at_campaign=rss"
+      "title": "Ukrainian man arrested in Croatia over Nord Stream pipeline blasts",
+      "summary": "The man is alleged to have been one of the scuba divers who planted explosives on the pipelines in 2022.",
+      "link": "https://www.bbc.co.uk/news/articles/c78gp7l5348o?at_medium=RSS&at_campaign=rss"
     },
     {
-      "title": "Thai teen found in suitcase died from suffocation, police reveal",
-      "summary": "New evidence sheds more light on the death of Tunchanok Donholma, who was allegedly murdered in June.",
-      "link": "https://www.bbc.co.uk/news/articles/c141605846jo?at_medium=RSS&at_campaign=rss"
+      "title": "Six tourists and pilot killed in Kenya helicopter crash",
+      "summary": "The Aircraft Accident Investigation Department tells the BBC the nationalities are yet to be confirmed.",
+      "link": "https://www.bbc.co.uk/news/articles/clylkv4z59vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Apparent human remains found in US reservoir as water levels hit record low",
+      "summary": "The skeletal remains in Lake Mead include what appears to be a human jaw with teeth attached, a witness says.",
+      "link": "https://www.bbc.co.uk/news/articles/cp87gvmedlmo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Head-on collision between bus and lorry in Brazil kills more than 20",
+      "summary": "It is not yet clear what caused the two vehicles to crash into each other in the early hours of Wednesday morning.",
+      "link": "https://www.bbc.co.uk/news/articles/cpvwgk1n2k8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Liberia agrees to accept 1,200 foreign deportees from the US",
+      "summary": "Liberia says the deal is a \"humanitarian arrangement\" and is receiving no compensation.",
+      "link": "https://www.bbc.co.uk/news/articles/cpq8g22715vo?at_medium=RSS&at_campaign=rss"
     },
     {
       "title": "US condemns 'unnecessary escalation' after Israeli airstrikes on Syrian airbase",
@@ -41,29 +61,9 @@
       "link": "https://www.bbc.co.uk/news/articles/c62vy3wl31lo?at_medium=RSS&at_campaign=rss"
     },
     {
-      "title": "Husband and mother-in-law charged over Indian bride's death",
-      "summary": "Twisha Sharma, a model and actor, had been married for just five months when she was found dead in May.",
-      "link": "https://www.bbc.co.uk/news/articles/cjej8nze1wko?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "title": "Brazil's President Lula hails oil discovery near Amazon river",
-      "summary": "Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.",
-      "link": "https://www.bbc.co.uk/news/articles/c4gd7xd8e8lo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "title": "Iranian academic writes of US detention 'hell' over link to 1979 hostage crisis",
-      "summary": "The immigration status of Maryam Tahmasebi was revoked because her husband is the son of a prominent figure in Iran.",
-      "link": "https://www.bbc.co.uk/news/articles/cgjeped6ewxo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "title": "'I don't want to send you to prison', witness tells Tupac accused in combative testimony",
-      "summary": "A member of Tupac Shakur's entourage said he was threatened with contempt of court if he did not testify in the murder trial of Duane \"Keffe D\" Davis.",
-      "link": "https://www.bbc.co.uk/news/articles/ckg3j15v2npo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "title": "Five Australian rules footy players suspended amid police investigation",
-      "summary": "The suspensions, for drinking and inviting women to a hotel, come as police investigate an alleged sexual assault.",
-      "link": "https://www.bbc.co.uk/news/articles/cg4d7q2ne7go?at_medium=RSS&at_campaign=rss"
+      "title": "Christian metal band Demon Hunter sue Netflix over KPop Demon Hunters",
+      "summary": "The band say they face \"an existential crisis\" after the success of the K-pop-inspired Netflix film.",
+      "link": "https://www.bbc.co.uk/news/articles/c2dk64d10rko?at_medium=RSS&at_campaign=rss"
     }
   ],
   "render_params": {
