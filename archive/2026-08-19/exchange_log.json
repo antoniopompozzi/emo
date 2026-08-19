@@ -1,0 +1,47 @@
+{
+  "news": [
+    {
+      "source": "bbc_world",
+      "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "status": "ok",
+      "item_count": 12,
+      "timestamp": "2026-08-19T07:58:05.797783+00:00"
+    }
+  ],
+  "claude": [
+    {
+      "attempt": 1,
+      "status": "error",
+      "request": "Today's international headlines:\n- Sacked Ukrainian defence minister calls for presidential election: Martial law has been in place in Ukraine since February 2022, under which elections are suspended.\n- Trump pauses new tariffs on Canada for three days, saying deal close: The US president says the two sides are finalising documents to avert import taxes targeting a range of Canadian goods.\n- Meta hooked children on Facebook and Instagram, US court hears: Meta argued social media addiction does not exist, as a trial stemming from a major lawsuit brought by US states started.\n- South Korea shortens war games with US, citing Washington request: It comes after Trump announced plans to curtail joint military exercises with South Korea, citing a \"very good\" relationship with North Korea's Kim Jong Un.\n- French civil servant drugged us to make us urinate on ourselves, say accusers: More than 200 women accuse Christian Nègre of drugging them to make them urinate - two share their stories.\n- Thai teen found in suitcase died from suffocation, police reveal: New evidence sheds more light on the death of Tunchanok Donholma, who was allegedly murdered in June.\n- US condemns 'unnecessary escalation' after Israeli airstrikes on Syrian airbase: Damascus called the attacks \"an unjustified act of aggression\" that imperilled regional security.\n- Husband and mother-in-law charged over Indian bride's death: Twisha Sharma, a model and actor, had been married for just five months when she was found dead in May.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- Iranian academic writes of US detention 'hell' over link to 1979 hostage crisis: The immigration status of Maryam Tahmasebi was revoked because her husband is the son of a prominent figure in Iran.\n- 'I don't want to send you to prison', witness tells Tupac accused in combative testimony: A member of Tupac Shakur's entourage said he was threatened with contempt of court if he did not testify in the murder trial of Duane \"Keffe D\" Davis.\n- Five Australian rules footy players suspended amid police investigation: The suspensions, for drinking and inviting women to a hotel, come as police investigate an alleged sexual assault.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeBkZKLu3aGZY6ESRbVgG'}",
+      "timestamp": "2026-08-19T07:58:06.255484+00:00"
+    },
+    {
+      "attempt": 2,
+      "status": "error",
+      "request": "Today's international headlines:\n- Sacked Ukrainian defence minister calls for presidential election: Martial law has been in place in Ukraine since February 2022, under which elections are suspended.\n- Trump pauses new tariffs on Canada for three days, saying deal close: The US president says the two sides are finalising documents to avert import taxes targeting a range of Canadian goods.\n- Meta hooked children on Facebook and Instagram, US court hears: Meta argued social media addiction does not exist, as a trial stemming from a major lawsuit brought by US states started.\n- South Korea shortens war games with US, citing Washington request: It comes after Trump announced plans to curtail joint military exercises with South Korea, citing a \"very good\" relationship with North Korea's Kim Jong Un.\n- French civil servant drugged us to make us urinate on ourselves, say accusers: More than 200 women accuse Christian Nègre of drugging them to make them urinate - two share their stories.\n- Thai teen found in suitcase died from suffocation, police reveal: New evidence sheds more light on the death of Tunchanok Donholma, who was allegedly murdered in June.\n- US condemns 'unnecessary escalation' after Israeli airstrikes on Syrian airbase: Damascus called the attacks \"an unjustified act of aggression\" that imperilled regional security.\n- Husband and mother-in-law charged over Indian bride's death: Twisha Sharma, a model and actor, had been married for just five months when she was found dead in May.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- Iranian academic writes of US detention 'hell' over link to 1979 hostage crisis: The immigration status of Maryam Tahmasebi was revoked because her husband is the son of a prominent figure in Iran.\n- 'I don't want to send you to prison', witness tells Tupac accused in combative testimony: A member of Tupac Shakur's entourage said he was threatened with contempt of court if he did not testify in the murder trial of Duane \"Keffe D\" Davis.\n- Five Australian rules footy players suspended amid police investigation: The suspensions, for drinking and inviting women to a hotel, come as police investigate an alleged sexual assault.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeBkZiRxpEe8V6dt3fVRB'}",
+      "timestamp": "2026-08-19T07:58:11.443769+00:00"
+    },
+    {
+      "attempt": 3,
+      "status": "error",
+      "request": "Today's international headlines:\n- Sacked Ukrainian defence minister calls for presidential election: Martial law has been in place in Ukraine since February 2022, under which elections are suspended.\n- Trump pauses new tariffs on Canada for three days, saying deal close: The US president says the two sides are finalising documents to avert import taxes targeting a range of Canadian goods.\n- Meta hooked children on Facebook and Instagram, US court hears: Meta argued social media addiction does not exist, as a trial stemming from a major lawsuit brought by US states started.\n- South Korea shortens war games with US, citing Washington request: It comes after Trump announced plans to curtail joint military exercises with South Korea, citing a \"very good\" relationship with North Korea's Kim Jong Un.\n- French civil servant drugged us to make us urinate on ourselves, say accusers: More than 200 women accuse Christian Nègre of drugging them to make them urinate - two share their stories.\n- Thai teen found in suitcase died from suffocation, police reveal: New evidence sheds more light on the death of Tunchanok Donholma, who was allegedly murdered in June.\n- US condemns 'unnecessary escalation' after Israeli airstrikes on Syrian airbase: Damascus called the attacks \"an unjustified act of aggression\" that imperilled regional security.\n- Husband and mother-in-law charged over Indian bride's death: Twisha Sharma, a model and actor, had been married for just five months when she was found dead in May.\n- Brazil's President Lula hails oil discovery near Amazon river: Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.\n- Iranian academic writes of US detention 'hell' over link to 1979 hostage crisis: The immigration status of Maryam Tahmasebi was revoked because her husband is the son of a prominent figure in Iran.\n- 'I don't want to send you to prison', witness tells Tupac accused in combative testimony: A member of Tupac Shakur's entourage said he was threatened with contempt of court if he did not testify in the murder trial of Duane \"Keffe D\" Davis.\n- Five Australian rules footy players suspended amid police investigation: The suspensions, for drinking and inviting women to a hotel, come as police investigate an alleged sexual assault.",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeBkaTtsjG45rcYXFUMGH'}",
+      "timestamp": "2026-08-19T07:58:21.616622+00:00"
+    },
+    {
+      "status": "fallback_used",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeBkaTtsjG45rcYXFUMGH'}",
+      "timestamp": "2026-08-19T07:58:21.616639+00:00"
+    }
+  ],
+  "pollinations": [
+    {
+      "attempt": 1,
+      "status": "ok",
+      "prompt": "A single sheet of paper covered edge to edge with tightly packed horizontal lines of static, like an untuned television screen or an unreadable telegram, lit from one side so the texture casts long soft shadows, minimalist studio composition, high contrast, no legible text.",
+      "timestamp": "2026-08-19T07:58:21.962641+00:00"
+    }
+  ]
+}

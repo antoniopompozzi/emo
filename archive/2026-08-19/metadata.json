@@ -1,0 +1,80 @@
+{
+  "date": "2026-08-19",
+  "concept": "A single sheet of paper covered edge to edge with tightly packed horizontal lines of static, like an untuned television screen or an unreadable telegram, lit from one side so the texture casts long soft shadows, minimalist studio composition, high contrast, no legible text.",
+  "explanation": "Today EMO could not read the news or reason about it -- the usual signal never arrived. In its place: static, a picture of noise standing in for information that never reached it. This is not a comment on the day's events, only an honest record that, on this occasion, part of the process broke down before the news could be seen.",
+  "concept_used_fallback": true,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Sacked Ukrainian defence minister calls for presidential election",
+      "summary": "Martial law has been in place in Ukraine since February 2022, under which elections are suspended.",
+      "link": "https://www.bbc.co.uk/news/articles/cdew8n9erlwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump pauses new tariffs on Canada for three days, saying deal close",
+      "summary": "The US president says the two sides are finalising documents to avert import taxes targeting a range of Canadian goods.",
+      "link": "https://www.bbc.co.uk/news/articles/cy9wz79ze29o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Meta hooked children on Facebook and Instagram, US court hears",
+      "summary": "Meta argued social media addiction does not exist, as a trial stemming from a major lawsuit brought by US states started.",
+      "link": "https://www.bbc.co.uk/news/articles/cly5r7vr7q1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "South Korea shortens war games with US, citing Washington request",
+      "summary": "It comes after Trump announced plans to curtail joint military exercises with South Korea, citing a \"very good\" relationship with North Korea's Kim Jong Un.",
+      "link": "https://www.bbc.co.uk/news/articles/cnvn0j31qj8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "French civil servant drugged us to make us urinate on ourselves, say accusers",
+      "summary": "More than 200 women accuse Christian Nègre of drugging them to make them urinate - two share their stories.",
+      "link": "https://www.bbc.co.uk/news/articles/crrv48lenwgo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Thai teen found in suitcase died from suffocation, police reveal",
+      "summary": "New evidence sheds more light on the death of Tunchanok Donholma, who was allegedly murdered in June.",
+      "link": "https://www.bbc.co.uk/news/articles/c141605846jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US condemns 'unnecessary escalation' after Israeli airstrikes on Syrian airbase",
+      "summary": "Damascus called the attacks \"an unjustified act of aggression\" that imperilled regional security.",
+      "link": "https://www.bbc.co.uk/news/articles/c62vy3wl31lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Husband and mother-in-law charged over Indian bride's death",
+      "summary": "Twisha Sharma, a model and actor, had been married for just five months when she was found dead in May.",
+      "link": "https://www.bbc.co.uk/news/articles/cjej8nze1wko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Brazil's President Lula hails oil discovery near Amazon river",
+      "summary": "Environmentalists have heavily criticised the exploratory drilling in the sea off the mouth of the Amazon.",
+      "link": "https://www.bbc.co.uk/news/articles/c4gd7xd8e8lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Iranian academic writes of US detention 'hell' over link to 1979 hostage crisis",
+      "summary": "The immigration status of Maryam Tahmasebi was revoked because her husband is the son of a prominent figure in Iran.",
+      "link": "https://www.bbc.co.uk/news/articles/cgjeped6ewxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'I don't want to send you to prison', witness tells Tupac accused in combative testimony",
+      "summary": "A member of Tupac Shakur's entourage said he was threatened with contempt of court if he did not testify in the murder trial of Duane \"Keffe D\" Davis.",
+      "link": "https://www.bbc.co.uk/news/articles/ckg3j15v2npo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Five Australian rules footy players suspended amid police investigation",
+      "summary": "The suspensions, for drinking and inviting women to a hotel, come as police investigate an alleged sexual assault.",
+      "link": "https://www.bbc.co.uk/news/articles/cg4d7q2ne7go?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "pollinations_params": {
+    "model": "flux",
+    "width": 1024,
+    "height": 1024
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
