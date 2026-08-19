@@ -8,22 +8,34 @@
 //    <dialog> element so focus handling, ESC-to-close and the backdrop
 //    come for free from the browser.
 
-// The grid is always square (see pipeline/postprocess.py). Cells are
-// capped at this size so the grid stays a dense mosaic on large
-// screens; on small screens they shrink further so the whole grid
-// still fits without being cropped.
-const MAX_CELL_SIZE = 14;
-const GRID_LINE_COLOR = "rgb(200, 200, 200)";
+// The grid is always square (see pipeline/postprocess.py). Art cells
+// (one per value in grid_values.json) are capped at this size so the
+// image stays a dense mosaic on large screens; on small screens they
+// shrink further so the whole grid still fits without being cropped.
+const MAX_ART_CELL_SIZE = 14;
 
-function cellSizeFor(gridSize, viewportWidth, viewportHeight) {
+// Each art cell is itself subdivided into FINE_CELLS_PER_ART_CELL x
+// FINE_CELLS_PER_ART_CELL background grid squares, all filled with the
+// art cell's own colour -- this is what gives the fine graph-paper
+// texture from the EMO mockup instead of a coarse blocky grid, while
+// the actual image detail (one colour per art cell) is unchanged.
+const FINE_CELLS_PER_ART_CELL = 4;
+// Below this, subdividing further would make the fine lines themselves
+// the dominant visual (near-solid grey) rather than a texture -- so on
+// very small screens we fall back to drawing lines only at art-cell
+// boundaries instead of subdividing.
+const MIN_FINE_CELL_SIZE = 3;
+const GRID_LINE_COLOR = "#cccccc";
+
+function artCellSizeFor(gridSize, viewportWidth, viewportHeight) {
   const maxFit = Math.floor(Math.min(viewportWidth, viewportHeight) / gridSize);
-  return Math.max(1, Math.min(MAX_CELL_SIZE, maxFit));
+  return Math.max(1, Math.min(MAX_ART_CELL_SIZE, maxFit));
 }
 
 function drawGrid(canvas, values) {
   const gridSize = values.length;
-  const cellSize = cellSizeFor(gridSize, window.innerWidth, window.innerHeight);
-  const pixelSize = cellSize * gridSize;
+  const artCellSize = artCellSizeFor(gridSize, window.innerWidth, window.innerHeight);
+  const pixelSize = artCellSize * gridSize;
   const dpr = window.devicePixelRatio || 1;
 
   canvas.width = pixelSize * dpr;
@@ -39,16 +51,22 @@ function drawGrid(canvas, values) {
     for (let col = 0; col < gridSize; col++) {
       const gray = values[row][col];
       ctx.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
-      ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+      ctx.fillRect(col * artCellSize, row * artCellSize, artCellSize, artCellSize);
     }
   }
 
-  // Thin lines between cells so the mosaic reads as a grid of distinct
-  // squares (like graph paper), not a blurry downscaled photo.
+  // Fine grid lines, subdividing each art cell into a dense mosaic of
+  // background squares -- like graph paper -- rather than one line per
+  // (large) art cell.
+  const fineCellSize = artCellSize / FINE_CELLS_PER_ART_CELL;
+  const subdivide = fineCellSize >= MIN_FINE_CELL_SIZE;
+  const lineSpacing = subdivide ? fineCellSize : artCellSize;
+  const lineCount = subdivide ? gridSize * FINE_CELLS_PER_ART_CELL : gridSize;
+
   ctx.strokeStyle = GRID_LINE_COLOR;
   ctx.lineWidth = 1;
-  for (let i = 0; i <= gridSize; i++) {
-    const pos = i * cellSize + 0.5; // +0.5 keeps 1px lines crisp, not antialiased
+  for (let i = 0; i <= lineCount; i++) {
+    const pos = Math.round(i * lineSpacing) + 0.5; // +0.5 keeps 1px lines crisp, not antialiased
     ctx.beginPath();
     ctx.moveTo(pos, 0);
     ctx.lineTo(pos, pixelSize);
