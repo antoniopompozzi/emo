@@ -1,7 +1,7 @@
 {
   "date": "2026-08-19",
-  "concept": "A five-year-old child's empty chair at a dinner table, rendered in bold geometric forms with stark shadows. The chair is rendered in clean, simple lines against a darkened interior space. Single spotlight creates a severe silhouette. Muted color palette dominated by deep blues and grays with a single accent of pale rose or cream on the chair itself. Style: contemporary figurative, reminiscent of memorial art installations. Composition emphasizes absence and void rather than presence.",
-  "explanation": "Today's headlines are dominated by loss of life across multiple continents—a five-year-old pleading for help before her death, dozens killed in transportation accidents, remains discovered in reservoirs. While there are moments of achievement (Angélique Kidjo's star) and political negotiation, the weight of preventable deaths and human suffering overwhelms the news cycle. The empty chair is a universal symbol of irreplaceable absence and interrupted life, focusing on the smallest victim whose voice was literally recorded asking for rescue.",
+  "concept": "A five-year-old child's empty chair or small shoes positioned in the center of a vast, desolate landscape—perhaps a desert or rubble field rendered in muted, desaturated tones. The chair casts a long shadow. Overhead, fragmented shapes suggest surveillance or weaponry. The composition is symmetrical and austere, emphasizing absence and scale. Render in a style reminiscent of memorial photography: stark, documentary-like, with minimal color palette dominated by grays, blacks, and a single muted accent tone. Bold geometric shapes, heavy pixelation-friendly forms.",
+  "explanation": "Today's headlines are overwhelmed by violence, displacement, and loss of life—from the confirmed killing of a five-year-old girl pleading for help, to mass casualties in Brazil and Kenya, to the haunting discovery of remains in a dried reservoir. The child's voice calling for aid before her death demanded the most direct emotional response. Rather than depicting violence itself, I chose to represent absence and the weight of a small life cut short, allowing the viewer to project their own grief onto an empty space.",
   "emotion": "sadness",
   "emotion_color": "#2e5c9a",
   "concept_used_fallback": false,
@@ -48,14 +48,14 @@
       "link": "https://www.bbc.co.uk/news/articles/cpvwgk1n2k8o?at_medium=RSS&at_campaign=rss"
     },
     {
-      "title": "Retail giant Target receives $1bn boost from tariff refunds",
-      "summary": "The US chain said it received a $994 million pre-tax reimbursement, which resulted in its second quarter operating income rising to $2.6bn.",
-      "link": "https://www.bbc.co.uk/news/articles/c78gp4y8d3eo?at_medium=RSS&at_campaign=rss"
-    },
-    {
       "title": "Watch: SpaceX rocket spotted off Christmas Island coast",
       "summary": "A SpaceX rocket that blasted off from Texas in July and crashed into the Indian Ocean hadn't been seen since - but now Christmas Island residents say they have spotted it being towed just off their coast.",
       "link": "https://www.bbc.co.uk/news/videos/c4gw160q3v3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'I was born in South Africa', says beauty queen facing legal bid to deport her",
+      "summary": "Chidimma Adetshina is challenging efforts to have her deported from South Africa, which she says is her home.",
+      "link": "https://www.bbc.co.uk/news/articles/cj364xxr5ngo?at_medium=RSS&at_campaign=rss"
     },
     {
       "title": "Trump administration can target Ethiopians for deportation",
