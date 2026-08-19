@@ -132,6 +132,24 @@ body {
   margin: 1.5rem 0 0.5rem;
 }
 
+.emotion-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  color: #444444;
+}
+
+.emotion-swatch {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid #000000;
+  flex-shrink: 0;
+}
+
 .modal-close {
   position: absolute;
   top: 0.5rem;

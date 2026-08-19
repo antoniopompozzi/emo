@@ -22,6 +22,12 @@
 <dialog id="why-modal" class="why-modal">
   <button type="button" class="modal-close" id="why-close" aria-label="Close">&times;</button>
   <h2>{{ day.date }}</h2>
+  {% if day.emotion and day.emotion_color %}
+  <p class="emotion-tag">
+    <span class="emotion-swatch" style="background:{{ day.emotion_color }}"></span>
+    Dominant emotion: {{ day.emotion }}
+  </p>
+  {% endif %}
   <p class="explanation">{{ day.explanation }}</p>
   {% if day.concept_used_fallback or day.image_used_fallback %}
   <p class="fallback-note">

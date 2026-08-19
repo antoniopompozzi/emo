@@ -2,10 +2,11 @@
 
 Run as: python -m pipeline.main
 
-Reads today's headlines, asks Claude what to depict, generates a
-source image, pixelates it into EMO's fixed visual style, and writes
-everything to archive/<date>/. Each step degrades gracefully (see
-concept.py and image_provider.py) so a run always produces a
+Reads today's headlines, asks Claude what to depict (plus a dominant
+emotion for the day), generates a source image, pixelates it into
+EMO's fixed visual style -- a black-to-emotion-color duotone -- and
+writes everything to archive/<date>/. Each step degrades gracefully
+(see concept.py and image_provider.py) so a run always produces a
 publishable result, even if news, Claude, or the image provider are
 unavailable.
 """
@@ -20,6 +21,7 @@ import yaml
 from dotenv import load_dotenv
 
 from pipeline import archive, concept, image_provider, news, postprocess
+from pipeline.emotions import DEFAULT_EMOTION, EMOTION_PALETTE
 from pipeline.logging_utils import ExchangeLogger
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -65,16 +67,21 @@ def run() -> Path:
             "used_fallback": True,
         }
 
+    emotion = concept_result.get("emotion", DEFAULT_EMOTION)
+    emotion_color = EMOTION_PALETTE.get(emotion, EMOTION_PALETTE[DEFAULT_EMOTION])
+
     pp_cfg = config["postprocess"]
     grid = postprocess.quantize_grid(
         image_result["image"], grid_size=pp_cfg["grid_size"], gray_levels=pp_cfg["gray_levels"]
     )
-    final_image = postprocess.render_grid(grid, px_per_cell=pp_cfg["px_per_cell"])
+    final_image = postprocess.render_grid(grid, px_per_cell=pp_cfg["px_per_cell"], hue_hex=emotion_color)
 
     metadata = {
         "date": date_str,
         "concept": concept_result["concept"],
         "explanation": concept_result["explanation"],
+        "emotion": emotion,
+        "emotion_color": emotion_color,
         "concept_used_fallback": concept_result["used_fallback"],
         "image_used_fallback": image_result["used_fallback"],
         "headlines": headlines,
@@ -90,7 +97,15 @@ def run() -> Path:
 
     archive_root = REPO_ROOT / config["paths"]["archive_dir"]
     day_dir = archive.write_day(
-        date_str, archive_root, final_image, image_result["image"], grid, metadata, logger.to_dict()
+        date_str,
+        archive_root,
+        final_image,
+        image_result["image"],
+        grid,
+        emotion,
+        emotion_color,
+        metadata,
+        logger.to_dict(),
     )
     print(f"Wrote {day_dir}")
     return day_dir

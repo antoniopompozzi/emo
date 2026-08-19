@@ -1,9 +1,11 @@
 // Two independent pieces of page behaviour:
 //
-// 1. The homepage's pixel grid: drawn on a <canvas> from grid_values.json
+// 1. The hero's pixel grid: drawn on a <canvas> from grid_values.json
 //    rather than shown as a plain <img>, so it can be sized to fit any
 //    screen (phone or desktop, portrait or landscape) without cropping
-//    or blowing up the square source image.
+//    or blowing up the square source image. Colored as a black-to-hue
+//    duotone using that day's emotion color, or white (plain grayscale)
+//    for older archive entries that predate the duotone migration.
 // 2. The "Why this image?" modal, on every hero page. Uses the native
 //    <dialog> element so focus handling, ESC-to-close and the backdrop
 //    come for free from the browser.
@@ -32,11 +34,24 @@ function artCellSizeFor(gridSize, viewportWidth, viewportHeight) {
   return Math.max(1, Math.min(MAX_ART_CELL_SIZE, maxFit));
 }
 
-function drawGrid(canvas, values) {
+function hexToRgb(hex) {
+  const clean = hex.replace("#", "");
+  return [
+    parseInt(clean.slice(0, 2), 16),
+    parseInt(clean.slice(2, 4), 16),
+    parseInt(clean.slice(4, 6), 16),
+  ];
+}
+
+// Renders the grid as a duotone: each cell's stored brightness (0-255,
+// see pipeline/postprocess.py) interpolates between black and hueHex,
+// matching the same math used server-side for final.png.
+function drawGrid(canvas, values, hueHex) {
   const gridSize = values.length;
   const artCellSize = artCellSizeFor(gridSize, window.innerWidth, window.innerHeight);
   const pixelSize = artCellSize * gridSize;
   const dpr = window.devicePixelRatio || 1;
+  const [hueR, hueG, hueB] = hexToRgb(hueHex);
 
   canvas.width = pixelSize * dpr;
   canvas.height = pixelSize * dpr;
@@ -49,8 +64,11 @@ function drawGrid(canvas, values) {
 
   for (let row = 0; row < gridSize; row++) {
     for (let col = 0; col < gridSize; col++) {
-      const gray = values[row][col];
-      ctx.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
+      const fraction = values[row][col] / 255;
+      const r = Math.round(fraction * hueR);
+      const g = Math.round(fraction * hueG);
+      const b = Math.round(fraction * hueB);
+      ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
       ctx.fillRect(col * artCellSize, row * artCellSize, artCellSize, artCellSize);
     }
   }
@@ -97,9 +115,13 @@ async function initHeroCanvas() {
   try {
     const response = await fetch(canvas.dataset.gridUrl);
     if (!response.ok) throw new Error(`grid fetch failed: ${response.status}`);
-    const { values } = await response.json();
+    const { values, color } = await response.json();
+    // Archive entries written before the duotone migration have no
+    // `color` field -- default to white so they keep rendering exactly
+    // as they always have (plain black-to-white grayscale), unchanged.
+    const hueHex = color || "#ffffff";
 
-    const redraw = () => drawGrid(canvas, values);
+    const redraw = () => drawGrid(canvas, values, hueHex);
     redraw();
 
     let resizeTimer;
