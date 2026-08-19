@@ -14,11 +14,10 @@ claude:
   max_retries: 3
   retry_backoff_seconds: 5
 
-pollinations:
-  base_url: "https://image.pollinations.ai/prompt"
-  model: "flux"
-  width: 1024
-  height: 1024
+openai_image:
+  model: "gpt-image-1.5"
+  quality: "medium"
+  size: "1024x1024"
   request_timeout_seconds: 90
   max_retries: 4
   retry_backoff_seconds: 10

@@ -1,41 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-{% if today %}
-<div class="hero">
-  <canvas id="hero-canvas" class="hero-canvas"
-          data-grid-url="{{ root }}days/{{ today._dir_name }}/grid_values.json"
-          data-image-url="{{ root }}days/{{ today._dir_name }}/final.png"
-          role="img" aria-label="EMO's image for {{ today.date }}"></canvas>
-
-  <div class="brand-label"><a class="brand-text" href="{{ root }}index.html">EMO</a></div>
-
-  <div class="hero-actions">
-    <button type="button" class="pixel-btn" id="why-btn">WHY THIS IMAGE?</button>
-    <a class="pixel-btn" href="{{ root }}archive/">ARCHIVE</a>
-  </div>
-</div>
-
-<dialog id="why-modal" class="why-modal">
-  <button type="button" class="modal-close" id="why-close" aria-label="Close">&times;</button>
-  <h2>{{ today.date }}</h2>
-  <p class="explanation">{{ today.explanation }}</p>
-  {% if today.concept_used_fallback or today.image_used_fallback %}
-  <p class="fallback-note">
-    Note: today's generation used a fallback step —
-    {%- if today.concept_used_fallback %} the AI concept step failed, so a fixed placeholder concept was used{% endif -%}
-    {%- if today.concept_used_fallback and today.image_used_fallback %};{% endif -%}
-    {%- if today.image_used_fallback %} the image generation service was unavailable, so a local placeholder was pixelated instead{% endif -%}.
-  </p>
-  {% endif %}
-  {% if today.headlines %}
-  <h3>Headlines read that day</h3>
-  <ul class="headlines-list">
-    {% for h in today.headlines %}
-    <li><a href="{{ h.link }}" target="_blank" rel="noopener">{{ h.title }}</a>{% if h.summary %} — {{ h.summary }}{% endif %}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-</dialog>
+{% if day %}
+{% include "_hero.html" %}
 {% else %}
 <p class="empty-state">No images have been published yet.</p>
 {% endif %}

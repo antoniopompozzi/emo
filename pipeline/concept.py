@@ -3,6 +3,9 @@
 Claude receives today's headlines and returns a JSON object with:
   - concept: a prompt for the image generation service
   - explanation: a short public-facing rationale (English)
+  - emotion: the single dominant emotion evoked by the day's news, one
+    of pipeline.emotions.EMOTION_PALETTE's keys -- used downstream to
+    pick the duotone color for the pixelation (see postprocess.py).
 
 If the Claude call fails outright, or its response cannot be parsed as
 the expected JSON after all retries, a fixed fallback concept is used
@@ -18,6 +21,10 @@ import time
 
 import anthropic
 
+from pipeline.emotions import DEFAULT_EMOTION, EMOTION_PALETTE
+
+_EMOTION_LIST = ", ".join(EMOTION_PALETTE.keys())
+
 SYSTEM_PROMPT = (
     "You are the creative director behind EMO, a daily generative art artifact. "
     "Each day EMO reads international news headlines and freely decides what to "
@@ -25,21 +32,25 @@ SYSTEM_PROMPT = (
     "composition, or anything else the news evokes -- literally, obliquely, or "
     "not at all if you prefer. There are no restrictions on subject or style: "
     "you have total creative freedom.\n\n"
-    "Your response becomes two things: (1) a prompt fed directly into an AI "
-    "image generation model, and (2) a short public explanation of your choice.\n\n"
-    "Keep in mind that the resulting image will be converted to grayscale, "
-    "heavily pixelated into a coarse grid of solid blocks, and reduced to a "
-    "handful of gray tones. Favor bold shapes, strong silhouettes, and clear "
-    "composition over fine detail or readable text, so the concept survives "
-    "that transformation well.\n\n"
+    "Your response becomes three things: (1) a prompt fed directly into an AI "
+    "image generation model, (2) a short public explanation of your choice, and "
+    "(3) the single dominant emotion the day's news evokes in you.\n\n"
+    "Keep in mind that the resulting image will be converted to a black-to-color "
+    "duotone (not grayscale), heavily pixelated into a coarse grid of solid "
+    "blocks, and reduced to a handful of tones. Favor bold shapes, strong "
+    "silhouettes, and clear composition over fine detail or readable text, so "
+    "the concept survives that transformation well.\n\n"
     "Respond with ONLY a JSON object, no markdown fences, no commentary, in "
     "exactly this shape:\n"
-    '{"concept": "...", "explanation": "..."}\n\n'
+    '{"concept": "...", "explanation": "...", "emotion": "..."}\n\n'
     "- concept: a detailed visual description (subject, composition, mood, "
     "style/medium) written as an effective prompt for an image generation "
     "model. English only.\n"
     "- explanation: 3-5 sentences, in English, explaining why you chose this "
-    "subject/composition in relation to today's news."
+    "subject/composition in relation to today's news.\n"
+    f"- emotion: exactly one word from this fixed list, whichever single "
+    f"emotion best captures the overall tone of today's news: {_EMOTION_LIST}. "
+    "Use \"neutral\" if nothing dominates."
 )
 
 FALLBACK_CONCEPT = {
@@ -57,6 +68,7 @@ FALLBACK_CONCEPT = {
         "occasion, part of the process broke down before the news could be "
         "seen."
     ),
+    "emotion": DEFAULT_EMOTION,
 }
 
 
@@ -81,14 +93,24 @@ def _extract_json(text: str) -> dict:
     payload = json.loads(text[start:end + 1])
     if "concept" not in payload or "explanation" not in payload:
         raise ValueError("Claude's JSON is missing required fields")
+
+    # `emotion` only drives a color choice downstream, not the image's
+    # subject -- an unrecognized or missing value shouldn't throw away an
+    # otherwise good concept/explanation, so this normalizes rather than
+    # raising.
+    emotion = str(payload.get("emotion", "")).strip().lower()
+    if emotion not in EMOTION_PALETTE:
+        emotion = DEFAULT_EMOTION
+
     return {
         "concept": str(payload["concept"]).strip(),
         "explanation": str(payload["explanation"]).strip(),
+        "emotion": emotion,
     }
 
 
 def choose_concept(headlines: list[dict], config: dict, api_key: str, logger) -> dict:
-    """Returns {"concept", "explanation", "used_fallback"}."""
+    """Returns {"concept", "explanation", "emotion", "used_fallback"}."""
     claude_cfg = config["claude"]
     client = anthropic.Anthropic(
         api_key=api_key,

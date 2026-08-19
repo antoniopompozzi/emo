@@ -54,18 +54,28 @@ def build(config: dict) -> Path:
     )
     site_title = config["site"]["title"]
 
+    # grid_values.json stays in archive/ (it's still written by the
+    # pipeline as raw data for the thesis writeup) but the site itself
+    # just shows final.png directly, so it isn't copied into _site/.
     for day in days:
         day_source_dir = archive_root / day["_dir_name"]
         day_out_dir = output_root / "days" / day["_dir_name"]
         day_out_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy(day_source_dir / "final.png", day_out_dir / "final.png")
 
-        grid_values_path = day_source_dir / "grid_values.json"
-        if grid_values_path.exists():
-            shutil.copy(grid_values_path, day_out_dir / "grid_values.json")
-
+    # index.html and days/<date>/index.html both render the exact same
+    # _hero.html partial (see that file's header comment) -- the only
+    # difference is which day's data/assets get passed in. This is what
+    # makes clicking an archive thumbnail land on "the homepage, showing
+    # a different day" rather than a separate detail page/layout.
+    latest = days[0] if days else None
     (output_root / "index.html").write_text(
-        env.get_template("index.html").render(site_title=site_title, root="", today=days[0] if days else None),
+        env.get_template("index.html").render(
+            site_title=site_title,
+            root="",
+            day=latest,
+            image_base=f"days/{latest['_dir_name']}/" if latest else "",
+        ),
         encoding="utf-8",
     )
 
@@ -80,7 +90,7 @@ def build(config: dict) -> Path:
     for day in days:
         day_out_dir = output_root / "days" / day["_dir_name"]
         (day_out_dir / "index.html").write_text(
-            day_template.render(site_title=site_title, root="../../", day=day),
+            day_template.render(site_title=site_title, root="../../", day=day, image_base=""),
             encoding="utf-8",
         )
 

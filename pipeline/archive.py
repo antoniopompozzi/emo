@@ -1,11 +1,13 @@
 """Writes one day's output to archive/<date>/:
 
-  final.png          - the published pixelated image
+  final.png          - the published pixelated duotone image
   source.png          - the raw (possibly fallback) image before pixelation
-  grid_values.json     - the quantized gray-value grid behind final.png, for the
-                          homepage's <canvas> renderer (see website/static/script.js)
-  metadata.json        - concept, explanation, headlines, render params, fallback flags
-  exchange_log.json    - full request/response trace for Claude and Pollinations
+  grid_values.json     - the quantized brightness grid behind final.png, plus the
+                          day's emotion/color, for the homepage's <canvas> renderer
+                          (see website/static/script.js)
+  metadata.json        - concept, explanation, emotion, headlines, render params,
+                          fallback flags
+  exchange_log.json    - full request/response trace for Claude and the image provider
 """
 from __future__ import annotations
 
@@ -22,6 +24,8 @@ def write_day(
     final_image: Image.Image,
     source_image: Image.Image,
     grid: np.ndarray,
+    emotion: str,
+    emotion_color: str,
     metadata: dict,
     exchange_log: dict,
 ) -> Path:
@@ -32,7 +36,14 @@ def write_day(
     source_image.save(day_dir / "source.png")
 
     (day_dir / "grid_values.json").write_text(
-        json.dumps({"grid_size": grid.shape[0], "values": grid.tolist()}),
+        json.dumps(
+            {
+                "grid_size": grid.shape[0],
+                "values": grid.tolist(),
+                "emotion": emotion,
+                "color": emotion_color,
+            }
+        ),
         encoding="utf-8",
     )
     (day_dir / "metadata.json").write_text(
