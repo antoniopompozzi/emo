@@ -5,7 +5,7 @@
   grid_values.json     - the quantized gray-value grid behind final.png, for the
                           homepage's <canvas> renderer (see website/static/script.js)
   metadata.json        - concept, explanation, headlines, render params, fallback flags
-  exchange_log.json    - full request/response trace for Claude and Pollinations
+  exchange_log.json    - full request/response trace for Claude and the image provider
 """
 from __future__ import annotations
 

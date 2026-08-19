@@ -3,8 +3,8 @@ grayscale, pixelated, tonally-quantized block image.
 
 This module is deliberately simple and untouched by the daily AI
 calls -- it is the one part of the pipeline meant to produce visually
-consistent output every single day, whatever Claude and Pollinations
-produced upstream.
+consistent output every single day, whatever Claude and the image
+provider produced upstream.
 
 Steps: grayscale -> box-filter downsample to a grid -> quantize gray
 levels -> render each cell as a hard-edged solid block.
