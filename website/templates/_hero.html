@@ -1,15 +1,13 @@
-{# Shared hero: the full-screen pixel grid + EMO label + action buttons +
-   "why this image?" modal. Used identically by index.html (today's image)
+{# Shared hero: the day's pixelated image, shown large and centered, +
+   EMO label + action buttons + "why this image?" modal. Used identically
+   by index.html (today's image)
    and day.html (an archived day's image) -- the only difference between
    the two is which day's data and asset folder get passed in, via the
    `day` and `image_base` variables. Do not fork this into a separate
    per-page component: the archive route must render the exact same
    markup/CSS/JS as the homepage, just pointed at a different day. #}
 <div class="hero">
-  <canvas id="hero-canvas" class="hero-canvas"
-          data-grid-url="{{ image_base }}grid_values.json"
-          data-image-url="{{ image_base }}final.png"
-          role="img" aria-label="EMO's image for {{ day.date }}"></canvas>
+  <img class="hero-image" src="{{ image_base }}final.png" alt="EMO's image for {{ day.date }}">
 
   <div class="brand-label"><a class="brand-text" href="{{ root }}index.html">EMO</a></div>
 

@@ -1,6 +1,6 @@
 # EMO
 
-EMO is a generative art artifact that publishes one pixelated, grayscale image every day,
+EMO is a generative art artifact that publishes one pixelated, duotone image every day,
 generated from that day's international news. It runs fully automatically on a daily
 GitHub Actions schedule, at no recurring cost.
 
@@ -18,24 +18,24 @@ GitHub Actions schedule, at no recurring cost.
    module that talks to an image generation service, so swapping providers again later only
    means changing this one file.
 4. **Pixelation** ([pipeline/postprocess.py](pipeline/postprocess.py)) — a fixed, deterministic
-   transform turns *any* source image into EMO's visual signature: grayscale → box-filter
-   downsample to a grid of cells (`quantize_grid`) → quantize to a handful of gray levels →
-   render each cell as a sharp-edged solid block (`render_grid`). This step never calls an AI
-   model, so the output style is always consistent.
+   transform turns *any* source image into EMO's visual signature: grayscale brightness →
+   box-filter downsample to a grid of cells (`quantize_grid`) → quantize to a handful of
+   brightness levels → render each cell as a sharp-edged solid block, interpolated between
+   black and that day's emotion color instead of black and white (`render_grid`, see Task 4
+   below). This step never calls an AI model, so the output style is always consistent.
 5. **Archive** ([pipeline/archive.py](pipeline/archive.py)) — write the day's `final.png`,
-   unprocessed `source.png`, `grid_values.json` (the quantized gray-value grid behind
-   `final.png`, used by the homepage's `<canvas>` renderer), `metadata.json` (concept,
-   explanation, headlines, render params), and `exchange_log.json` (the full Claude + image
-   provider request/response trace) to `archive/<YYYY-MM-DD>/`.
+   unprocessed `source.png`, `grid_values.json` (the quantized brightness grid behind
+   `final.png`, plus that day's emotion/color -- kept as raw data for reference, not used by
+   the site itself), `metadata.json` (concept, explanation, emotion, headlines, render params),
+   and `exchange_log.json` (the full Claude + image provider request/response trace) to
+   `archive/<YYYY-MM-DD>/`.
 6. **Site** ([website/build_site.py](website/build_site.py)) — render the static site from
-   every `archive/*/metadata.json`: the homepage shows today's grid full-screen with an "EMO"
-   label and "WHY THIS IMAGE?" / "ARCHIVE" buttons overlaid; `/archive/` lists every previous
-   day as a thumbnail gallery; `days/<date>/` gives each day its own permanent page.
-   The homepage draws its grid on a `<canvas>` from `grid_values.json` (see
-   [website/static/script.js](website/static/script.js)) instead of showing `final.png`
-   directly, so the cell size can adapt to any screen — phone or desktop, portrait or
-   landscape — without cropping the square image or blowing it up past its native
-   resolution. Individual day pages still show the plain `final.png` full-bleed.
+   every `archive/*/metadata.json`: the homepage shows today's `final.png` large and centered,
+   scaled to fit the screen (never cropped or stretched) with `image-rendering: pixelated` so
+   the blocks stay crisp, with an "EMO" label and "WHY THIS IMAGE?" / "ARCHIVE" buttons
+   overlaid; `/archive/` lists every previous day as a thumbnail gallery; `days/<date>/` shows
+   that exact same layout for an archived day (see [website/templates/_hero.html](website/templates/_hero.html),
+   shared by both routes).
 
 Dates use UTC throughout, matching the GitHub Actions schedule.
 
@@ -63,15 +63,15 @@ pipeline/
   news.py                   RSS fetching with fallback feed
   concept.py                Claude call + fallback concept
   image_provider.py         OpenAI Images API call + fallback placeholder image
-  postprocess.py            deterministic grayscale/pixelate/quantize transform
+  postprocess.py            deterministic duotone/pixelate/quantize transform
   archive.py                writes archive/<date>/
   logging_utils.py          structured request/response logger
   main.py                   orchestrates one full daily run
 website/
   build_site.py             renders the static site from archive/
-  templates/                Jinja2 templates (base/index/day/archive)
+  templates/                Jinja2 templates (base/index/day/archive/_hero)
   static/style.css
-  static/script.js          homepage grid canvas + "why this image?" modal
+  static/script.js          "why this image?" modal
 archive/                    one folder per published day (committed to the repo)
 tests/                      pytest tests, mainly for postprocess.py and the fallback paths
 .github/workflows/daily.yml scheduled pipeline run + site build + GitHub Pages deploy

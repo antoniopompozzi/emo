@@ -12,34 +12,30 @@ body {
   line-height: 1.5;
 }
 
-/* ---- Hero (today / single day page): the pixelated image fills the viewport ---- */
+/* ---- Hero (today / single day page): the pixelated image, large and centered ---- */
 
 .hero {
   position: relative;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
+/* Scaled to fill most of the viewport on its longer axis, never
+   cropped or stretched -- object-fit: cover previously forced the
+   square image to fill the whole (usually non-square) screen, which
+   cropped it and made it look zoomed in. image-rendering: pixelated
+   keeps the blocks crisp whether the image is scaled up or down. */
 .hero-image {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-}
-
-/* The homepage's grid canvas is sized to its own content (see
-   script.js) and centered on the viewport, rather than stretched to
-   fill it -- that way the square grid is never cropped or zoomed,
-   whatever the screen's aspect ratio. */
-.hero-canvas {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 92vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
 }
