@@ -1,0 +1,42 @@
+{# Shared hero: the full-screen pixel grid + EMO label + action buttons +
+   "why this image?" modal. Used identically by index.html (today's image)
+   and day.html (an archived day's image) -- the only difference between
+   the two is which day's data and asset folder get passed in, via the
+   `day` and `image_base` variables. Do not fork this into a separate
+   per-page component: the archive route must render the exact same
+   markup/CSS/JS as the homepage, just pointed at a different day. #}
+<div class="hero">
+  <canvas id="hero-canvas" class="hero-canvas"
+          data-grid-url="{{ image_base }}grid_values.json"
+          data-image-url="{{ image_base }}final.png"
+          role="img" aria-label="EMO's image for {{ day.date }}"></canvas>
+
+  <div class="brand-label"><a class="brand-text" href="{{ root }}index.html">EMO</a></div>
+
+  <div class="hero-actions">
+    <button type="button" class="pixel-btn" id="why-btn">WHY THIS IMAGE?</button>
+    <a class="pixel-btn" href="{{ root }}archive/">ARCHIVE</a>
+  </div>
+</div>
+
+<dialog id="why-modal" class="why-modal">
+  <button type="button" class="modal-close" id="why-close" aria-label="Close">&times;</button>
+  <h2>{{ day.date }}</h2>
+  <p class="explanation">{{ day.explanation }}</p>
+  {% if day.concept_used_fallback or day.image_used_fallback %}
+  <p class="fallback-note">
+    Note: this day's generation used a fallback step —
+    {%- if day.concept_used_fallback %} the AI concept step failed, so a fixed placeholder concept was used{% endif -%}
+    {%- if day.concept_used_fallback and day.image_used_fallback %};{% endif -%}
+    {%- if day.image_used_fallback %} the image generation service was unavailable, so a local placeholder was pixelated instead{% endif -%}.
+  </p>
+  {% endif %}
+  {% if day.headlines %}
+  <h3>Headlines read that day</h3>
+  <ul class="headlines-list">
+    {% for h in day.headlines %}
+    <li><a href="{{ h.link }}" target="_blank" rel="noopener">{{ h.title }}</a>{% if h.summary %} — {{ h.summary }}{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</dialog>

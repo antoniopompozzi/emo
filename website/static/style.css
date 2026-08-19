@@ -22,10 +22,6 @@ body {
   overflow: hidden;
 }
 
-.hero--fill {
-  background: #000000; /* shows briefly while a full-bleed day-page image loads */
-}
-
 .hero-image {
   display: block;
   width: 100%;
