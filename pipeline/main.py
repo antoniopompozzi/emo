@@ -20,7 +20,7 @@ from pathlib import Path
 import yaml
 from dotenv import load_dotenv
 
-from pipeline import archive, concept, image_provider, news, postprocess
+from pipeline import archive, concept, image_provider, news, postprocess, share_card
 from pipeline.emotions import DEFAULT_EMOTION, EMOTION_PALETTE
 from pipeline.logging_utils import ExchangeLogger
 
@@ -75,6 +75,7 @@ def run() -> Path:
         image_result["image"], grid_size=pp_cfg["grid_size"], gray_levels=pp_cfg["gray_levels"]
     )
     final_image = postprocess.render_grid(grid, px_per_cell=pp_cfg["px_per_cell"], hue_hex=emotion_color)
+    share_image = share_card.render_share_card(final_image, date_str, emotion, emotion_color, config)
 
     metadata = {
         "date": date_str,
@@ -101,6 +102,7 @@ def run() -> Path:
         archive_root,
         final_image,
         image_result["image"],
+        share_image,
         grid,
         emotion,
         emotion_color,

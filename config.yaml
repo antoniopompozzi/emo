@@ -29,6 +29,10 @@ postprocess:
 
 site:
   title: "EMO"
+  base_url: "https://antoniopompozzi.github.io/emo/"  # used to build absolute URLs for Open Graph meta tags
+
+share_card:
+  size: 1080
 
 paths:
   archive_dir: "archive"

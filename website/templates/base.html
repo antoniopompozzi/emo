@@ -4,6 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ site_title }}{% endblock %}</title>
+  {% if share_url and page_url %}
+  <meta property="og:title" content="{{ site_title }}">
+  <meta property="og:description" content="EMO -- a daily pixelated duotone generated from the day's news">
+  <meta property="og:image" content="{{ share_url }}">
+  <meta property="og:url" content="{{ page_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ share_url }}">
+  {% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
