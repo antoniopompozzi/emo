@@ -76,6 +76,7 @@ def run() -> Path:
     )
     final_image = postprocess.render_grid(grid, px_per_cell=pp_cfg["px_per_cell"], hue_hex=emotion_color)
     share_image = share_card.render_share_card(final_image, date_str, emotion, emotion_color, config)
+    instagram_image = share_card.render_instagram_card(final_image, date_str, emotion, emotion_color)
 
     metadata = {
         "date": date_str,
@@ -103,6 +104,7 @@ def run() -> Path:
         final_image,
         image_result["image"],
         share_image,
+        instagram_image,
         grid,
         emotion,
         emotion_color,

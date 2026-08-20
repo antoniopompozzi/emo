@@ -38,6 +38,30 @@ def load_days(archive_root: Path) -> list[dict]:
     return days
 
 
+def write_robots_and_sitemap(output_root: Path, base_url: str, days: list[dict]) -> None:
+    (output_root / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {base_url}sitemap.xml\n",
+        encoding="utf-8",
+    )
+
+    # The latest day's own /days/<date>/ page renders identical content
+    # to the homepage (see the comment in build() about _hero.html) and
+    # is marked canonical to the homepage there, so it's left out of the
+    # sitemap to avoid asking search engines to index the same content
+    # twice under two URLs.
+    latest_dir_name = days[0]["_dir_name"] if days else None
+    day_urls = [f"{base_url}days/{day['_dir_name']}/" for day in days if day["_dir_name"] != latest_dir_name]
+    urls = [base_url, f"{base_url}archive/"] + day_urls
+    body = "\n".join(f"  <url><loc>{url}</loc></url>" for url in urls)
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{body}\n"
+        "</urlset>\n"
+    )
+    (output_root / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+
+
 def build(config: dict) -> Path:
     archive_root = REPO_ROOT / config["paths"]["archive_dir"]
     output_root = REPO_ROOT / config["paths"]["site_output_dir"]
@@ -74,17 +98,27 @@ def build(config: dict) -> Path:
     # _hero.html partial (see that file's header comment) -- the only
     # difference is which day's data/assets get passed in. This is what
     # makes clicking an archive thumbnail land on "the homepage, showing
-    # a different day" rather than a separate detail page/layout.
+    # a different day" rather than a separate detail page/layout. Since
+    # the two pages are literally identical content, the latest day's
+    # own page sets canonical_url to the homepage instead of itself, so
+    # search engines treat the homepage as the one indexable copy.
+    # page_url (og:url) is always known -- it's just the route being
+    # rendered -- and is passed on every page. share_url (og:image) is
+    # only known when that day's share_card.png actually exists, so
+    # og:title/og:description/meta-description still render on days
+    # that predate the share feature; only the image tags are skipped.
     latest = days[0] if days else None
-    latest_has_share_card = bool(latest) and (output_root / "days" / latest["_dir_name"] / "share_card.png").exists()
+    latest_dir_name = latest["_dir_name"] if latest else None
+    latest_has_share_card = bool(latest) and (output_root / "days" / latest_dir_name / "share_card.png").exists()
     (output_root / "index.html").write_text(
         env.get_template("index.html").render(
             site_title=site_title,
             root="",
             day=latest,
-            image_base=f"days/{latest['_dir_name']}/" if latest else "",
-            share_url=f"{base_url}days/{latest['_dir_name']}/share_card.png" if latest_has_share_card else None,
-            page_url=base_url if latest_has_share_card else None,
+            image_base=f"days/{latest_dir_name}/" if latest else "",
+            share_url=f"{base_url}days/{latest_dir_name}/share_card.png" if latest_has_share_card else None,
+            page_url=base_url,
+            canonical_url=base_url,
         ),
         encoding="utf-8",
     )
@@ -92,7 +126,13 @@ def build(config: dict) -> Path:
     archive_out_dir = output_root / "archive"
     archive_out_dir.mkdir(parents=True, exist_ok=True)
     (archive_out_dir / "index.html").write_text(
-        env.get_template("archive.html").render(site_title=site_title, root="../", days=days),
+        env.get_template("archive.html").render(
+            site_title=site_title,
+            root="../",
+            days=days,
+            page_url=f"{base_url}archive/",
+            canonical_url=f"{base_url}archive/",
+        ),
         encoding="utf-8",
     )
 
@@ -100,6 +140,7 @@ def build(config: dict) -> Path:
     for day in days:
         day_out_dir = output_root / "days" / day["_dir_name"]
         has_share_card = (day_out_dir / "share_card.png").exists()
+        day_url = f"{base_url}days/{day['_dir_name']}/"
         (day_out_dir / "index.html").write_text(
             day_template.render(
                 site_title=site_title,
@@ -107,12 +148,15 @@ def build(config: dict) -> Path:
                 day=day,
                 image_base="",
                 share_url=f"{base_url}days/{day['_dir_name']}/share_card.png" if has_share_card else None,
-                page_url=f"{base_url}days/{day['_dir_name']}/" if has_share_card else None,
+                page_url=day_url,
+                canonical_url=base_url if day["_dir_name"] == latest_dir_name else day_url,
             ),
             encoding="utf-8",
         )
 
     shutil.copytree(REPO_ROOT / "website" / "static", output_root / "static")
+
+    write_robots_and_sitemap(output_root, base_url, days)
 
     # Tells GitHub Pages not to run this through Jekyll.
     (output_root / ".nojekyll").touch()

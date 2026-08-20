@@ -3,6 +3,10 @@
   final.png          - the published pixelated duotone image
   share_card.png       - final.png plus EMO/date/emotion badges baked in, for
                           sharing outside the site (see pipeline/share_card.py)
+  instagram_card.png    - 1080x1350 (4:5) card for Instagram feed posts, rendered
+                          independently from final_image with badges in the white
+                          margins rather than overlaid (see pipeline/share_card.py);
+                          not used by the site itself, kept for manual/future use only
   source.png          - the raw (possibly fallback) image before pixelation
   grid_values.json     - the quantized brightness grid behind final.png, plus the
                           day's emotion/color; kept as a raw data trace only -- the
@@ -27,6 +31,7 @@ def write_day(
     final_image: Image.Image,
     source_image: Image.Image,
     share_image: Image.Image,
+    instagram_image: Image.Image,
     grid: np.ndarray,
     emotion: str,
     emotion_color: str,
@@ -39,6 +44,7 @@ def write_day(
     final_image.save(day_dir / "final.png")
     source_image.save(day_dir / "source.png")
     share_image.save(day_dir / "share_card.png")
+    instagram_image.save(day_dir / "instagram_card.png")
 
     (day_dir / "grid_values.json").write_text(
         json.dumps(
