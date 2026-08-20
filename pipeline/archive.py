@@ -3,8 +3,9 @@
   final.png          - the published pixelated duotone image
   source.png          - the raw (possibly fallback) image before pixelation
   grid_values.json     - the quantized brightness grid behind final.png, plus the
-                          day's emotion/color, for the homepage's <canvas> renderer
-                          (see website/static/script.js)
+                          day's emotion/color; kept as a raw data trace only -- the
+                          published site reads final.png directly (see
+                          website/build_site.py)
   metadata.json        - concept, explanation, emotion, headlines, render params,
                           fallback flags
   exchange_log.json    - full request/response trace for Claude and the image provider

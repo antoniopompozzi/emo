@@ -14,12 +14,11 @@ brightness levels -> render each cell as a hard-edged solid block,
 interpolated between black and the day's emotion color.
 
 `quantize_grid` and `render_grid` are split apart (rather than one
-`pixelate` function) because the site also needs the raw quantized
-values, not just the rendered PNG: the homepage draws its own grid on
-a <canvas> so it can size cells to fit any screen without cropping or
-upscaling final.png (see archive.py and website/static/script.js).
-`quantize_grid` stays plain brightness (not yet colored) so the exact
-same grid can be re-rendered with any hue.
+`pixelate` function) because archive.py still needs the raw quantized
+values on their own: it writes them to grid_values.json as a data
+trace independent of whatever color the image was rendered with that
+day (see archive.py). `quantize_grid` stays plain brightness (not yet
+colored) so the exact same grid can be re-rendered with any hue.
 """
 from __future__ import annotations
 
