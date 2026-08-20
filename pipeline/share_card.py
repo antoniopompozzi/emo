@@ -26,6 +26,12 @@ FONT_PATH = REPO_ROOT / "website" / "static" / "fonts" / "PressStart2P-Regular.t
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
+# Instagram's current recommended feed post ratio (4:5, taller than
+# it is wide) -- fixed regardless of share_card.size in config.yaml,
+# since it's a platform constraint, not a site-visual choice.
+INSTAGRAM_CARD_WIDTH = 1080
+INSTAGRAM_CARD_HEIGHT = 1350
+
 
 def _hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
     hex_color = hex_color.lstrip("#")
@@ -135,6 +141,99 @@ def render_share_card(
     emotion_label = emotion.upper()
 
     bottom_y = size - margin
+    date_w, _ = _draw_pixel_badge(
+        draw,
+        (margin, bottom_y),
+        date_label,
+        badge_font,
+        border_width=border_width,
+        pad_x=badge_pad_x,
+        pad_y=badge_pad_y,
+        anchor="bottom-left",
+    )
+    _draw_pixel_badge(
+        draw,
+        (margin + date_w + badge_gap, bottom_y),
+        emotion_label,
+        badge_font,
+        border_width=border_width,
+        pad_x=badge_pad_x,
+        pad_y=badge_pad_y,
+        anchor="bottom-left",
+        swatch_color=_hex_to_rgb(emotion_color),
+        swatch_size=swatch_size,
+        swatch_gap=swatch_gap,
+    )
+
+    return card
+
+
+def render_instagram_card(
+    final_image: Image.Image,
+    date_str: str,
+    emotion: str,
+    emotion_color: str,
+    config: dict,
+) -> Image.Image:
+    """Returns a 1080x1350 (4:5) RGB card for Instagram's feed format.
+
+    Unlike render_share_card, the badges aren't overlaid on the image --
+    final_image is square but the 4:5 frame is taller, so that extra
+    height becomes plain white margin above and below the image, and
+    the badges live there instead of on top of the artwork.
+    """
+    width, height = INSTAGRAM_CARD_WIDTH, INSTAGRAM_CARD_HEIGHT
+    card = Image.new("RGB", (width, height), color=WHITE)
+    draw = ImageDraw.Draw(card)
+
+    image_size = width  # final_image is already square; full width, no crop
+    top_band = (height - image_size) // 2
+    bottom_band = height - image_size - top_band
+
+    resized = final_image.resize((image_size, image_size), resample=Image.NEAREST)
+    card.paste(resized, (0, top_band))
+
+    border_width = max(2, round(width / 400))
+    margin = round(width * 0.045)
+    badge_gap = round(width * 0.02)
+
+    title_font_size = round(width * 0.035)
+    badge_font_size = round(width * 0.02)
+    title_font = ImageFont.truetype(str(FONT_PATH), title_font_size)
+    badge_font = ImageFont.truetype(str(FONT_PATH), badge_font_size)
+
+    title_pad_x = round(title_font_size * 0.6)
+    title_pad_y = round(title_font_size * 0.4)
+    badge_pad_x = round(badge_font_size * 1.3)
+    badge_pad_y = round(badge_font_size * 1.0)
+    swatch_size = round(badge_font_size * 0.65)
+    swatch_gap = round(badge_font_size * 0.5)
+
+    # EMO badge, vertically centered in the white margin above the image.
+    title_bbox = draw.textbbox((0, 0), "EMO", font=title_font)
+    title_box_h = (title_bbox[3] - title_bbox[1]) + title_pad_y * 2
+    title_y = (top_band - title_box_h) // 2
+    _draw_pixel_badge(
+        draw,
+        (margin, title_y),
+        "EMO",
+        title_font,
+        border_width=border_width,
+        pad_x=title_pad_x,
+        pad_y=title_pad_y,
+        anchor="top-left",
+    )
+
+    # Date + emotion badges, side by side, vertically centered in the
+    # white margin below the image.
+    date_label = dt.datetime.strptime(date_str, "%Y-%m-%d").strftime("%b %d").upper()
+    emotion_label = emotion.upper()
+
+    badge_bbox = draw.textbbox((0, 0), date_label, font=badge_font)
+    badge_box_h = (badge_bbox[3] - badge_bbox[1]) + badge_pad_y * 2
+    band_top = height - bottom_band
+    bottom_y = band_top + (bottom_band - badge_box_h) // 2 + badge_box_h
+
     date_w, _ = _draw_pixel_badge(
         draw,
         (margin, bottom_y),
