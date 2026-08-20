@@ -38,6 +38,23 @@ def load_days(archive_root: Path) -> list[dict]:
     return days
 
 
+def write_robots_and_sitemap(output_root: Path, base_url: str, days: list[dict]) -> None:
+    (output_root / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {base_url}sitemap.xml\n",
+        encoding="utf-8",
+    )
+
+    urls = [base_url, f"{base_url}archive/"] + [f"{base_url}days/{day['_dir_name']}/" for day in days]
+    body = "\n".join(f"  <url><loc>{url}</loc></url>" for url in urls)
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{body}\n"
+        "</urlset>\n"
+    )
+    (output_root / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+
+
 def build(config: dict) -> Path:
     archive_root = REPO_ROOT / config["paths"]["archive_dir"]
     output_root = REPO_ROOT / config["paths"]["site_output_dir"]
@@ -120,6 +137,8 @@ def build(config: dict) -> Path:
         )
 
     shutil.copytree(REPO_ROOT / "website" / "static", output_root / "static")
+
+    write_robots_and_sitemap(output_root, base_url, days)
 
     # Tells GitHub Pages not to run this through Jekyll.
     (output_root / ".nojekyll").touch()
