@@ -26,13 +26,12 @@ function initWhyModal() {
   closeOnBackdropClick(dialog);
 }
 
-// The SHARE button: tries the native Web Share API first, sharing the
-// day's share_card.png as an actual file (not just a link) so the
-// receiving app gets the image directly. Falls back to a plain modal
-// (card preview + download link + copy-link button) when the browser
-// can't share files, doesn't have the API at all, or the share attempt
-// fails for a real reason -- but not when the user simply cancelled
-// the native share sheet (AbortError), where doing nothing is correct.
+// The SHARE button: always opens the same custom modal (card preview +
+// download link + copy-link button), identical on every browser and
+// device. Deliberately not using the native Web Share API -- its
+// picker varies unpredictably across browsers (a full app list on
+// Windows/Edge, inconsistent behavior on Firefox), so one consistent
+// modal beats a native/fallback split.
 function initShareButton() {
   const shareBtn = document.getElementById("share-btn");
   const modal = document.getElementById("share-modal");
@@ -45,12 +44,6 @@ function initShareButton() {
 
   closeBtn.addEventListener("click", () => modal.close());
   closeOnBackdropClick(modal);
-
-  function openFallbackModal(imageUrl) {
-    preview.src = imageUrl;
-    downloadLink.href = imageUrl;
-    modal.showModal();
-  }
 
   copyBtn.addEventListener("click", async () => {
     try {
@@ -66,32 +59,11 @@ function initShareButton() {
     }
   });
 
-  shareBtn.addEventListener("click", async () => {
+  shareBtn.addEventListener("click", () => {
     const imageUrl = shareBtn.dataset.shareImage;
-
-    if (navigator.share) {
-      try {
-        const response = await fetch(imageUrl);
-        const blob = await response.blob();
-        const file = new File([blob], "emo-share.png", { type: blob.type || "image/png" });
-
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            files: [file],
-            title: "EMO",
-            text: "EMO -- a daily pixelated duotone generated from the day's news",
-            url: window.location.href,
-          });
-          return;
-        }
-      } catch (error) {
-        if (error && error.name === "AbortError") return;
-        // Any other failure (fetch, canShare, share itself) falls
-        // through to the fallback modal below.
-      }
-    }
-
-    openFallbackModal(imageUrl);
+    preview.src = imageUrl;
+    downloadLink.href = imageUrl;
+    modal.showModal();
   });
 }
 

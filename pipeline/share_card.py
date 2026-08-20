@@ -3,9 +3,8 @@ badges (EMO brand, date, emotion) baked directly into the pixels.
 
 This exists because the site's real badges are HTML/CSS overlaid on
 top of <img class="hero-image">, which only exist inside the page --
-anything shared outside it (Web Share API, a downloaded PNG, a social
-preview scraping og:image) needs those badges burned into the image
-itself.
+anything shared outside it (a downloaded PNG, a social preview
+scraping og:image) needs those badges burned into the image itself.
 
 final_image is already square, so it's a direct resize (Image.NEAREST,
 to keep the pixel blocks crisp) with no cropping. All badge
