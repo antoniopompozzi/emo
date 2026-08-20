@@ -2,7 +2,7 @@ name: Daily EMO run
 
 on:
   schedule:
-    - cron: "0 6 * * *"  # 06:00 UTC every day
+    - cron: "7 6 * * *"  # 06:07 UTC every day -- offset off the top of the hour, since GitHub's scheduler queues everyone's on-the-hour cron jobs first and tends to delay them
   workflow_dispatch: {}
   push:
     branches: [main]
