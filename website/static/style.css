@@ -85,8 +85,6 @@ body {
   cursor: pointer;
   text-decoration: none;
   line-height: 1;
-  transform: translate(0, 0);
-  transition: transform 0.3s ease-out;
 }
 
 .pixel-btn:hover,
