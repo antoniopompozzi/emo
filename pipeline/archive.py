@@ -1,6 +1,8 @@
 """Writes one day's output to archive/<date>/:
 
   final.png          - the published pixelated duotone image
+  share_card.png       - final.png plus EMO/date/emotion badges baked in, for
+                          sharing outside the site (see pipeline/share_card.py)
   source.png          - the raw (possibly fallback) image before pixelation
   grid_values.json     - the quantized brightness grid behind final.png, plus the
                           day's emotion/color; kept as a raw data trace only -- the
@@ -24,6 +26,7 @@ def write_day(
     archive_root: Path,
     final_image: Image.Image,
     source_image: Image.Image,
+    share_image: Image.Image,
     grid: np.ndarray,
     emotion: str,
     emotion_color: str,
@@ -35,6 +38,7 @@ def write_day(
 
     final_image.save(day_dir / "final.png")
     source_image.save(day_dir / "source.png")
+    share_image.save(day_dir / "share_card.png")
 
     (day_dir / "grid_values.json").write_text(
         json.dumps(
