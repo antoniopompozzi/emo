@@ -55,8 +55,8 @@ def _draw_pixel_badge(
     .pixel-btn), optionally preceded by a solid color swatch (mirrors
     .emotion-swatch). `xy` is the box's top-left corner if anchor is
     "top-left", or the (x, bottom-y) point it hangs from if anchor is
-    "bottom-left". Returns the badge's rendered height, so callers can
-    stack badges above one another.
+    "bottom-left". Returns the badge's rendered (width, height), so
+    callers can place further badges beside or above this one.
     """
     bbox = draw.textbbox((0, 0), text, font=font)
     text_w = bbox[2] - bbox[0]
@@ -87,7 +87,7 @@ def _draw_pixel_badge(
 
     draw.text((inner_x, inner_y), text, font=font, fill=BLACK)
 
-    return box_h
+    return box_w, box_h
 
 
 def render_share_card(
@@ -136,7 +136,7 @@ def render_share_card(
     emotion_label = emotion.upper()
 
     bottom_y = size - margin
-    date_h = _draw_pixel_badge(
+    date_w, _ = _draw_pixel_badge(
         draw,
         (margin, bottom_y),
         date_label,
@@ -148,7 +148,7 @@ def render_share_card(
     )
     _draw_pixel_badge(
         draw,
-        (margin, bottom_y - date_h - badge_gap),
+        (margin + date_w + badge_gap, bottom_y),
         emotion_label,
         badge_font,
         border_width=border_width,
