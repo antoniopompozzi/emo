@@ -10,6 +10,9 @@
   {% if page_url %}
   <meta property="og:url" content="{{ page_url }}">
   {% endif %}
+  {% if canonical_url %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% endif %}
   {% if share_url %}
   <meta property="og:image" content="{{ share_url }}">
   <meta name="twitter:card" content="summary_large_image">
