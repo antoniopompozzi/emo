@@ -75,6 +75,11 @@ def build(config: dict) -> Path:
     # difference is which day's data/assets get passed in. This is what
     # makes clicking an archive thumbnail land on "the homepage, showing
     # a different day" rather than a separate detail page/layout.
+    # page_url (og:url) is always known -- it's just the route being
+    # rendered -- and is passed on every page. share_url (og:image) is
+    # only known when that day's share_card.png actually exists, so
+    # og:title/og:description/meta-description still render on days
+    # that predate the share feature; only the image tags are skipped.
     latest = days[0] if days else None
     latest_has_share_card = bool(latest) and (output_root / "days" / latest["_dir_name"] / "share_card.png").exists()
     (output_root / "index.html").write_text(
@@ -84,7 +89,7 @@ def build(config: dict) -> Path:
             day=latest,
             image_base=f"days/{latest['_dir_name']}/" if latest else "",
             share_url=f"{base_url}days/{latest['_dir_name']}/share_card.png" if latest_has_share_card else None,
-            page_url=base_url if latest_has_share_card else None,
+            page_url=base_url,
         ),
         encoding="utf-8",
     )
@@ -92,7 +97,9 @@ def build(config: dict) -> Path:
     archive_out_dir = output_root / "archive"
     archive_out_dir.mkdir(parents=True, exist_ok=True)
     (archive_out_dir / "index.html").write_text(
-        env.get_template("archive.html").render(site_title=site_title, root="../", days=days),
+        env.get_template("archive.html").render(
+            site_title=site_title, root="../", days=days, page_url=f"{base_url}archive/"
+        ),
         encoding="utf-8",
     )
 
@@ -107,7 +114,7 @@ def build(config: dict) -> Path:
                 day=day,
                 image_base="",
                 share_url=f"{base_url}days/{day['_dir_name']}/share_card.png" if has_share_card else None,
-                page_url=f"{base_url}days/{day['_dir_name']}/" if has_share_card else None,
+                page_url=f"{base_url}days/{day['_dir_name']}/",
             ),
             encoding="utf-8",
         )
