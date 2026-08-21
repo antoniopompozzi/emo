@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-21",
+  "concept": "A stark, divided landscape bisected by a thick concrete wall or barrier running vertically through the center. On one side, construction cranes and new structures rising in harsh geometric shapes; on the other, empty land and scattered debris. The sky above is fractured—one half clear and bright, the other stormy and dark. Heavy use of angular, blocky forms. Monochromatic base with one accent color (rust or amber) highlighting the structures. Dystopian, tension-filled mood. Digital painting style with clear, bold silhouettes.",
+  "explanation": "Today's news is dominated by division, expansion, and walls—physical and political. The West Bank settlement story frames the day, echoed by Hong Kong's crackdown, Panama's resource scarcity, and Trump's approach to geopolitics all speaking to barriers, constraint, and fractured relationships. The image captures the tension between growth and restriction, security and encroachment, with the barrier as the central visual metaphor for a world increasingly carved into opposing territories and ideologies.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Israel re-establishes closed West Bank settlement, defying growing international protests",
+      "summary": "Thirty \"pioneer families\" have arrived on a wave of nationalism driven by Israel's government, but the rapid change has left nearby Palestinian residents fearful.",
+      "link": "https://www.bbc.co.uk/news/articles/cn7n0l4p0kzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "UK, France, Germany, Italy and Canada condemn Israel's West Bank settlement project",
+      "summary": "European countries and Canada pile on pressure over Israel's plans to expand settlements in a strategically vital part of the occupied West Bank.",
+      "link": "https://www.bbc.co.uk/news/articles/c998evlgz8ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "How much could Trump's 'economic D-Day' hurt Iran?",
+      "summary": "Iran has so far proved adept at finding ways around years of already punishing sanctions on its economy.",
+      "link": "https://www.bbc.co.uk/news/articles/cre4gdvlj9ro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Hong Kong's Tiananmen activists guilty in national security trial",
+      "summary": "Three activists were accused of inciting others to subvert state power under the China-introduced law.",
+      "link": "https://www.bbc.co.uk/news/articles/c1l10mdrld5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Five missing after fire in Swiss Alpine town",
+      "summary": "Eight others were injured, local police say, with the cause of the fire still being investigated.",
+      "link": "https://www.bbc.co.uk/news/articles/cy8e6g13497o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Bali jails Swiss tourist for insulting sacred Day of Silence",
+      "summary": "The 26-year-old was jailed for a year after he sparked anger with an expletive-laden post about the sacred holiday.",
+      "link": "https://www.bbc.co.uk/news/articles/cj4kr59r28ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Panama Canal to cut number of ships passing through due to El Niño",
+      "summary": "The crucial waterway's operator says low rainfall caused by the ocean pattern had led to the decision.",
+      "link": "https://www.bbc.co.uk/news/articles/cwyl0jkxxryo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "British rapper Yung Filly to face retrial on rape charges in Australia",
+      "summary": "A jury last month cleared the YouTuber of several sexual assault offences, but it couldn't reach a decision on three others,",
+      "link": "https://www.bbc.co.uk/news/articles/cd7l1g8922jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Japan executes man who killed five in Pachinko parlour fire",
+      "summary": "This is the first time since June 2025 that the country has enacted capital punishment.",
+      "link": "https://www.bbc.co.uk/news/articles/cly8k232mn7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Como mayor hit by electric bike and issues blanket ban in Italian city",
+      "summary": "Alessandro Rapinese said the prohibition was for public safety, adding \"I know what it's like to be hit by one of these beasts\".",
+      "link": "https://www.bbc.co.uk/news/articles/cn8n077vxd7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump wants to be friends with Kim - but South Korea could pay the price",
+      "summary": "US military exercises with South Korea end early on Friday, at a time when the North is in a position of strength.",
+      "link": "https://www.bbc.co.uk/news/articles/c4gj1vje8dxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Pakistan ex-PM Imran Khan back in jail after hospital examination",
+      "summary": "It comes as the court had earlier this week ordered that he had to be taken for a hospital examination.",
+      "link": "https://www.bbc.co.uk/news/articles/ckgdr9vr50po?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
