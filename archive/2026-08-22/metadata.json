@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-22",
+  "concept": "A fractured mirror or shattered glass surface reflecting fragmented images of conflict - tariffs, weapons, violence, surveillance data streams - all broken into jagged geometric shards of different sizes. The pieces are sharp and angular, rendered in harsh industrial grays and cold blues with occasional blood-red accents. The composition is deliberately chaotic and disorienting, with no clear center, suggesting instability and breakdown across multiple fronts. The style is digital and brutal, like a corrupted data visualization or a cracked wall bearing witness.",
+  "explanation": "Today's headlines reveal a world fragmenting simultaneously across trade, geopolitics, criminal justice, and human rights. From tariff escalations to double-tap strikes, from surveillance settlements to authoritarian crackdowns, the thread connecting them is institutional failure and escalating conflict at every level. The shattered mirror reflects how these separate crises all distort our collective reflection back at us—each shard showing a different fracture in the global order, but together forming a deeply unsettling picture.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Canada says it will match US tariffs 'dollar for dollar' as trade talks break down",
+      "summary": "A new 50% levy on $20bn of Canadian imports comes into force after a last-minute breakdown in trade talks.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgvyy4x2mvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "TikTok to pay $400m to US in one of largest child privacy settlements",
+      "summary": "The deal stems from a 2024 lawsuit alleging TikTok and its parent company ByteDance collected \"vast amounts of data\" on millions of users under the age of 13.",
+      "link": "https://www.bbc.co.uk/news/articles/cwyr0l45xjro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Israel re-establishes closed West Bank settlement, defying growing international protests",
+      "summary": "Thirty \"pioneer families\" have arrived on a wave of nationalism driven by Israel's government, but the rapid change has left nearby Palestinian residents fearful.",
+      "link": "https://www.bbc.co.uk/news/articles/cn7n0l4p0kzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Search for survivors after 16 killed by Russian double-tap strike on Ukraine mall",
+      "summary": "Nine people are still missing after the attack which left 130 injured, including a number of children.",
+      "link": "https://www.bbc.co.uk/news/articles/c39egw7nmk2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Lindsay Clancy suffering 'command hallucination' when she killed children, court hears",
+      "summary": "The defence brought their final witness - a forensic psychiatrist - to the stand to testify about the effects of postpartum psychosis.",
+      "link": "https://www.bbc.co.uk/news/articles/c62xpre63j2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "One killed in sword attack at Swedish school",
+      "summary": "Officials say another three people were injured, and an 18-year-old male suspect shot and arrested.",
+      "link": "https://www.bbc.co.uk/news/articles/c3r0g7gj2n3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "UK, Canada and Australia condemn Israel for refusing criminal probe into aid worker killings in Gaza",
+      "summary": "Seven World Central Kitchen workers were killed in the Israeli strike on their convoy in 2024.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgl2pe09eno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Two injured in stabbing attack at Canada Sikh temple",
+      "summary": "One suspect is in custody, and police have said they are still investigating if the attack was motivated by hate.",
+      "link": "https://www.bbc.co.uk/news/articles/ce8l7w0n0jeo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "As they return to the UK, Harry and Meghan search for a brand that sticks",
+      "summary": "They will not be working royals when they come back. So what could they be doing instead?",
+      "link": "https://www.bbc.co.uk/news/articles/c0l5d387j18o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Tupac murder accused told police in 2008 his nephew fired fatal shots",
+      "summary": "A recording of the interview Duane Davis conducted with detectives was played to the jury.",
+      "link": "https://www.bbc.co.uk/news/articles/cly57kzgr0ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Germany investigates Russia links to weapons cache discovered in woods, reports say",
+      "summary": "German intelligence believes guns found last year were for carrying out assassinations on behalf of Moscow, reports say.",
+      "link": "https://www.bbc.co.uk/news/articles/cp9edjpvplpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Hong Kong's Tiananmen activists guilty in national security trial",
+      "summary": "Three activists were accused of inciting others to subvert state power under the China-introduced law.",
+      "link": "https://www.bbc.co.uk/news/articles/c1l10mdrld5o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
