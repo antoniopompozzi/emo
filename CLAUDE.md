@@ -86,10 +86,15 @@ retry.
   concept).
 
 Entrambi i flag vengono dichiarati onestamente nel modale "why this
-image?" di quel giorno (`_hero.html`) — non vanno mai nascosti lì. Non
-esiste (ancora) alcun filtro che escluda i giorni di fallback dalla
-griglia della pagina archivio: se in futuro viene chiesto, va implementato
-da zero in `website/build_site.py`.
+image?" di quel giorno (`_hero.html`) — non vanno mai nascosti lì.
+`website/build_site.py` esclude però i giorni con uno dei due flag a
+`true` (funzione `is_fallback_day`) dalla lista `gallery_days` passata al
+template `archive.html`, quindi non compaiono come miniatura nella
+griglia della pagina archivio. È un filtro solo sulla griglia: la lista
+`days` non filtrata continua a essere usata per generare normalmente la
+pagina singola `days/<data>/` di quel giorno (che resta raggiungibile e
+mostra comunque la nota di fallback in `_hero.html`), per l'homepage se
+quel giorno fosse il più recente, e per `sitemap.xml`/`robots.txt`.
 
 ## Dominio, SEO e condivisione
 
@@ -229,6 +234,10 @@ di card) deve degradare con grazia, non assumere che sia sempre presente.
 - Verifica visiva (idealmente Playwright sul sito live, non solo
   localhost) prima di dichiarare un task concluso.
 - Nessun merge/deploy su `main` senza conferma esplicita dell'autore.
+- Qualunque task che cambia un comportamento già documentato in questo
+  file deve aggiornare CLAUDE.md nello stesso branch, in un commit
+  separato, prima di fermarsi per la conferma di merge — non lasciarlo
+  disallineato per una sessione futura.
 
 ## Segreti
 
