@@ -24,6 +24,10 @@ def load_config() -> dict:
         return yaml.safe_load(f)
 
 
+def is_fallback_day(day: dict) -> bool:
+    return bool(day.get("concept_used_fallback")) or bool(day.get("image_used_fallback"))
+
+
 def load_days(archive_root: Path) -> list[dict]:
     days = []
     if not archive_root.exists():
@@ -123,13 +127,22 @@ def build(config: dict) -> Path:
         encoding="utf-8",
     )
 
+    # Fallback days (concept_used_fallback or image_used_fallback) are
+    # left out of the archive grid's thumbnails -- the day's own content
+    # was degraded that day, so it's not representative of what EMO
+    # produced from the news. Their own /days/<date>/ page is still built
+    # below like any other day, disclosing the fallback in its "why this
+    # image?" modal (_hero.html) as always; only the grid listing skips
+    # them, so this file remains unreachable through the archive index
+    # but stays a normal, linkable page.
     archive_out_dir = output_root / "archive"
     archive_out_dir.mkdir(parents=True, exist_ok=True)
+    gallery_days = [day for day in days if not is_fallback_day(day)]
     (archive_out_dir / "index.html").write_text(
         env.get_template("archive.html").render(
             site_title=site_title,
             root="../",
-            days=days,
+            days=gallery_days,
             page_url=f"{base_url}archive/",
             canonical_url=f"{base_url}archive/",
         ),

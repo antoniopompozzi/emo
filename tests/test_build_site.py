@@ -5,12 +5,19 @@ from PIL import Image
 from website.build_site import build
 
 
-def _write_day(archive_root, date_str, *, with_share_card=False):
+def _write_day(archive_root, date_str, *, with_share_card=False, concept_used_fallback=False, image_used_fallback=False):
     day_dir = archive_root / date_str
     day_dir.mkdir(parents=True)
     Image.new("RGB", (10, 10), color=(0, 0, 0)).save(day_dir / "final.png")
     (day_dir / "metadata.json").write_text(
-        json.dumps({"date": date_str, "explanation": "test", "emotion": "joy", "emotion_color": "#d4a017"}),
+        json.dumps({
+            "date": date_str,
+            "explanation": "test",
+            "emotion": "joy",
+            "emotion_color": "#d4a017",
+            "concept_used_fallback": concept_used_fallback,
+            "image_used_fallback": image_used_fallback,
+        }),
         encoding="utf-8",
     )
     if with_share_card:
@@ -72,3 +79,29 @@ def test_latest_day_page_canonicalizes_to_homepage(tmp_path):
     older_day_html = (output_root / "days" / "2026-08-19" / "index.html").read_text(encoding="utf-8")
     assert '<link rel="canonical" href="https://example.com/">' in latest_day_html
     assert '<link rel="canonical" href="https://example.com/days/2026-08-19/">' in older_day_html
+
+
+def test_fallback_day_excluded_from_archive_grid_but_page_still_built(tmp_path):
+    archive_root = tmp_path / "archive"
+    _write_day(archive_root, "2026-08-20")
+    _write_day(archive_root, "2026-08-19", concept_used_fallback=True)
+    _write_day(archive_root, "2026-08-18", image_used_fallback=True)
+
+    config = {
+        "site": {"title": "EMO", "base_url": "https://example.com/"},
+        "paths": {"archive_dir": str(archive_root), "site_output_dir": str(tmp_path / "_site")},
+    }
+    output_root = build(config)
+
+    archive_html = (output_root / "archive" / "index.html").read_text(encoding="utf-8")
+    assert "2026-08-20" in archive_html
+    assert "2026-08-19" not in archive_html
+    assert "2026-08-18" not in archive_html
+
+    # The fallback days' own pages must still exist and stay reachable,
+    # and still be listed in the sitemap -- only the grid excludes them.
+    assert (output_root / "days" / "2026-08-19" / "index.html").exists()
+    assert (output_root / "days" / "2026-08-18" / "index.html").exists()
+    sitemap = (output_root / "sitemap.xml").read_text(encoding="utf-8")
+    assert "<loc>https://example.com/days/2026-08-19/</loc>" in sitemap
+    assert "<loc>https://example.com/days/2026-08-18/</loc>" in sitemap
