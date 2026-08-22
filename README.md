@@ -112,7 +112,8 @@ repository secrets in CI, see Automation below).
 
 ## Automation
 
-[.github/workflows/daily.yml](.github/workflows/daily.yml) runs once a day (06:00 UTC): it
+[.github/workflows/daily.yml](.github/workflows/daily.yml) runs once a day (06:07 UTC, offset
+off the top of the hour to avoid GitHub's scheduling delays): it
 executes the pipeline, commits the new `archive/<date>/` folder, rebuilds the site, and deploys
 it to GitHub Pages. It needs two secrets, set under Settings → Secrets and variables → Actions:
 `ANTHROPIC_API_KEY` and `OPENAI_API_KEY`.
