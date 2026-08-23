@@ -25,6 +25,40 @@ import numpy as np
 from PIL import Image
 
 
+def previously_used_links(archive_root: Path, window_days: int | None = None) -> set[str]:
+    """Raccoglie i link delle notizie già usate nei giorni precedenti.
+
+    Legge archive/<date>/metadata.json per ogni giorno esistente ed
+    estrae il campo "link" di ogni voce in "headlines". Usata da
+    pipeline.news per evitare di riprendere una notizia già usata da
+    EMO, anche se resta ancora in cima al feed RSS. `window_days`, se
+    indicato, limita la ricerca alle N cartelle-giorno più recenti
+    invece che a tutto l'archivio, così una notizia molto vecchia può
+    tornare a essere selezionabile.
+    """
+    if not archive_root.exists():
+        return set()
+
+    day_dirs = sorted(p for p in archive_root.iterdir() if p.is_dir())
+    if window_days is not None:
+        day_dirs = day_dirs[-window_days:]
+
+    links: set[str] = set()
+    for day_dir in day_dirs:
+        metadata_path = day_dir / "metadata.json"
+        if not metadata_path.exists():
+            continue
+        try:
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        for headline in metadata.get("headlines", []):
+            link = headline.get("link")
+            if link:
+                links.add(link)
+    return links
+
+
 def write_day(
     date_str: str,
     archive_root: Path,

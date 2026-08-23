@@ -45,7 +45,11 @@ def run() -> Path:
     logger = ExchangeLogger()
     date_str = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
 
-    headlines = news.fetch_headlines(config, logger)
+    archive_root = REPO_ROOT / config["paths"]["archive_dir"]
+    exclude_links = archive.previously_used_links(
+        archive_root, window_days=config["news"].get("dedup_window_days")
+    )
+    headlines = news.fetch_headlines(config, logger, exclude_links=exclude_links)
 
     if anthropic_api_key:
         concept_result = concept.choose_concept(headlines, config, anthropic_api_key, logger)
@@ -97,7 +101,6 @@ def run() -> Path:
         "claude_model": config["claude"]["model"],
     }
 
-    archive_root = REPO_ROOT / config["paths"]["archive_dir"]
     day_dir = archive.write_day(
         date_str,
         archive_root,

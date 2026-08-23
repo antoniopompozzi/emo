@@ -59,3 +59,14 @@ def test_fetch_headlines_returns_empty_list_when_both_sources_fail():
         headlines = fetch_headlines(_config(), logger)
     assert headlines == []
     assert logger.records["news"][-1]["status"] == "all_sources_failed"
+
+
+def test_fetch_headlines_never_returns_an_excluded_link():
+    logger = ExchangeLogger()
+    mock_response = Mock(content=SAMPLE_RSS)
+    mock_response.raise_for_status = Mock()
+    with patch("pipeline.news.requests.get", return_value=mock_response):
+        headlines = fetch_headlines(_config(), logger, exclude_links={"https://example.com/1"})
+    assert len(headlines) == 1
+    assert headlines[0]["link"] == "https://example.com/2"
+    assert logger.records["news"][0]["skipped_duplicates"] == 1
