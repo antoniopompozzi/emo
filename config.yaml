@@ -6,6 +6,7 @@ news:
   fallback_feed_url: "https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en"
   max_items: 12
   request_timeout_seconds: 15
+  dedup_window_days: 30  # giorni indietro da controllare per evitare doppioni; null = tutto l'archivio
 
 claude:
   model: "claude-haiku-4-5-20251001"

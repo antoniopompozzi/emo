@@ -36,10 +36,17 @@ def _fetch_feed(url: str, timeout: int) -> list[dict]:
     return items
 
 
-def fetch_headlines(config: dict, logger) -> list[dict]:
-    """Returns up to `max_items` headlines, trying the primary feed then the fallback."""
+def fetch_headlines(config: dict, logger, exclude_links: set[str] | None = None) -> list[dict]:
+    """Returns up to `max_items` headlines, trying the primary feed then the fallback.
+
+    `exclude_links` is the set of links already used in previous days (see
+    pipeline.archive.previously_used_links): matching entries are dropped,
+    so a headline still at the top of the feed isn't picked up again just
+    because it hasn't scrolled off yet.
+    """
     max_items = config["news"]["max_items"]
     timeout = config["news"]["request_timeout_seconds"]
+    exclude_links = exclude_links or set()
 
     sources = (
         ("bbc_world", config["news"]["primary_feed_url"]),
@@ -47,8 +54,14 @@ def fetch_headlines(config: dict, logger) -> list[dict]:
     )
     for source_name, url in sources:
         try:
-            items = _fetch_feed(url, timeout)[:max_items]
-            logger.log("news", source=source_name, url=url, status="ok", item_count=len(items))
+            all_items = _fetch_feed(url, timeout)
+            fresh_items = [item for item in all_items if item["link"] not in exclude_links]
+            skipped = len(all_items) - len(fresh_items)
+            items = fresh_items[:max_items]
+            logger.log(
+                "news", source=source_name, url=url, status="ok",
+                item_count=len(items), skipped_duplicates=skipped,
+            )
             if items:
                 return items
         except Exception as exc:
