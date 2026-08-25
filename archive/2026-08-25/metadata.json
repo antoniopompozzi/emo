@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-25",
+  "concept": "A tense standoff scene: two figures facing each other across a barren, cracked landscape under a darkening sky. One figure wields a raised fist or shield made of jagged geometric shards; the other mirrors the pose. Between them, concentric ripples emanate from a central point like spreading tension or impact. The ground is fractured into sharp angular patterns. Storm clouds roil overhead in heavy blacks and bruised purples. Bold, angular art deco style with stark silhouettes and maximum contrast. Flat planes of solid color with minimal gradient.",
+  "explanation": "Today's headlines are dominated by escalating tensions, threats, and geopolitical brinkmanship: US-Iran sanctions rhetoric, Kremlin warnings of attacks on UK factories, US-Canada trade war threats, and Israeli-Gaza military posturing. These dueling declarations of readiness and retaliation create a global atmosphere of mutual threat and standoff. The fractured ground and opposing figures represent competing powers locked in cycles of provocation and counter-provocation, while the storm suggests gathering instability. A few isolated tragedies (death in Death Valley, tornado in France, jailed sect leader) underscore human vulnerability amid this larger chaos.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Iran says it is 'fully prepared' to counter widened US economic sanctions",
+      "summary": "The US calls its latest sanctions on Iran an \"economic D-Day\", but Tehran says it has a plan to address them.",
+      "link": "https://www.bbc.co.uk/news/articles/c0qxew81y83o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Lockerbie bombing trial postponed days before it was due to start",
+      "summary": "The trial of a Libyan man is delayed for a third time, after new evidence on the 37-year-old case came to light three days ago.",
+      "link": "https://www.bbc.co.uk/news/articles/cq63rmj1zl1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "UK drone factories may face attacks from 'unknown sources', says Kremlin adviser",
+      "summary": "The comments on BBC Newsnight come after the UK announced it has agreed to hand over blueprints for British-made missile components to Ukraine.",
+      "link": "https://www.bbc.co.uk/news/articles/cg598m3meeyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US removes Syria from list of state sponsors of terrorism",
+      "summary": "The Trump administration has embraced Syria's new president, former al-Qaeda linked militant Ahmed al-Sharaa.",
+      "link": "https://www.bbc.co.uk/news/articles/c33knmyl0y5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "French tourist dies in Death Valley after car gets stuck in mud",
+      "summary": "The 68-year-old man was found dead in California's salt flats amid 116°F (46.6C) heat.",
+      "link": "https://www.bbc.co.uk/news/articles/clyl81jlzr2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Kit Harington replaces Nicholas Hoult in HBO's Harry Potter series",
+      "summary": "Hoult was announced as Gilderoy Lockhart two weeks ago but has dropped out due to scheduling issues.",
+      "link": "https://www.bbc.co.uk/news/articles/c783lnz12vlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Moment tornado tears through southern France",
+      "summary": "The tornado has injured more than 40 people and destroyed homes in villages.",
+      "link": "https://www.bbc.co.uk/news/videos/ckg8wkd0j7do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US-Canada trade war escalates as Trump threatens tariff hike on vehicles",
+      "summary": "Mark Carney accused Trump of wanting to \"destroy\" Canada's auto industry, and said he would only resume trade talks if the US comes with the \"right attitude\".",
+      "link": "https://www.bbc.co.uk/news/articles/c93vpd60654o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "King of Norway's health has worsened, palace says",
+      "summary": "Norway's King Harald remains in hospital receiving antibiotics for a bloodstream bacterial infection.",
+      "link": "https://www.bbc.co.uk/news/articles/c36lnekj659o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Israel warns of 'forceful' response to kites flown from Gaza",
+      "summary": "Hamas says the kites found in Israeli border communities in recent days were launched by children in Gaza.",
+      "link": "https://www.bbc.co.uk/news/articles/c5y58g2dp3xo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russia's second-biggest online retailer targeted in Ukrainian strikes",
+      "summary": "Ozon says its warehouses across southern Russia, including in Dagestan and Krasnodar, were hit in the overnight strikes.",
+      "link": "https://www.bbc.co.uk/news/articles/cg598yvrzpro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "NZ religious sect leader jailed over death of Chinese follower",
+      "summary": "The body of 70-year-old Shulai Wang was found near a marina in Auckland in 2024.",
+      "link": "https://www.bbc.co.uk/news/articles/c3d79z4z953o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
