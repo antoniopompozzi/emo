@@ -12,6 +12,10 @@ body.oracle-page {
   color: #f3ead9;
 }
 
+body.oracle-page .hero-image {
+  border-color: #f3ead9;
+}
+
 body.oracle-page .brand-label,
 body.oracle-page .brand-label-inline {
   background: #1a1a1a;

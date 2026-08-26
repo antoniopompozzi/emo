@@ -36,6 +36,7 @@ body {
   max-height: 92vh;
   width: auto;
   height: auto;
+  border: 2px solid #000000;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
 }
