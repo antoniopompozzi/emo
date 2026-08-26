@@ -202,3 +202,28 @@ def test_sitemap_has_no_oracle_urls(tmp_path):
     output_root = _build_with_weeks(tmp_path, ["2026-08-19", "2026-08-26"])
     sitemap = (output_root / "sitemap.xml").read_text(encoding="utf-8")
     assert "oracle" not in sitemap
+
+
+def test_archive_page_has_a_second_oracle_section_with_dynamic_cards(tmp_path):
+    output_root = _build_with_weeks(
+        tmp_path, ["2026-08-19", "2026-08-26"], week_start="2026-08-20", verdict="positive"
+    )
+    archive_html = (output_root / "archive" / "index.html").read_text(encoding="utf-8")
+    assert "<h1>ORACLE</h1>" in archive_html
+    assert "oracle-archive-item" in archive_html
+    assert 'data-oracle-range="AUG 20–26"' in archive_html
+    assert 'data-oracle-verdict="positive"' in archive_html
+    assert 'data-oracle-verdict-color="#f3ead9"' in archive_html
+    assert 'data-oracle-image="../oracle/2026-08-26/final.png"' in archive_html
+    assert 'data-oracle-share-image="../oracle/2026-08-26/share_card.png"' in archive_html
+    assert 'data-oracle-share-filename="oracle-2026-08-26.png"' in archive_html
+    assert 'id="oracle-archive-modal"' in archive_html
+    # Entries must be buttons that open the modal in place, not links
+    # that navigate -- ORACLE has no archived page to navigate to.
+    assert '<a class="gallery-item oracle-archive-item"' not in archive_html
+
+
+def test_archive_page_oracle_section_empty_state(tmp_path):
+    output_root = _build(tmp_path, with_latest_share_card=True)
+    archive_html = (output_root / "archive" / "index.html").read_text(encoding="utf-8")
+    assert "No ORACLE verdicts have been published yet." in archive_html

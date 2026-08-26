@@ -203,6 +203,7 @@ def build(config: dict) -> Path:
             site_title=site_title,
             root="../",
             days=gallery_days,
+            weeks=weeks,
             page_url=f"{base_url}archive/",
             canonical_url=f"{base_url}archive/",
         ),
