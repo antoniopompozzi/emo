@@ -1,10 +1,6 @@
-{# The one shared SHARE dialog (card preview + download link + copy-link
-   button), opened by any .share-trigger button on the page -- see
-   initShareButton in script.js. Included by both _hero.html (EMO's own
-   SHARE button, plus "SHARE THIS ORACLE" in the ORACLE modal) and
-   archive.html ("SHARE THIS ORACLE" in the dynamic ORACLE archive
-   modal), so every page with a share trigger needs this dialog present
-   exactly once -- do not duplicate this markup inline elsewhere. #}
+{# The SHARE dialog (card preview + download link + copy-link button),
+   opened by #share-btn -- see initShareButton in script.js. Included by
+   _hero.html. #}
 <dialog id="share-modal" class="why-modal">
   <button type="button" class="modal-close" id="share-modal-close" aria-label="Close">&times;</button>
   <h2>SHARE</h2>
