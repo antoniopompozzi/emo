@@ -171,12 +171,27 @@ def test_oracle_home_page_shows_the_latest_week(tmp_path):
     assert (output_root / "oracle" / "weeks" / "2026-08-19" / "final.png").exists()
 
 
-def test_oracle_archive_labels_weeks_by_chronological_position_not_stored_counter(tmp_path):
-    output_root = _build_with_weeks(tmp_path, ["2026-08-12", "2026-08-19", "2026-08-26"])
+def test_oracle_archive_shows_only_the_date_range_label_not_week_number(tmp_path):
+    archive_root = tmp_path / "archive"
+    _write_day(archive_root, "2026-08-20")
+    oracle_archive_root = tmp_path / "oracle_archive"
+    _write_week(oracle_archive_root, "2026-08-19", week_start="2026-08-13")
+    _write_week(oracle_archive_root, "2026-08-26", week_start="2026-08-20")
+
+    config = {
+        "site": {"title": "EMO", "base_url": "https://example.com/"},
+        "paths": {
+            "archive_dir": str(archive_root),
+            "oracle_archive_dir": str(oracle_archive_root),
+            "site_output_dir": str(tmp_path / "_site"),
+        },
+    }
+    output_root = build(config)
+
     archive_html = (output_root / "oracle" / "archive" / "index.html").read_text(encoding="utf-8")
-    assert "WEEK 1" in archive_html  # oldest
-    assert "WEEK 2" in archive_html
-    assert "WEEK 3" in archive_html  # newest
+    assert "WEEK" not in archive_html
+    assert "AUG 13–19" in archive_html
+    assert "AUG 20–26" in archive_html
 
 
 def test_oracle_latest_week_page_canonicalizes_to_oracle_home(tmp_path):

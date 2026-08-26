@@ -237,14 +237,44 @@ settimanale), il contenuto (concept, explanation, verdetto) resta libero.
 - Sul sito, le pagine ORACLE vivono sotto `/oracle/` (`oracle/index.html`,
   `oracle/archive/index.html`, `oracle/weeks/<data>/`), tema scuro scoped
   interamente sotto `body.oracle-page` (`website/static/oracle.css`, foglio
-  separato, `style.css` non toccato), caricato via il blocco `extra_head` di
-  `base.html`. Il pulsante ORACLE in alto a destra su ogni pagina EMO
-  (`.hero-actions-top-right`, rispecchia `.brand-label`) manca
-  deliberatamente sulle pagine ORACLE stesse (`_oracle_hero.html`, non un
-  fork di `_hero.html`). Le pagine ORACLE usano una variabile `oracle_root`
-  distinta da `root`: `root` resta relativo alla radice del sito (per
-  `static/`), `oracle_root` è relativo al solo sottoalbero `oracle/` (per la
-  navigazione interna EMO - ORACLE/ARCHIVE).
+  separato), caricato via il blocco `extra_head` di `base.html`. Le pagine
+  ORACLE usano una variabile `oracle_root` distinta da `root`: `root` resta
+  relativo alla radice del sito (per `static/` e per il pulsante EMO di
+  ritorno, vedi sotto), `oracle_root` è relativo al solo sottoalbero
+  `oracle/` (per la navigazione interna ORACLE/ARCHIVE).
+- **Pulsanti ORACLE/EMO speculari**: il pulsante ORACLE in alto a destra su
+  ogni pagina EMO (`.hero-actions-top-right`, rispecchia `.brand-label`) ha
+  un pulsante EMO speculare sulle pagine ORACLE stesse (`_oracle_hero.html`,
+  stessa classe `.hero-actions-top-right`, link a `{{ root }}index.html` —
+  non `{{ oracle_root }}`, perché deve uscire dal sottoalbero `/oracle/`).
+  Nessun pulsante ORACLE sulla pagina ORACLE stessa (sei già lì).
+- **Branding on-page vs. card scaricabile**: `.brand-label`/
+  `.brand-label-inline` sulle pagine ORACLE mostrano solo "ORACLE" (non più
+  "EMO - ORACLE") — il pulsante EMO di ritorno fa già quel lavoro di
+  collegamento. La card scaricabile (`pipeline/oracle_share_card.py`) resta
+  invece deliberatamente "EMO - ORACLE": deve restare autoesplicativa anche
+  fuori dal contesto del sito (un download o uno screenshot condiviso
+  altrove), dove il pulsante EMO non esiste. Non allineare i due — è
+  intenzionale.
+- **Bordo di `.hero-image`**: `border: 2px solid #000000` in `style.css`
+  (condiviso EMO+ORACLE, coerente con l'1px già usato per le miniature
+  `.gallery-item img`, più marcato perché l'elemento è molto più grande),
+  con `border-color: #f3ead9` sovrascritto in `oracle.css` sotto
+  `body.oracle-page`.
+- **`.hero-image` più piccola su ORACLE**: `max-width: 74vw; max-height:
+  66vh` in `oracle.css`, sotto `body.oracle-page`. Senza, l'immagine
+  panoramica 3:2 di ORACLE su un viewport più largo che alto (il caso
+  comune) cresce con `max-height: 92vh` ereditato da `style.css` fin quasi
+  al bordo, finendo sotto ai pulsanti fissi (`.hero-actions`,
+  `.hero-actions-left`, `.hero-actions-top-right`). Questi due valori sono
+  tarati empiricamente (verifica visiva Playwright su più viewport, non una
+  formula) — se il layout della pagina ORACLE cambia, riverificarli
+  visivamente prima di assumerli ancora corretti.
+- **Etichetta dell'archivio ORACLE**: mostra solo l'intervallo di date
+  (`pipeline.oracle_share_card.format_week_range`, es. "AUG 20–26"), non più
+  "WEEK N". `week_number` (posizione cronologica) resta comunque scritto nei
+  metadati passati al template da `build_site.py`, semplicemente non più
+  mostrato.
 
 ## Cronologia architetturale essenziale (per non riproporre idee già scartate)
 

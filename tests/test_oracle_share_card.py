@@ -1,20 +1,20 @@
 from PIL import Image
 
-from pipeline.oracle_share_card import _format_week_range, render_oracle_share_card
+from pipeline.oracle_share_card import format_week_range, render_oracle_share_card
 
 
 def test_format_week_range_within_the_same_month():
-    assert _format_week_range("2026-08-20", "2026-08-26") == "AUG 20–26"
+    assert format_week_range("2026-08-20", "2026-08-26") == "AUG 20–26"
 
 
 def test_format_week_range_across_a_month_boundary():
-    assert _format_week_range("2026-12-27", "2027-01-02") == "DEC 27–JAN 2"
+    assert format_week_range("2026-12-27", "2027-01-02") == "DEC 27–JAN 2"
 
 
 def test_format_week_range_shows_no_year():
-    label = _format_week_range("2026-08-20", "2026-08-26")
+    label = format_week_range("2026-08-20", "2026-08-26")
     assert "2026" not in label
-    label_cross_month = _format_week_range("2026-12-27", "2027-01-02")
+    label_cross_month = format_week_range("2026-12-27", "2027-01-02")
     assert "2026" not in label_cross_month and "2027" not in label_cross_month
 
 

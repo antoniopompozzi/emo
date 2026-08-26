@@ -12,6 +12,18 @@ body.oracle-page {
   color: #f3ead9;
 }
 
+body.oracle-page .hero-image {
+  border-color: #f3ead9;
+  /* ORACLE's image is panoramic (3:2), so on a wider-than-tall
+     viewport (the common case) style.css's max-height: 92vh alone lets
+     it grow wide enough to run under the fixed corner buttons
+     (.hero-actions-top-right, .hero-actions, .hero-actions-left).
+     Smaller caps here keep a clean margin on all four sides -- tuned
+     empirically, not derived from a formula. */
+  max-width: 74vw;
+  max-height: 66vh;
+}
+
 body.oracle-page .brand-label,
 body.oracle-page .brand-label-inline {
   background: #1a1a1a;
