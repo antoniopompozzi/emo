@@ -31,7 +31,11 @@ def _build(tmp_path, *, with_latest_share_card):
 
     config = {
         "site": {"title": "EMO", "base_url": "https://example.com/"},
-        "paths": {"archive_dir": str(archive_root), "site_output_dir": str(tmp_path / "_site")},
+        "paths": {
+            "archive_dir": str(archive_root),
+            "oracle_archive_dir": str(tmp_path / "oracle_archive"),
+            "site_output_dir": str(tmp_path / "_site"),
+        },
     }
     output_root = build(config)
     return output_root
@@ -89,7 +93,11 @@ def test_fallback_day_excluded_from_archive_grid_but_page_still_built(tmp_path):
 
     config = {
         "site": {"title": "EMO", "base_url": "https://example.com/"},
-        "paths": {"archive_dir": str(archive_root), "site_output_dir": str(tmp_path / "_site")},
+        "paths": {
+            "archive_dir": str(archive_root),
+            "oracle_archive_dir": str(tmp_path / "oracle_archive"),
+            "site_output_dir": str(tmp_path / "_site"),
+        },
     }
     output_root = build(config)
 

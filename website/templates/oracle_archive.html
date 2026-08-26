@@ -5,15 +5,15 @@
 {% block content %}
 <div class="archive-page">
   <header class="archive-header">
-    <a class="brand-label-inline" href="{{ root }}index.html">EMO - ORACLE</a>
+    <a class="brand-label-inline" href="{{ oracle_root }}index.html">EMO - ORACLE</a>
     <h1>ARCHIVE</h1>
   </header>
 
   {% if weeks %}
   <div class="gallery-grid">
     {% for w in weeks %}
-    <a class="gallery-item" href="{{ root }}weeks/{{ w._dir_name }}/" title="{{ w.week_start }} – {{ w.week_end }}">
-      <img src="{{ root }}weeks/{{ w._dir_name }}/final.png" alt="ORACLE's verdict image for the week ending {{ w.week_end }}"
+    <a class="gallery-item" href="{{ oracle_root }}weeks/{{ w._dir_name }}/" title="{{ w.week_start }} – {{ w.week_end }}">
+      <img src="{{ oracle_root }}weeks/{{ w._dir_name }}/final.png" alt="ORACLE's verdict image for the week ending {{ w.week_end }}"
            loading="lazy" width="150" height="100">
       <span>WEEK {{ w.week_number }} · {{ w.week_start }} – {{ w.week_end }}</span>
     </a>
