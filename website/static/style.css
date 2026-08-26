@@ -72,17 +72,6 @@ body {
   justify-content: flex-end;
 }
 
-/* Mirrors .brand-label -- same top offset, opposite side. */
-.hero-actions-top-right {
-  position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
 /* Mirrors .hero-actions -- same bottom offset, opposite side. */
 .hero-actions-left {
   position: fixed;
@@ -250,23 +239,6 @@ body {
   margin: 0;
 }
 
-/* Wraps the single "SHARE THIS ORACLE" button at the bottom of the
-   ORACLE modal/oracle-archive-modal -- centered, unlike .share-actions
-   above (which lays out DOWNLOAD/COPY LINK side by side). */
-.share-actions-inline {
-  margin: 1rem 0 0;
-  text-align: center;
-}
-
-/* A smaller .pixel-btn variant, used only for "SHARE THIS ORACLE" --
-   proportionally scaled down from the standard button (font-size
-   0.65rem, padding 0.65rem 0.85rem, 2px border). */
-.pixel-btn-small {
-  font-size: 0.5rem;
-  padding: 0.45rem 0.6rem;
-  border-width: 1px;
-}
-
 /* ---- Archive page ---- */
 
 .archive-page {
@@ -315,22 +287,6 @@ body {
   text-decoration: none;
   color: #000000;
   font-size: 0.75rem;
-}
-
-/* The ORACLE archive section's entries are <button>s, not <a>s (they
-   open a modal in place instead of navigating) -- undo the browser's
-   default button chrome so they render identically to the <a>
-   .gallery-item entries above. */
-button.gallery-item {
-  appearance: none;
-  -webkit-appearance: none;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
 }
 
 .gallery-item img {

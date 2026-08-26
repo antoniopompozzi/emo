@@ -5,27 +5,14 @@
    the two is which day's data and asset folder get passed in, via the
    `day` and `image_base` variables. Do not fork this into a separate
    per-page component: the archive route must render the exact same
-   markup/CSS/JS as the homepage, just pointed at a different day.
-
-   The ORACLE button/modal here always shows the single most recent
-   ORACLE week (never a specific archived one -- that lives in
-   archive.html's own dynamic modal, see initOracleArchiveModal in
-   script.js), via `oracle_week`/`oracle_image_base`/`oracle_share_image`
-   -- passed to both index.html and day.html identically, since this
-   partial is shared. `oracle_week` is None when no week has been
-   published yet; the modal degrades gracefully in that case. #}
+   markup/CSS/JS as the homepage, just pointed at a different day. #}
 <div class="hero">
   <img class="hero-image" src="{{ image_base }}final.png" alt="EMO's image for {{ day.date }}">
 
   <div class="brand-label"><a class="brand-text" href="{{ root }}index.html">EMO</a></div>
 
-  <div class="hero-actions-top-right">
-    <button type="button" class="pixel-btn" id="oracle-btn">ORACLE</button>
-  </div>
-
   <div class="hero-actions-left">
-    <button type="button" class="pixel-btn share-trigger" id="share-btn"
-            data-share-image="{{ image_base }}share_card.png" data-share-filename="emo-{{ day.date }}.png">
+    <button type="button" class="pixel-btn" id="share-btn" data-share-image="{{ image_base }}share_card.png">
       <svg class="share-icon" viewBox="0 0 9 9" aria-hidden="true" focusable="false">
         <rect x="4" y="0" width="1" height="1" fill="#000"/>
         <rect x="3" y="1" width="3" height="1" fill="#000"/>
@@ -75,28 +62,5 @@
     <li><a href="{{ h.link }}" target="_blank" rel="noopener">{{ h.title }}</a>{% if h.summary %} — {{ h.summary }}{% endif %}</li>
     {% endfor %}
   </ul>
-  {% endif %}
-</dialog>
-
-<dialog id="oracle-modal" class="why-modal">
-  <button type="button" class="modal-close" id="oracle-modal-close" aria-label="Close">&times;</button>
-  {% if oracle_week %}
-  <h2>{{ oracle_week.range_label }}</h2>
-  <p class="emotion-tag">
-    <span class="emotion-swatch" style="background:{{ oracle_week.verdict_color }}"></span>
-    Verdict: {{ oracle_week.verdict }}
-  </p>
-  <img class="share-preview" src="{{ oracle_image_base }}final.png" alt="ORACLE's verdict image for the week ending {{ oracle_week.week_end }}">
-  <p class="explanation">{{ oracle_week.explanation }}</p>
-  <p class="share-actions-inline">
-    <button type="button" class="pixel-btn pixel-btn-small share-trigger"
-            data-share-image="{{ oracle_share_image }}"
-            data-share-filename="oracle-{{ oracle_week.week_end }}.png">
-      SHARE THIS ORACLE
-    </button>
-  </p>
-  {% else %}
-  <h2>ORACLE</h2>
-  <p class="explanation">No ORACLE verdicts have been published yet.</p>
   {% endif %}
 </dialog>
