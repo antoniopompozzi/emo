@@ -4,11 +4,10 @@ the pixels.
 
 Reuses _badge_layout and _draw_pixel_badge from pipeline/share_card.py
 (that module's docstring says explicitly they are meant to be shared)
-so a proportion change only ever has to happen in one place. Unlike
-render_share_card, which always forces a square resize, ORACLE's
-final image is panoramic (1440x960, a 3:2 aspect ratio) -- this
-renderer always preserves whatever aspect ratio final_image actually
-has instead of forcing it square.
+so a proportion change only ever has to happen in one place. ORACLE's
+final image is square (1024x1024, same grid/cell size as EMO's own
+daily image) -- render_oracle_share_card forces a square resize just
+like render_share_card does for EMO.
 """
 from __future__ import annotations
 
@@ -49,15 +48,14 @@ def render_oracle_share_card(
     verdict: str,
     config: dict,
 ) -> Image.Image:
-    """Returns an RGB share card built from final_image, resized to
-    config["share_card"]["size"] wide while preserving final_image's
-    own aspect ratio (never forced square), with badges overlaid.
+    """Returns a size x size RGB share card built from final_image, with
+    badges overlaid directly on the (already square) resized image --
+    same logic as share_card.render_share_card for EMO's own daily card.
     """
-    width = config["share_card"]["size"]
-    height = round(width * final_image.height / final_image.width)
-    card = final_image.resize((width, height), resample=Image.NEAREST).convert("RGB")
+    size = config["share_card"]["size"]
+    card = final_image.resize((size, size), resample=Image.NEAREST).convert("RGB")
     draw = ImageDraw.Draw(card)
-    layout = _badge_layout(width)
+    layout = _badge_layout(size)
 
     _draw_pixel_badge(
         draw,
@@ -72,7 +70,7 @@ def render_oracle_share_card(
 
     week_label = format_week_range(week_start, week_end)
     verdict_label = verdict.upper()
-    bottom_y = height - layout.margin
+    bottom_y = size - layout.margin
 
     week_w, _ = _draw_pixel_badge(
         draw,
