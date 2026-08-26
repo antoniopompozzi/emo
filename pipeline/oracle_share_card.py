@@ -23,13 +23,16 @@ _MONTH_ABBR = {
 }
 
 
-def _format_week_range(start_str: str, end_str: str) -> str:
+def format_week_range(start_str: str, end_str: str) -> str:
     """"2026-08-20", "2026-08-26" -> "AUG 20-26".
 
     Same month -> one month abbreviation shared by both ends. Crossing
     a month boundary -> the abbreviation is repeated on both ends, e.g.
     "2026-12-27", "2027-01-02" -> "DEC 27-JAN 2". No year shown, same
     convention as the daily share card's date badge.
+
+    Public (not module-private) because website/build_site.py also
+    calls it, to compute each archived week's range_label.
     """
     start_year, start_month, start_day = (int(part) for part in start_str.split("-"))
     _, end_month, end_day = (int(part) for part in end_str.split("-"))
@@ -67,7 +70,7 @@ def render_oracle_share_card(
         anchor="top-left",
     )
 
-    week_label = _format_week_range(week_start, week_end)
+    week_label = format_week_range(week_start, week_end)
     verdict_label = verdict.upper()
     bottom_y = height - layout.margin
 

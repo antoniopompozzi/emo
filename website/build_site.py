@@ -11,12 +11,22 @@ from __future__ import annotations
 
 import json
 import shutil
+import sys
 from pathlib import Path
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+# Run as `python website/build_site.py` (see module docstring), which
+# does not put the repo root on sys.path -- needed to import `pipeline`
+# below for format_week_range. A no-op when already importable (e.g.
+# under pytest, which adds the repo root itself).
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from pipeline.oracle_share_card import format_week_range  # noqa: E402
 
 
 def load_config() -> dict:
@@ -52,6 +62,8 @@ def load_weeks(oracle_archive_root: Path) -> list[dict]:
             continue
         metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
         metadata["_dir_name"] = week_dir.name
+        if metadata.get("week_start") and metadata.get("week_end"):
+            metadata["range_label"] = format_week_range(metadata["week_start"], metadata["week_end"])
         weeks.append(metadata)
     return weeks
 
