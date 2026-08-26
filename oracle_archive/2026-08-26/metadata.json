@@ -1,0 +1,24 @@
+{
+  "week_start": "2026-08-20",
+  "week_end": "2026-08-26",
+  "concept": "A vast eye opening in darkness, its iris an intricate spiral of fractures and shattered fragments rotating inward toward a void. The pupil is a deep black vortex surrounded by concentric rings of jagged geometric shards in cold blues, grays, and blood reds. Radiating outward from the eye are thin filaments or cracks spreading across a charcoal sky like lightning frozen mid-strike. The eyelashes are sharp, angular forms. The surrounding darkness is absolute and suffocating. Style: stark geometric brutalism with harsh contrasts, bold silhouettes, and a sense of witnessing horror or reckoning. Digital rendering with flat planes of solid color.",
+  "explanation": "This week's repeated imagery reveals a world trapped in a cycle of fracturing—political, economic, institutional, and human—with each shattering amplifying the others. The accumulation of broken structures, divided territories, escalating threats, and systemic overflow suggests humanity approaching a threshold of simultaneous destabilization. Yet the eye—singular, focused, and open—suggests a moment of forced reckoning: awareness is unavoidable. Whether this awareness catalyzes transformation or merely documents collapse remains the singular, terrifying question suspended above all futures.",
+  "verdict": "negative",
+  "verdict_color": "#5c1620",
+  "used_fallback": false,
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "claude_model": "claude-haiku-4-5-20251001",
+  "render_params": {
+    "grid_cols": 144,
+    "grid_rows": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1536x1024"
+  }
+}
