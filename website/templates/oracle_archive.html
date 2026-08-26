@@ -14,7 +14,7 @@
     {% for w in weeks %}
     <a class="gallery-item" href="{{ oracle_root }}weeks/{{ w._dir_name }}/" title="{{ w.week_start }} – {{ w.week_end }}">
       <img src="{{ oracle_root }}weeks/{{ w._dir_name }}/final.png" alt="ORACLE's verdict image for the week ending {{ w.week_end }}"
-           loading="lazy" width="150" height="100">
+           loading="lazy" width="150" height="150">
       <span>{{ w.range_label }}</span>
     </a>
     {% endfor %}

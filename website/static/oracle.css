@@ -14,14 +14,6 @@ body.oracle-page {
 
 body.oracle-page .hero-image {
   border-color: #f3ead9;
-  /* ORACLE's image is panoramic (3:2), so on a wider-than-tall
-     viewport (the common case) style.css's max-height: 92vh alone lets
-     it grow wide enough to run under the fixed corner buttons
-     (.hero-actions-top-right, .hero-actions, .hero-actions-left).
-     Smaller caps here keep a clean margin on all four sides -- tuned
-     empirically, not derived from a formula. */
-  max-width: 74vw;
-  max-height: 66vh;
 }
 
 body.oracle-page .brand-label,
@@ -100,8 +92,4 @@ body.oracle-page .gallery-item {
 
 body.oracle-page .gallery-item img {
   border-color: #f3ead9;
-  /* ORACLE's images are panoramic (3:2), unlike EMO's square days --
-     override style.css's 1:1 crop so the archive gallery's thumbnails
-     match the real proportions instead of cropping them square. */
-  aspect-ratio: 3 / 2;
 }
