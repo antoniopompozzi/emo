@@ -20,5 +20,54 @@
   {% else %}
   <p>No images have been published yet.</p>
   {% endif %}
+
+  {# ORACLE has no archived pages of its own -- each entry here opens
+     the same dynamic modal in place (see initOracleArchiveModal in
+     script.js) instead of navigating anywhere, so it's a <button>, not
+     an <a>. Visually coherent with the EMO grid above (same
+     gallery-grid/gallery-item classes) but kept as its own separate
+     section, not interleaved chronologically with EMO's days. #}
+  <header class="archive-header">
+    <h1>ORACLE</h1>
+  </header>
+
+  {% if weeks %}
+  <div class="gallery-grid">
+    {% for w in weeks %}
+    <button type="button" class="gallery-item oracle-archive-item"
+            data-oracle-image="{{ root }}oracle/{{ w._dir_name }}/final.png"
+            data-oracle-range="{{ w.range_label }}"
+            data-oracle-verdict="{{ w.verdict }}"
+            data-oracle-verdict-color="{{ w.verdict_color }}"
+            data-oracle-explanation="{{ w.explanation }}"
+            data-oracle-share-image="{{ root }}oracle/{{ w._dir_name }}/share_card.png"
+            data-oracle-share-filename="oracle-{{ w.week_end }}.png">
+      <img src="{{ root }}oracle/{{ w._dir_name }}/final.png" alt="ORACLE's verdict for the week ending {{ w.week_end }}"
+           loading="lazy" width="150" height="150">
+      <span>{{ w.range_label }}</span>
+    </button>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No ORACLE verdicts have been published yet.</p>
+  {% endif %}
 </div>
+
+{% include "_share_modal.html" %}
+
+<dialog id="oracle-archive-modal" class="why-modal">
+  <button type="button" class="modal-close" id="oracle-archive-modal-close" aria-label="Close">&times;</button>
+  <h2 id="oracle-archive-modal-range"></h2>
+  <p class="emotion-tag">
+    <span class="emotion-swatch" id="oracle-archive-modal-verdict-swatch"></span>
+    Verdict: <span id="oracle-archive-modal-verdict-text"></span>
+  </p>
+  <img class="share-preview" id="oracle-archive-modal-image" alt="ORACLE's verdict image">
+  <p class="explanation" id="oracle-archive-modal-explanation"></p>
+  <p class="share-actions-inline">
+    <button type="button" class="pixel-btn pixel-btn-small share-trigger" id="oracle-archive-modal-share-btn">
+      SHARE THIS ORACLE
+    </button>
+  </p>
+</dialog>
 {% endblock %}
