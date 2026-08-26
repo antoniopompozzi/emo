@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-26",
+  "concept": "A fractured mirror or shattered glass surface reflecting distorted, overlapping images of tariff documents, military aircraft silhouettes, storm clouds, and prison bars, all rendered in sharp geometric shards. The composition is chaotic and fragmented, with jagged edges radiating from a central point of impact. Color palette emphasizes cold blues, grays, and harsh reds. The style is brutal and angular, like broken glass under harsh light, suggesting simultaneous crises across multiple domains.",
+  "explanation": "Today's headlines paint a picture of escalating global instability: trade wars fragmenting North America, great powers maneuvering in secret diplomatic channels, surveillance and crime spreading, natural disasters ravaging communities, and systemic failures in public health and justice. Rather than depicting any single event, I've chosen the metaphor of shattering—simultaneous ruptures across geopolitics, economics, institutions, and ecosystems. The mirror reflects how each crisis distorts and multiplies others, creating a cascade of fractures.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Canada announces 'dollar-for-dollar' retaliatory tariffs on US as high as 50%",
+      "summary": "The latest escalation in an ongoing trade war between the US and Canada will see new levies on goods from steel to furniture, fresh tuna and makeup.",
+      "link": "https://www.bbc.co.uk/news/articles/c3v4xg5klx7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "China hits out at 'illegal' new US sanctions on Iran and trading partners",
+      "summary": "The US has threatened to isolate nations that continue to do business with Tehran, which sells much of its oil to Beijing.",
+      "link": "https://www.bbc.co.uk/news/articles/clyl8965j5go?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "CIA chief travels to Moscow for unannounced talks, US media reports",
+      "summary": "Flight tracking data confirms an American military aircraft travelled to Russia from the US via Latvia on Tuesday.",
+      "link": "https://www.bbc.co.uk/news/articles/c87vg9x5d7do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Mass arrests in global crackdown on West African cyber-crime networks",
+      "summary": "The operation included the arrest of 39 people in South Africa for romance and investment scams.",
+      "link": "https://www.bbc.co.uk/news/articles/cq5xdnxppl4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Brain disease in dead NFL players 'higher than previously shown'",
+      "summary": "A new study says at least one in four ex-NFL players who died between 2016 and 2021 had a degenerative brain disease but the true figure could be much higher.",
+      "link": "https://www.bbc.co.uk/sport/american-football/articles/cew9l95kyp0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Tornado tears through French village, leaving dozens hurt and homes ravaged",
+      "summary": "The south-western village of Pomas was hardest hit, with hundreds of homes damaged and fifteen people taken to hospital.",
+      "link": "https://www.bbc.co.uk/news/articles/c0m3npvpgdno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "European rights court orders Turkey to free imprisoned businessman",
+      "summary": "Philanthropist and activist Osman Kavala has spent almost a decade in jail over charges rights groups say are politically motivated.",
+      "link": "https://www.bbc.co.uk/news/articles/cn5drvyg92no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Nigeria's president orders manhunt after kidnappers upload victim video",
+      "summary": "The footage shows dozens of men, women and children sitting in a forest.",
+      "link": "https://www.bbc.co.uk/news/articles/c0rewkerdpyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Swedish military seeks to take over Russian-owned estate near naval base",
+      "summary": "The armed forces request the seizure of the plot near Muskö Naval Base citing threats from Russian drones.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgy3jplvd3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Two unvaccinated people die of measles in Pennsylvania",
+      "summary": "Cases in the US have hit the highest point since the virus was eliminated, as vaccination rates decline.",
+      "link": "https://www.bbc.co.uk/news/articles/c5yednen30go?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US firefighters say major blaze near Reno about a quarter contained",
+      "summary": "But officials fear that winds could fan the flames for two more days, as many locals remain under evacuation orders.",
+      "link": "https://www.bbc.co.uk/news/articles/c4gqlp0yzyjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Sonya Massey's killer Sean Grayson dies in US prison",
+      "summary": "The former police officer, whose crime reignited the debate about US police brutality, was undergoing treatment for cancer.",
+      "link": "https://www.bbc.co.uk/news/articles/cgrvj28wrxgo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
