@@ -88,4 +88,8 @@ body.oracle-page .gallery-item {
 
 body.oracle-page .gallery-item img {
   border-color: #f3ead9;
+  /* ORACLE's images are panoramic (3:2), unlike EMO's square days --
+     override style.css's 1:1 crop so the archive gallery's thumbnails
+     match the real proportions instead of cropping them square. */
+  aspect-ratio: 3 / 2;
 }
