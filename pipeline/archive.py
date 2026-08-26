@@ -59,6 +59,43 @@ def previously_used_links(archive_root: Path, window_days: int | None = None) ->
     return links
 
 
+def load_recent_days(archive_root: Path, n: int = 7) -> list[dict]:
+    """Reads the n most recent EMO days for ORACLE to reread.
+
+    Same iteration model as previously_used_links: the last n day
+    folders sorted by name, each metadata.json read once. Returns
+    date/concept/explanation/emotion for each, oldest to newest --
+    ORACLE reads EMO's own past interpretations, not the raw news, so
+    headlines are deliberately left out. Fallback days (concept or
+    image generation failed that day) are included with no filtering:
+    a day EMO couldn't read the news on is still a real, honestly-told
+    part of the week.
+    """
+    if not archive_root.exists():
+        return []
+
+    day_dirs = sorted(p for p in archive_root.iterdir() if p.is_dir())[-n:]
+
+    days: list[dict] = []
+    for day_dir in day_dirs:
+        metadata_path = day_dir / "metadata.json"
+        if not metadata_path.exists():
+            continue
+        try:
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        days.append(
+            {
+                "date": metadata.get("date", day_dir.name),
+                "concept": metadata.get("concept", ""),
+                "explanation": metadata.get("explanation", ""),
+                "emotion": metadata.get("emotion", ""),
+            }
+        )
+    return days
+
+
 def write_day(
     date_str: str,
     archive_root: Path,

@@ -68,17 +68,34 @@ def test_duotone_interpolates_between_black_and_the_hue_color():
     assert bright_cell == (0xC0, 0x39, 0x2B)
 
 
-def test_quantize_grid_shape_matches_grid_size():
+def test_quantize_grid_shape_matches_square_grid_size():
+    # Non-regression: EMO's own daily pipeline always passes a square
+    # grid_cols == grid_rows, and this must keep behaving exactly as
+    # before the rectangular generalization for ORACLE.
     source = Image.new("RGB", (300, 150), color=(90, 90, 90))
-    grid = quantize_grid(source, grid_size=20, gray_levels=8)
+    grid = quantize_grid(source, grid_cols=20, grid_rows=20, gray_levels=8)
     assert grid.shape == (20, 20)
     assert grid.dtype == np.uint8
+
+
+def test_quantize_grid_shape_matches_rectangular_grid_cols_and_rows():
+    # ORACLE's panoramic grid: more columns than rows.
+    source = Image.new("RGB", (1536, 1024), color=(90, 90, 90))
+    grid = quantize_grid(source, grid_cols=144, grid_rows=96, gray_levels=8)
+    assert grid.shape == (96, 144)
+    assert grid.dtype == np.uint8
+
+
+def test_render_grid_output_size_matches_rectangular_grid_times_px_per_cell():
+    grid = np.zeros((96, 144), dtype=np.uint8)
+    result = render_grid(grid, px_per_cell=10, hue_hex="#f3ead9")
+    assert result.size == (1440, 960)
 
 
 def test_render_grid_is_consistent_with_pixelate():
     source = Image.new("RGB", (64, 64), color=(50, 150, 250))
     hue = "#1a9e8f"  # surprise
-    grid = quantize_grid(source, grid_size=8, gray_levels=5)
+    grid = quantize_grid(source, grid_cols=8, grid_rows=8, gray_levels=5)
     rendered = render_grid(grid, px_per_cell=6, hue_hex=hue)
     combined = pixelate(source, grid_size=8, gray_levels=5, px_per_cell=6, hue_hex=hue)
     assert np.array_equal(np.array(rendered), np.array(combined))

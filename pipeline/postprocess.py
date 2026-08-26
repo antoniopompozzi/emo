@@ -26,13 +26,20 @@ import numpy as np
 from PIL import Image
 
 
-def quantize_grid(source: Image.Image, grid_size: int, gray_levels: int) -> np.ndarray:
-    """Returns a grid_size x grid_size array of quantized brightness values (0-255)."""
+def quantize_grid(source: Image.Image, grid_cols: int, grid_rows: int, gray_levels: int) -> np.ndarray:
+    """Returns a grid_rows x grid_cols array of quantized brightness values (0-255).
+
+    EMO's daily pipeline always calls this with grid_cols == grid_rows
+    (a square grid from a square source image); ORACLE's weekly
+    pipeline calls it with grid_cols > grid_rows to match its
+    panoramic 1536x1024 source (see pipeline/oracle_main.py). Both are
+    the same operation, just with an independent column/row count.
+    """
     grayscale = source.convert("L")
 
     # Box filter: PIL's BOX resample averages all source pixels that
     # fall into each destination pixel, i.e. one mean per grid cell.
-    small = grayscale.resize((grid_size, grid_size), resample=Image.BOX)
+    small = grayscale.resize((grid_cols, grid_rows), resample=Image.BOX)
 
     values = np.array(small, dtype=np.float64)
     bucket = np.clip(np.floor(values / 256.0 * gray_levels), 0, gray_levels - 1)
@@ -69,12 +76,18 @@ def render_grid(grid: np.ndarray, px_per_cell: int, hue_hex: str) -> Image.Image
         axis=-1,
     )
     grid_image = Image.fromarray(rgb, mode="RGB")
-    final_size = grid.shape[0] * px_per_cell
+    final_width = grid.shape[1] * px_per_cell
+    final_height = grid.shape[0] * px_per_cell
     # Nearest-neighbour upscale turns each cell into a hard-edged solid
     # block, with no antialiasing at cell boundaries.
-    return grid_image.resize((final_size, final_size), resample=Image.NEAREST)
+    return grid_image.resize((final_width, final_height), resample=Image.NEAREST)
 
 
 def pixelate(source: Image.Image, grid_size: int, gray_levels: int, px_per_cell: int, hue_hex: str) -> Image.Image:
-    """Convenience wrapper: source image -> final rendered duotone PNG in one call."""
-    return render_grid(quantize_grid(source, grid_size, gray_levels), px_per_cell, hue_hex)
+    """Convenience wrapper: source image -> final rendered duotone PNG in one call.
+
+    Square-grid only (grid_cols == grid_rows == grid_size) -- EMO's
+    only caller of this convenience wrapper. ORACLE's rectangular grid
+    calls quantize_grid/render_grid directly (see oracle_main.py).
+    """
+    return render_grid(quantize_grid(source, grid_size, grid_size, gray_levels), px_per_cell, hue_hex)

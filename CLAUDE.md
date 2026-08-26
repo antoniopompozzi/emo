@@ -179,6 +179,73 @@ I giorni archiviati prima dell'esistenza di una feature (es. `share_card.png`,
 avere quel file/campo: tutto il codice a valle (build del sito, generatori
 di card) deve degradare con grazia, non assumere che sia sempre presente.
 
+## ORACLE
+
+Un'immagine di sintesi settimanale, pubblica come "ORACLE" (nel codice e sul
+sito; nella tesi resta "Oracolo"), generata ogni mercoledì a partire dai
+concept/explanation dei 7 giorni EMO precedenti già archiviati — non dalle
+notizie grezze. EMO rilegge sé stesso: `pipeline/archive.load_recent_days`
+recupera le ultime 7 cartelle-giorno da `archive/`, `pipeline/oracle_concept.py`
+**[IA]** chiede a Claude (stesso modello di `config["claude"]`) di immaginare,
+solo sulla base di quella settimana di proprie interpretazioni, che futuro
+attenda l'umanità. Stesso principio metodologico di EMO: l'autore controlla
+la regola (finestra fissa a 7 giorni, palette binaria fissa, cadenza
+settimanale), il contenuto (concept, explanation, verdetto) resta libero.
+
+- **Finestra senza accumulo**: la finestra di lettura è sempre e solo di 7
+  giorni; ad ogni run la memoria si azzera e riparte da zero. Non può
+  saturarsi per costruzione — conseguenza diretta di come `load_recent_days`
+  prende sempre e solo le ultime `n=7` cartelle, non qualcosa da verificare
+  a runtime.
+- **Palette binaria fissa** (`pipeline/oracle_palette.py`, `ORACLE_PALETTE`):
+  nessuna categoria "neutral" — il verdetto è sempre uno dei due valori, per
+  costruzione.
+
+  | Verdetto | Colore |
+  |---|---|
+  | positive | #f3ead9 (bianco panna) |
+  | negative (default fallback/normalizzazione) | #5c1620 (rosso scuro) |
+
+- **Formato 1536x1024**: unico formato panoramico nativo di gpt-image-1.5
+  (che supporta solo 1024x1024, 1536x1024, 1024x1536, nessuna dimensione
+  personalizzata). L'altezza (1024) coincide con il lato dell'immagine
+  quadrata di EMO, per questo `config.yaml` → `oracle.grid_rows` resta 96
+  (identico a `postprocess.grid_size`) mentre `oracle.grid_cols` è 144 (96 *
+  1.5), dando una griglia finale 1440x960 — stessa dimensione di cella di
+  EMO (10px), solo più colonne. `pipeline/postprocess.py` è stato
+  generalizzato a griglie rettangolari (`quantize_grid`/`render_grid` con
+  `grid_cols`/`grid_rows` separati) apposta per questo; il comportamento
+  quadrato di EMO resta bit-per-bit identico, verificato con test di non
+  regressione dedicati.
+- **Cadenza del mercoledì**: `.github/workflows/oracolo.yml` (file separato,
+  `daily.yml` non toccato) si attiva via `workflow_run` agganciato al
+  completamento di "Daily EMO run", più `workflow_dispatch` per il run
+  manuale. Un primo step verifica che il run a monte sia riuscito, un
+  secondo controlla che sia mercoledì UTC (`date -u +%u` == 3) o che il
+  trigger sia un dispatch manuale — solo allora la pipeline genera
+  davvero. Stesso concurrency group `"pages"` e stessa guardia
+  `github.ref == 'refs/heads/main'` sul job `deploy` di `daily.yml`.
+- **Radice `oracle_archive/` separata**, mai dentro `archive/`:
+  `pipeline.archive.previously_used_links` itera ogni sottocartella di
+  `archive_root` assumendo che sia un giorno EMO con `headlines` nel
+  metadata — mescolare le due archiviazioni la romperebbe. Ogni settimana
+  vive in `oracle_archive/<data-fine-settimana>/` (nominata sulla data di
+  fine settimana, il giorno del run, non l'inizio), con `final.png`,
+  `source.png`, `share_card.png`, `grid_values.json`, `metadata.json`,
+  `exchange_log.json` — stesso schema di `archive/<data>/` ma senza
+  `instagram_card.png` (non generata per ORACLE).
+- Sul sito, le pagine ORACLE vivono sotto `/oracle/` (`oracle/index.html`,
+  `oracle/archive/index.html`, `oracle/weeks/<data>/`), tema scuro scoped
+  interamente sotto `body.oracle-page` (`website/static/oracle.css`, foglio
+  separato, `style.css` non toccato), caricato via il blocco `extra_head` di
+  `base.html`. Il pulsante ORACLE in alto a destra su ogni pagina EMO
+  (`.hero-actions-top-right`, rispecchia `.brand-label`) manca
+  deliberatamente sulle pagine ORACLE stesse (`_oracle_hero.html`, non un
+  fork di `_hero.html`). Le pagine ORACLE usano una variabile `oracle_root`
+  distinta da `root`: `root` resta relativo alla radice del sito (per
+  `static/`), `oracle_root` è relativo al solo sottoalbero `oracle/` (per la
+  navigazione interna EMO - ORACLE/ARCHIVE).
+
 ## Cronologia architetturale essenziale (per non riproporre idee già scartate)
 
 - Il rendering del duotono lato browser su `<canvas>` (disegnato a partire
@@ -222,8 +289,11 @@ di card) deve degradare con grazia, non assumere che sia sempre presente.
 - La Web Share API nativa (`navigator.share`/`canShare`) — rimossa
   deliberatamente dal bottone SHARE, vedi "Cronologia" sopra.
 - Il guard `github.ref == 'refs/heads/main'` sul job `deploy` in
-  `daily.yml` — è l'unica cosa che impedisce a un dispatch manuale su un
-  branch di feature di pubblicare per sbaglio.
+  `daily.yml` (e l'equivalente in `oracolo.yml`, con in più la condizione
+  sull'output `run_oracle` del job `build`) — è l'unica cosa che impedisce a
+  un dispatch manuale su un branch di feature di pubblicare per sbaglio.
+- La radice `oracle_archive/`, separata da `archive/` — vedi "ORACLE" sopra
+  per il perché (`previously_used_links` si romperebbe se mescolate).
 
 ## Protocollo di sicurezza (sempre)
 

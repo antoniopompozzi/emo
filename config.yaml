@@ -35,6 +35,14 @@ site:
 share_card:
   size: 1080
 
+oracle:
+  image_size: "1536x1024"    # unico formato panoramico nativo di gpt-image-1.5 (vedi nota in CLAUDE.md)
+  grid_cols: 144              # 96 * 1.5, stessa densita' di cella di EMO
+  grid_rows: 96                # identico a postprocess.grid_size: stessa altezza in celle di EMO
+  positive_color: "#f3ead9"    # bianco panna
+  negative_color: "#5c1620"    # rosso scuro
+
 paths:
   archive_dir: "archive"
+  oracle_archive_dir: "oracle_archive"   # radice separata da archive_dir, vedi pipeline/oracle_archive.py
   site_output_dir: "_site"

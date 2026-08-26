@@ -1,0 +1,95 @@
+/* ORACLE's dark theme: same Press Start 2P font and hard-edged
+   "pixel badge" logic as style.css, colors inverted (dark background,
+   cream foreground/borders). Entirely scoped under body.oracle-page
+   so it can never affect EMO's own pages -- deliberately a separate
+   file, no CSS variables introduced in style.css. Loaded only by
+   ORACLE pages, via base.html's extra_head block (see
+   website/build_site.py).
+*/
+
+body.oracle-page {
+  background: #1a1a1a;
+  color: #f3ead9;
+}
+
+body.oracle-page .brand-label,
+body.oracle-page .brand-label-inline {
+  background: #1a1a1a;
+  border-color: #f3ead9;
+}
+
+body.oracle-page .brand-text,
+body.oracle-page .brand-label-inline {
+  color: #f3ead9;
+}
+
+body.oracle-page .pixel-btn {
+  background: #1a1a1a;
+  color: #f3ead9;
+  border-color: #f3ead9;
+}
+
+body.oracle-page .pixel-btn:hover,
+body.oracle-page .pixel-btn:focus-visible {
+  background: #f3ead9;
+  color: #1a1a1a;
+}
+
+body.oracle-page .share-icon rect {
+  fill: #f3ead9;
+}
+
+body.oracle-page .pixel-btn:hover .share-icon rect,
+body.oracle-page .pixel-btn:focus-visible .share-icon rect {
+  fill: #1a1a1a;
+}
+
+body.oracle-page .why-modal {
+  background: #1a1a1a;
+  color: #f3ead9;
+  border-color: #f3ead9;
+}
+
+body.oracle-page .why-modal::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+body.oracle-page .modal-close {
+  color: #f3ead9;
+}
+
+body.oracle-page .modal-close:focus-visible {
+  outline-color: #f3ead9;
+}
+
+body.oracle-page .emotion-tag {
+  color: #cbbfa8;
+}
+
+body.oracle-page .emotion-swatch {
+  border-color: #f3ead9;
+}
+
+body.oracle-page .fallback-note {
+  color: #cbbfa8;
+}
+
+body.oracle-page .headlines-list a {
+  color: #f3ead9;
+}
+
+body.oracle-page .share-preview {
+  border-color: #f3ead9;
+}
+
+body.oracle-page .gallery-item {
+  color: #f3ead9;
+}
+
+body.oracle-page .gallery-item img {
+  border-color: #f3ead9;
+  /* ORACLE's images are panoramic (3:2), unlike EMO's square days --
+     override style.css's 1:1 crop so the archive gallery's thumbnails
+     match the real proportions instead of cropping them square. */
+  aspect-ratio: 3 / 2;
+}
