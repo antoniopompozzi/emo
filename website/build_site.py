@@ -68,7 +68,7 @@ def load_weeks(oracle_archive_root: Path) -> list[dict]:
     return weeks
 
 
-def write_robots_and_sitemap(output_root: Path, base_url: str, days: list[dict], weeks: list[dict]) -> None:
+def write_robots_and_sitemap(output_root: Path, base_url: str, days: list[dict]) -> None:
     (output_root / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\n\nSitemap: {base_url}sitemap.xml\n",
         encoding="utf-8",
@@ -78,18 +78,12 @@ def write_robots_and_sitemap(output_root: Path, base_url: str, days: list[dict],
     # to the homepage (see the comment in build() about _hero.html) and
     # is marked canonical to the homepage there, so it's left out of the
     # sitemap to avoid asking search engines to index the same content
-    # twice under two URLs. Same reasoning for ORACLE's latest week vs.
-    # oracle/index.html.
+    # twice under two URLs. ORACLE has no pages of its own (it's a
+    # dialog/modal on these same pages, see _hero.html and archive.html)
+    # so there is nothing ORACLE-specific to add here.
     latest_dir_name = days[0]["_dir_name"] if days else None
     day_urls = [f"{base_url}days/{day['_dir_name']}/" for day in days if day["_dir_name"] != latest_dir_name]
-
-    latest_week_dir_name = weeks[0]["_dir_name"] if weeks else None
-    week_urls = [
-        f"{base_url}oracle/weeks/{week['_dir_name']}/" for week in weeks if week["_dir_name"] != latest_week_dir_name
-    ]
-
     urls = [base_url, f"{base_url}archive/"] + day_urls
-    urls += [f"{base_url}oracle/", f"{base_url}oracle/archive/"] + week_urls
     body = "\n".join(f"  <url><loc>{url}</loc></url>" for url in urls)
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -132,6 +126,32 @@ def build(config: dict) -> Path:
         if share_card_source.exists():
             shutil.copy(share_card_source, day_out_dir / "share_card.png")
 
+    # ORACLE has no pages of its own -- it's a dialog on every EMO page
+    # (_hero.html) plus a dynamic second section in the archive
+    # (archive.html), both referencing these assets directly, so
+    # final.png/share_card.png for each week still need to land in the
+    # site output even without an index.html alongside them.
+    oracle_archive_root = REPO_ROOT / config["paths"]["oracle_archive_dir"]
+    weeks = load_weeks(oracle_archive_root)
+    for week in weeks:
+        week_source_dir = oracle_archive_root / week["_dir_name"]
+        week_out_dir = output_root / "oracle" / week["_dir_name"]
+        week_out_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy(week_source_dir / "final.png", week_out_dir / "final.png")
+        week_share_card_source = week_source_dir / "share_card.png"
+        if week_share_card_source.exists():
+            shutil.copy(week_share_card_source, week_out_dir / "share_card.png")
+
+    # The ORACLE modal on every EMO page always shows the single most
+    # recent week (never a specific archived one -- see archive.html's
+    # own dynamic modal for that), so index.html and day.html both need
+    # the same latest_week/oracle_image_base/oracle_share_image context.
+    latest_week = weeks[0] if weeks else None
+    latest_week_dir_name = latest_week["_dir_name"] if latest_week else None
+    latest_week_has_share_card = bool(latest_week) and (
+        output_root / "oracle" / latest_week_dir_name / "share_card.png"
+    ).exists()
+
     # index.html and days/<date>/index.html both render the exact same
     # _hero.html partial (see that file's header comment) -- the only
     # difference is which day's data/assets get passed in. This is what
@@ -148,15 +168,21 @@ def build(config: dict) -> Path:
     latest = days[0] if days else None
     latest_dir_name = latest["_dir_name"] if latest else None
     latest_has_share_card = bool(latest) and (output_root / "days" / latest_dir_name / "share_card.png").exists()
+    index_root = ""
     (output_root / "index.html").write_text(
         env.get_template("index.html").render(
             site_title=site_title,
-            root="",
+            root=index_root,
             day=latest,
             image_base=f"days/{latest_dir_name}/" if latest else "",
             share_url=f"{base_url}days/{latest_dir_name}/share_card.png" if latest_has_share_card else None,
             page_url=base_url,
             canonical_url=base_url,
+            oracle_week=latest_week,
+            oracle_image_base=f"{index_root}oracle/{latest_week_dir_name}/" if latest_week else "",
+            oracle_share_image=f"{index_root}oracle/{latest_week_dir_name}/share_card.png"
+            if latest_week_has_share_card
+            else "",
         ),
         encoding="utf-8",
     )
@@ -184,6 +210,7 @@ def build(config: dict) -> Path:
     )
 
     day_template = env.get_template("day.html")
+    day_root = "../../"
     for day in days:
         day_out_dir = output_root / "days" / day["_dir_name"]
         has_share_card = (day_out_dir / "share_card.png").exists()
@@ -191,22 +218,24 @@ def build(config: dict) -> Path:
         (day_out_dir / "index.html").write_text(
             day_template.render(
                 site_title=site_title,
-                root="../../",
+                root=day_root,
                 day=day,
                 image_base="",
                 share_url=f"{base_url}days/{day['_dir_name']}/share_card.png" if has_share_card else None,
                 page_url=day_url,
                 canonical_url=base_url if day["_dir_name"] == latest_dir_name else day_url,
+                oracle_week=latest_week,
+                oracle_image_base=f"{day_root}oracle/{latest_week_dir_name}/" if latest_week else "",
+                oracle_share_image=f"{day_root}oracle/{latest_week_dir_name}/share_card.png"
+                if latest_week_has_share_card
+                else "",
             ),
             encoding="utf-8",
         )
 
-    oracle_archive_root = REPO_ROOT / config["paths"]["oracle_archive_dir"]
-    weeks = load_weeks(oracle_archive_root)
-
     shutil.copytree(REPO_ROOT / "website" / "static", output_root / "static")
 
-    write_robots_and_sitemap(output_root, base_url, days, weeks)
+    write_robots_and_sitemap(output_root, base_url, days)
 
     # Tells GitHub Pages not to run this through Jekyll.
     (output_root / ".nojekyll").touch()

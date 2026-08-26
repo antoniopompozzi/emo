@@ -156,6 +156,49 @@ def _build_with_weeks(tmp_path, week_dates, **week_kwargs):
 
 
 # ORACLE no longer has its own pages (see the "scheda a scorrimento"
-# architecture in CLAUDE.md) -- _build_with_weeks and _write_week above
-# are reused by the card-based tests in test_build_site's ORACLE
-# section further down, and by test_archive_html_oracle_section.py.
+# architecture in CLAUDE.md): it's a dialog on every EMO page and a
+# dynamic second section in archive.html, not separate HTML files.
+# _build_with_weeks and _write_week above are reused by the tests below
+# and by the ORACLE archive-section tests further down.
+
+
+def test_oracle_assets_copied_without_any_oracle_pages(tmp_path):
+    output_root = _build_with_weeks(tmp_path, ["2026-08-19", "2026-08-26"], with_share_card=True)
+    assert (output_root / "oracle" / "2026-08-26" / "final.png").exists()
+    assert (output_root / "oracle" / "2026-08-26" / "share_card.png").exists()
+    assert (output_root / "oracle" / "2026-08-19" / "final.png").exists()
+    # No ORACLE pages anywhere in the output.
+    assert not (output_root / "oracle" / "index.html").exists()
+    assert not (output_root / "oracle" / "2026-08-26" / "index.html").exists()
+    assert not (output_root / "oracle" / "archive").exists()
+    assert not (output_root / "oracle" / "weeks").exists()
+
+
+def test_index_and_day_pages_show_the_latest_oracle_week_in_the_modal(tmp_path):
+    output_root = _build_with_weeks(
+        tmp_path, ["2026-08-19", "2026-08-26"], week_start="2026-08-20", with_share_card=True
+    )
+    index_html = (output_root / "index.html").read_text(encoding="utf-8")
+    assert 'id="oracle-modal"' in index_html
+    assert "AUG 20–26" in index_html
+    assert 'src="oracle/2026-08-26/final.png"' in index_html
+    assert 'data-share-image="oracle/2026-08-26/share_card.png"' in index_html
+    assert 'data-share-filename="oracle-2026-08-26.png"' in index_html
+
+    day_dirs = [p.name for p in (output_root / "days").iterdir()]
+    day_html = (output_root / "days" / day_dirs[0] / "index.html").read_text(encoding="utf-8")
+    assert "AUG 20–26" in day_html
+    assert 'src="../../oracle/2026-08-26/final.png"' in day_html
+    assert 'data-share-image="../../oracle/2026-08-26/share_card.png"' in day_html
+
+
+def test_oracle_modal_degrades_gracefully_with_no_weeks_published(tmp_path):
+    output_root = _build(tmp_path, with_latest_share_card=True)
+    index_html = (output_root / "index.html").read_text(encoding="utf-8")
+    assert "No ORACLE verdicts have been published yet." in index_html
+
+
+def test_sitemap_has_no_oracle_urls(tmp_path):
+    output_root = _build_with_weeks(tmp_path, ["2026-08-19", "2026-08-26"])
+    sitemap = (output_root / "sitemap.xml").read_text(encoding="utf-8")
+    assert "oracle" not in sitemap
