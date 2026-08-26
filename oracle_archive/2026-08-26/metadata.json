@@ -1,8 +1,8 @@
 {
   "week_start": "2026-08-20",
   "week_end": "2026-08-26",
-  "concept": "A vast underground vault or bunker carved into dark stone, with multiple sealed metallic doors lining the walls receding into shadow. The doors are massive and austere, some marked with faded warning symbols or institutional insignias. The floor is cracked concrete with deep fissures spreading outward. A single thin shaft of pale, sickly light penetrates from far above, illuminating dust particles but leaving most of the space in heavy shadow. The composition is vertical and claustrophobic, emphasizing descent. Style: brutalist architecture rendered in stark geometric forms, heavily shadowed, using only charcoal blacks, cold grays, and a touch of sickly institutional yellow or pale green. No human figures. Mood: bunker mentality, retreat, sealed compartments, waiting.",
-  "explanation": "The week reveals a humanity in progressive self-separation and entrenchment. Barriers multiply—walls, tariffs, fractured alliances, opposing military postures—while simultaneous crises fragment the collective consciousness into disconnected shards. Rather than unity or resistance, the pattern suggests retreat: nations sealing borders, institutions failing to bridge divides, civilians caught in overlapping collapses. The accumulated weight of these fractures points toward a future of compartmentalization and withdrawal, where survival becomes framed as isolation rather than solidarity. The light above suggests a world still present, but increasingly unreachable from where humanity is descending.",
+  "concept": "A vast, darkening sky filled with descending geometric shapes—sharp-edged fragments of concrete, metal, and glass—falling slowly like ash or snow toward a featureless plain below. The falling debris is rendered in heavy blacks, grays, and bruised purples, each piece a distinct blocky silhouette. The ground is bare and shadowless, waiting. The overall composition suggests inevitable accumulation—not violent impact, but patient, relentless settling. Style: stark digital art with maximum contrast, bold shapes, no horizon line, minimal color palette, oppressive mood of slow collapse rather than sudden catastrophe.",
+  "explanation": "This week reveals a world experiencing cascading systemic failures rather than isolated crises. The pattern is one of accelerating fragmentation—barriers hardening, alliances fracturing, institutions losing coherence—while human vulnerability deepens beneath layers of mounting debris. What emerges is not a single catastrophic moment but a slow, steady descent into disorder: multiple fractures spreading simultaneously, divisions calcifying, excess accumulating without resolution, and opposing forces locked in escalating standoffs. The trajectory suggests acceptance of instability as the new baseline rather than a solvable problem.",
   "verdict": "negative",
   "verdict_color": "#5c1620",
   "used_fallback": false,
@@ -10,7 +10,7 @@
   "image_used_fallback": false,
   "claude_model": "claude-haiku-4-5-20251001",
   "render_params": {
-    "grid_cols": 144,
+    "grid_cols": 96,
     "grid_rows": 96,
     "gray_levels": 10,
     "px_per_cell": 10
@@ -19,6 +19,6 @@
     "provider": "openai",
     "model": "gpt-image-1.5",
     "quality": "medium",
-    "size": "1536x1024"
+    "size": "1024x1024"
   }
 }
