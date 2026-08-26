@@ -27,7 +27,7 @@ def _write_day(archive_root, date_str, *, with_share_card=False, concept_used_fa
 def _write_week(oracle_archive_root, end_date_str, *, week_start=None, with_share_card=False, verdict="negative"):
     week_dir = oracle_archive_root / end_date_str
     week_dir.mkdir(parents=True)
-    Image.new("RGB", (12, 8), color=(20, 10, 10)).save(week_dir / "final.png")
+    Image.new("RGB", (12, 12), color=(20, 10, 10)).save(week_dir / "final.png")
     (week_dir / "metadata.json").write_text(
         json.dumps({
             "week_start": week_start or end_date_str,
@@ -42,7 +42,7 @@ def _write_week(oracle_archive_root, end_date_str, *, week_start=None, with_shar
         encoding="utf-8",
     )
     if with_share_card:
-        Image.new("RGB", (12, 8), color=(255, 255, 255)).save(week_dir / "share_card.png")
+        Image.new("RGB", (12, 12), color=(255, 255, 255)).save(week_dir / "share_card.png")
 
 
 def _build(tmp_path, *, with_latest_share_card):

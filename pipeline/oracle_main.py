@@ -7,7 +7,7 @@ archived days (see pipeline.archive.load_recent_days) -- not the raw
 news -- and asks Claude to imagine, from that week of EMO's own
 interpretations alone, what future awaits humanity: a binary verdict
 (positive/negative) rendered as a black-to-verdict-color duotone,
-same fixed pixelation pipeline as EMO but on ORACLE's panoramic grid.
+same fixed pixelation pipeline as EMO, on the same square grid.
 Each step degrades gracefully on the same model as pipeline.main, so a
 run always produces a publishable result even without live API keys.
 """

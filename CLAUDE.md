@@ -206,17 +206,26 @@ settimanale), il contenuto (concept, explanation, verdetto) resta libero.
   | positive | #f3ead9 (bianco panna) |
   | negative (default fallback/normalizzazione) | #5c1620 (rosso scuro) |
 
-- **Formato 1536x1024**: unico formato panoramico nativo di gpt-image-1.5
-  (che supporta solo 1024x1024, 1536x1024, 1024x1536, nessuna dimensione
-  personalizzata). L'altezza (1024) coincide con il lato dell'immagine
-  quadrata di EMO, per questo `config.yaml` → `oracle.grid_rows` resta 96
-  (identico a `postprocess.grid_size`) mentre `oracle.grid_cols` è 144 (96 *
-  1.5), dando una griglia finale 1440x960 — stessa dimensione di cella di
-  EMO (10px), solo più colonne. `pipeline/postprocess.py` è stato
-  generalizzato a griglie rettangolari (`quantize_grid`/`render_grid` con
-  `grid_cols`/`grid_rows` separati) apposta per questo; il comportamento
-  quadrato di EMO resta bit-per-bit identico, verificato con test di non
-  regressione dedicati.
+- **Formato quadrato, identico a EMO**: `oracle.image_size` è "1024x1024",
+  `oracle.grid_cols`/`oracle.grid_rows` sono 96x96 in `config.yaml` — stesse
+  dimensioni, stessa griglia, stessa cella da 10px di EMO, stesso spazio
+  occupato in pagina. Un primo giro (poi abbandonato) aveva usato il
+  formato panoramico 1536x1024 (l'unico oltre a 1024x1024 e 1024x1536
+  supportato da gpt-image-1.5), con `grid_cols` 144 e `grid_rows` 96; è
+  tornato quadrato per restare visivamente coerente con EMO. Le chiavi
+  `oracle.image_size`/`oracle.grid_cols`/`oracle.grid_rows` restano separate
+  da `openai_image.size`/`postprocess.grid_size` anche se oggi coincidono di
+  valore — deliberato, non un refuso: evita che una futura modifica alle
+  dimensioni di EMO cambi silenziosamente anche ORACLE. La generalizzazione
+  a griglie rettangolari in `pipeline/postprocess.py`
+  (`quantize_grid`/`render_grid` con `grid_cols`/`grid_rows` separati) e il
+  parametro `size_override` di `pipeline/image_provider.py` restano nel
+  codice come capacità generica valida, semplicemente non più sfruttata da
+  ORACLE oggi (`grid_cols == grid_rows`, `size_override` sul default) — non
+  è codice morto, non rimuoverli in un audit di pulizia. Con l'immagine
+  tornata quadrata, `.hero-image` sulle pagine ORACLE non ha più bisogno di
+  alcun override dedicato di `max-width`/`max-height`: eredita di nuovo
+  `max-width: 92vw; max-height: 92vh` da `style.css`, come su EMO.
 - **Cadenza del mercoledì**: `.github/workflows/oracolo.yml` (file separato,
   `daily.yml` non toccato) si attiva via `workflow_run` agganciato al
   completamento di "Daily EMO run", più `workflow_dispatch` per il run
@@ -261,15 +270,6 @@ settimanale), il contenuto (concept, explanation, verdetto) resta libero.
   `.gallery-item img`, più marcato perché l'elemento è molto più grande),
   con `border-color: #f3ead9` sovrascritto in `oracle.css` sotto
   `body.oracle-page`.
-- **`.hero-image` più piccola su ORACLE**: `max-width: 74vw; max-height:
-  66vh` in `oracle.css`, sotto `body.oracle-page`. Senza, l'immagine
-  panoramica 3:2 di ORACLE su un viewport più largo che alto (il caso
-  comune) cresce con `max-height: 92vh` ereditato da `style.css` fin quasi
-  al bordo, finendo sotto ai pulsanti fissi (`.hero-actions`,
-  `.hero-actions-left`, `.hero-actions-top-right`). Questi due valori sono
-  tarati empiricamente (verifica visiva Playwright su più viewport, non una
-  formula) — se il layout della pagina ORACLE cambia, riverificarli
-  visivamente prima di assumerli ancora corretti.
 - **Etichetta dell'archivio ORACLE**: mostra solo l'intervallo di date
   (`pipeline.oracle_share_card.format_week_range`, es. "AUG 20–26"), non più
   "WEEK N". `week_number` (posizione cronologica) resta comunque scritto nei
