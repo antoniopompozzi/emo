@@ -30,6 +30,28 @@ def test_local_placeholder_is_deterministic_for_the_same_concept():
     assert image_a.size == (8, 8)
 
 
+def test_local_placeholder_respects_a_non_square_size_override():
+    # ORACLE's fallback must produce a 1536x1024 placeholder, not a
+    # 1536x1536 one -- size_override lets local_placeholder honor a
+    # panoramic size instead of config["openai_image"]["size"].
+    config = _config()
+    image = local_placeholder("a horizon", config, size_override="12x8")
+    assert image.size == (12, 8)
+
+
+def test_fetch_source_image_fallback_respects_size_override():
+    config = _config()
+    logger = ExchangeLogger()
+    with patch("pipeline.image_provider.OpenAI") as mock_openai_cls:
+        mock_client = Mock()
+        mock_client.images.generate.side_effect = RuntimeError("api down")
+        mock_openai_cls.return_value = mock_client
+        result = fetch_source_image("a horizon", config, "fake-key", logger, size_override="12x8")
+
+    assert result["used_fallback"] is True
+    assert result["image"].size == (12, 8)
+
+
 def test_local_placeholder_differs_for_different_concepts():
     config = _config()
     image_a = local_placeholder("a red bicycle", config)
