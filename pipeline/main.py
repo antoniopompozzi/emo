@@ -77,8 +77,7 @@ def run() -> Path:
     pp_cfg = config["postprocess"]
     grid = postprocess.quantize_grid(
         image_result["image"],
-        grid_cols=pp_cfg["grid_size"],
-        grid_rows=pp_cfg["grid_size"],
+        grid_size=pp_cfg["grid_size"],
         gray_levels=pp_cfg["gray_levels"],
     )
     final_image = postprocess.render_grid(grid, px_per_cell=pp_cfg["px_per_cell"], hue_hex=emotion_color)
