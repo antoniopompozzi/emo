@@ -25,19 +25,20 @@ from openai import APITimeoutError, OpenAI, RateLimitError
 from PIL import Image
 
 
-def _parse_square_size(size: str) -> int:
-    """"1024x1024" -> 1024."""
-    return int(size.lower().split("x")[0])
+def _parse_size(size: str) -> tuple[int, int]:
+    """"1536x1024" -> (1536, 1024)."""
+    width, height = size.lower().split("x")
+    return int(width), int(height)
 
 
-def _request_openai_image(concept: str, config: dict, api_key: str) -> Image.Image:
+def _request_openai_image(concept: str, config: dict, api_key: str, size_override: str | None = None) -> Image.Image:
     cfg = config["openai_image"]
     client = OpenAI(api_key=api_key, timeout=cfg["request_timeout_seconds"])
 
     response = client.images.generate(
         model=cfg["model"],
         prompt=concept,
-        size=cfg["size"],
+        size=size_override or cfg["size"],
         quality=cfg["quality"],
         n=1,
     )
@@ -59,34 +60,40 @@ def _request_openai_image(concept: str, config: dict, api_key: str) -> Image.Ima
     return image.convert("RGB")
 
 
-def local_placeholder(concept: str, config: dict) -> Image.Image:
+def local_placeholder(concept: str, config: dict, size_override: str | None = None) -> Image.Image:
     """A deterministic stand-in image derived from the concept text.
 
     It is not meant to look meaningful -- it exists purely so the fixed
     duotone/pixelate pipeline downstream always has real pixel data to
     work with, even when the image generation service is unreachable
-    or no API key is configured.
+    or no API key is configured. `size_override` lets ORACLE fall back
+    to a 1536x1024 placeholder instead of EMO's square default --
+    without it, ORACLE's fallback would wrongly generate a 1536x1536
+    placeholder.
     """
-    size = _parse_square_size(config["openai_image"]["size"])
+    width, height = _parse_size(size_override or config["openai_image"]["size"])
     seed = int(hashlib.sha256(concept.encode("utf-8")).hexdigest(), 16) % (2**32)
     rng = np.random.default_rng(seed)
-    noise = rng.integers(0, 256, size=(size, size, 3), dtype=np.uint8)
+    noise = rng.integers(0, 256, size=(height, width, 3), dtype=np.uint8)
     return Image.fromarray(noise, mode="RGB")
 
 
-def fetch_source_image(concept: str, config: dict, api_key: str, logger) -> dict:
+def fetch_source_image(concept: str, config: dict, api_key: str, logger, size_override: str | None = None) -> dict:
     """Returns {"image": PIL.Image, "used_fallback": bool}.
 
     Each attempt is logged with a status that names the failure kind
     (timeout / rate_limited / error) so a failed daily run is
     diagnosable from archive/<date>/exchange_log.json alone.
+    `size_override` lets ORACLE request its panoramic 1536x1024 format
+    instead of config["openai_image"]["size"]; EMO's daily pipeline
+    never passes it.
     """
     cfg = config["openai_image"]
     last_error: Exception | None = None
 
     for attempt in range(1, cfg["max_retries"] + 1):
         try:
-            image = _request_openai_image(concept, config, api_key)
+            image = _request_openai_image(concept, config, api_key, size_override=size_override)
             logger.log("image_provider", provider="openai", attempt=attempt, status="ok", prompt=concept)
             return {"image": image, "used_fallback": False}
         except APITimeoutError as exc:
@@ -114,4 +121,4 @@ def fetch_source_image(concept: str, config: dict, api_key: str, logger) -> dict
             time.sleep(cfg["retry_backoff_seconds"] * attempt)
 
     logger.log("image_provider", provider="openai", status="fallback_used", error=str(last_error))
-    return {"image": local_placeholder(concept, config), "used_fallback": True}
+    return {"image": local_placeholder(concept, config, size_override=size_override), "used_fallback": True}
