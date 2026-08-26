@@ -154,69 +154,8 @@ def _build_with_weeks(tmp_path, week_dates, **week_kwargs):
     return build(config)
 
 
-def test_oracle_pages_render_empty_state_when_no_weeks_archived(tmp_path):
-    output_root = _build(tmp_path, with_latest_share_card=True)
-    oracle_home = (output_root / "oracle" / "index.html").read_text(encoding="utf-8")
-    assert "No ORACLE verdicts have been published yet." in oracle_home
-    oracle_archive = (output_root / "oracle" / "archive" / "index.html").read_text(encoding="utf-8")
-    assert "No ORACLE verdicts have been published yet." in oracle_archive
-    assert not (output_root / "oracle" / "weeks").exists()
 
-
-def test_oracle_home_page_shows_the_latest_week(tmp_path):
-    output_root = _build_with_weeks(tmp_path, ["2026-08-19", "2026-08-26"], week_start="2026-08-20")
-    oracle_home = (output_root / "oracle" / "index.html").read_text(encoding="utf-8")
-    assert "2026-08-26" in oracle_home
-    assert (output_root / "oracle" / "weeks" / "2026-08-26" / "final.png").exists()
-    assert (output_root / "oracle" / "weeks" / "2026-08-19" / "final.png").exists()
-
-
-def test_oracle_archive_shows_only_the_date_range_label_not_week_number(tmp_path):
-    archive_root = tmp_path / "archive"
-    _write_day(archive_root, "2026-08-20")
-    oracle_archive_root = tmp_path / "oracle_archive"
-    _write_week(oracle_archive_root, "2026-08-19", week_start="2026-08-13")
-    _write_week(oracle_archive_root, "2026-08-26", week_start="2026-08-20")
-
-    config = {
-        "site": {"title": "EMO", "base_url": "https://example.com/"},
-        "paths": {
-            "archive_dir": str(archive_root),
-            "oracle_archive_dir": str(oracle_archive_root),
-            "site_output_dir": str(tmp_path / "_site"),
-        },
-    }
-    output_root = build(config)
-
-    archive_html = (output_root / "oracle" / "archive" / "index.html").read_text(encoding="utf-8")
-    assert "WEEK" not in archive_html
-    assert "AUG 13–19" in archive_html
-    assert "AUG 20–26" in archive_html
-
-
-def test_oracle_latest_week_page_canonicalizes_to_oracle_home(tmp_path):
-    output_root = _build_with_weeks(tmp_path, ["2026-08-19", "2026-08-26"])
-    latest_week_html = (output_root / "oracle" / "weeks" / "2026-08-26" / "index.html").read_text(encoding="utf-8")
-    older_week_html = (output_root / "oracle" / "weeks" / "2026-08-19" / "index.html").read_text(encoding="utf-8")
-    assert '<link rel="canonical" href="https://example.com/oracle/">' in latest_week_html
-    assert '<link rel="canonical" href="https://example.com/oracle/weeks/2026-08-19/">' in older_week_html
-
-
-def test_sitemap_and_robots_include_oracle_urls_excluding_latest_week_duplicate(tmp_path):
-    output_root = _build_with_weeks(tmp_path, ["2026-08-19", "2026-08-26"])
-    sitemap = (output_root / "sitemap.xml").read_text(encoding="utf-8")
-    assert "<loc>https://example.com/oracle/</loc>" in sitemap
-    assert "<loc>https://example.com/oracle/archive/</loc>" in sitemap
-    assert "<loc>https://example.com/oracle/weeks/2026-08-19/</loc>" in sitemap
-    assert "<loc>https://example.com/oracle/weeks/2026-08-26/</loc>" not in sitemap
-
-
-def test_oracle_pages_load_oracle_stylesheet_and_dark_body_class(tmp_path):
-    output_root = _build_with_weeks(tmp_path, ["2026-08-26"])
-    oracle_home = (output_root / "oracle" / "index.html").read_text(encoding="utf-8")
-    assert 'href="../static/oracle.css"' in oracle_home
-    assert 'class="oracle-page"' in oracle_home
-    # EMO's own homepage must stay unaffected.
-    emo_home = (output_root / "index.html").read_text(encoding="utf-8")
-    assert "oracle.css" not in emo_home
-    assert 'class=""' in emo_home
+# ORACLE no longer has its own pages (see the "scheda a scorrimento"
+# architecture in CLAUDE.md) -- _build_with_weeks and _write_week above
+# are reused by the card-based tests in test_build_site's ORACLE
+# section further down, and by test_archive_html_oracle_section.py.
