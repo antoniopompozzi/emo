@@ -191,6 +191,11 @@ solo sulla base di quella settimana di proprie interpretazioni, che futuro
 attenda l'umanità. Stesso principio metodologico di EMO: l'autore controlla
 la regola (finestra fissa a 7 giorni, palette binaria fissa, cadenza
 settimanale), il contenuto (concept, explanation, verdetto) resta libero.
+Questa parte — l'intero pipeline che genera davvero ORACLE
+(`oracle_main.py`, `oracle_concept.py`, `oracle_archive.py`,
+`oracle_share_card.py`, il cron del mercoledì, la finestra dei 7 giorni) —
+non è mai cambiata; cambia solo il modo in cui il risultato compare sul sito
+(vedi sotto).
 
 - **Finestra senza accumulo**: la finestra di lettura è sempre e solo di 7
   giorni; ad ogni run la memoria si azzera e riparte da zero. Non può
@@ -208,24 +213,17 @@ settimanale), il contenuto (concept, explanation, verdetto) resta libero.
 
 - **Formato quadrato, identico a EMO**: `oracle.image_size` è "1024x1024",
   `oracle.grid_cols`/`oracle.grid_rows` sono 96x96 in `config.yaml` — stesse
-  dimensioni, stessa griglia, stessa cella da 10px di EMO, stesso spazio
-  occupato in pagina. Un primo giro (poi abbandonato) aveva usato il
-  formato panoramico 1536x1024 (l'unico oltre a 1024x1024 e 1024x1536
-  supportato da gpt-image-1.5), con `grid_cols` 144 e `grid_rows` 96; è
-  tornato quadrato per restare visivamente coerente con EMO. Le chiavi
-  `oracle.image_size`/`oracle.grid_cols`/`oracle.grid_rows` restano separate
-  da `openai_image.size`/`postprocess.grid_size` anche se oggi coincidono di
-  valore — deliberato, non un refuso: evita che una futura modifica alle
-  dimensioni di EMO cambi silenziosamente anche ORACLE. La generalizzazione
-  a griglie rettangolari in `pipeline/postprocess.py`
-  (`quantize_grid`/`render_grid` con `grid_cols`/`grid_rows` separati) e il
-  parametro `size_override` di `pipeline/image_provider.py` restano nel
-  codice come capacità generica valida, semplicemente non più sfruttata da
-  ORACLE oggi (`grid_cols == grid_rows`, `size_override` sul default) — non
-  è codice morto, non rimuoverli in un audit di pulizia. Con l'immagine
-  tornata quadrata, `.hero-image` sulle pagine ORACLE non ha più bisogno di
-  alcun override dedicato di `max-width`/`max-height`: eredita di nuovo
-  `max-width: 92vw; max-height: 92vh` da `style.css`, come su EMO.
+  dimensioni, stessa griglia, stessa cella da 10px di EMO. Le chiavi
+  restano separate da `openai_image.size`/`postprocess.grid_size` anche se
+  oggi coincidono di valore — deliberato, non un refuso: evita che una
+  futura modifica alle dimensioni di EMO cambi silenziosamente anche
+  ORACLE. La generalizzazione a griglie rettangolari in
+  `pipeline/postprocess.py` (`quantize_grid`/`render_grid` con
+  `grid_cols`/`grid_rows` separati) e il parametro `size_override` di
+  `pipeline/image_provider.py` restano nel codice come capacità generica
+  valida, semplicemente non più sfruttata da ORACLE oggi (`grid_cols ==
+  grid_rows`, `size_override` sul default) — non è codice morto, non
+  rimuoverli in un audit di pulizia.
 - **Cadenza del mercoledì**: `.github/workflows/oracolo.yml` (file separato,
   `daily.yml` non toccato) si attiva via `workflow_run` agganciato al
   completamento di "Daily EMO run", più `workflow_dispatch` per il run
@@ -243,38 +241,80 @@ settimanale), il contenuto (concept, explanation, verdetto) resta libero.
   `source.png`, `share_card.png`, `grid_values.json`, `metadata.json`,
   `exchange_log.json` — stesso schema di `archive/<data>/` ma senza
   `instagram_card.png` (non generata per ORACLE).
-- Sul sito, le pagine ORACLE vivono sotto `/oracle/` (`oracle/index.html`,
-  `oracle/archive/index.html`, `oracle/weeks/<data>/`), tema scuro scoped
-  interamente sotto `body.oracle-page` (`website/static/oracle.css`, foglio
-  separato), caricato via il blocco `extra_head` di `base.html`. Le pagine
-  ORACLE usano una variabile `oracle_root` distinta da `root`: `root` resta
-  relativo alla radice del sito (per `static/` e per il pulsante EMO di
-  ritorno, vedi sotto), `oracle_root` è relativo al solo sottoalbero
-  `oracle/` (per la navigazione interna ORACLE/ARCHIVE).
-- **Pulsanti ORACLE/EMO speculari**: il pulsante ORACLE in alto a destra su
-  ogni pagina EMO (`.hero-actions-top-right`, rispecchia `.brand-label`) ha
-  un pulsante EMO speculare sulle pagine ORACLE stesse (`_oracle_hero.html`,
-  stessa classe `.hero-actions-top-right`, link a `{{ root }}index.html` —
-  non `{{ oracle_root }}`, perché deve uscire dal sottoalbero `/oracle/`).
-  Nessun pulsante ORACLE sulla pagina ORACLE stessa (sei già lì).
-- **Branding on-page vs. card scaricabile**: `.brand-label`/
-  `.brand-label-inline` sulle pagine ORACLE mostrano solo "ORACLE" (non più
-  "EMO - ORACLE") — il pulsante EMO di ritorno fa già quel lavoro di
-  collegamento. La card scaricabile (`pipeline/oracle_share_card.py`) resta
-  invece deliberatamente "EMO - ORACLE": deve restare autoesplicativa anche
-  fuori dal contesto del sito (un download o uno screenshot condiviso
-  altrove), dove il pulsante EMO non esiste. Non allineare i due — è
-  intenzionale.
-- **Bordo di `.hero-image`**: `border: 2px solid #000000` in `style.css`
-  (condiviso EMO+ORACLE, coerente con l'1px già usato per le miniature
-  `.gallery-item img`, più marcato perché l'elemento è molto più grande),
-  con `border-color: #f3ead9` sovrascritto in `oracle.css` sotto
-  `body.oracle-page`.
-- **Etichetta dell'archivio ORACLE**: mostra solo l'intervallo di date
-  (`pipeline.oracle_share_card.format_week_range`, es. "AUG 20–26"), non più
-  "WEEK N". `week_number` (posizione cronologica) resta comunque scritto nei
-  metadati passati al template da `build_site.py`, semplicemente non più
-  mostrato.
+
+### Lato sito: una scheda a scorrimento, non una pagina
+
+**ORACLE non ha più pagine proprie** (niente `/oracle/`). Un primo giro
+aveva costruito `oracle/index.html`, `oracle/archive/index.html`,
+`oracle/weeks/<data>/` con un tema scuro invertito scoped (`oracle.css`,
+`body.oracle-page`) e — prima ancora — un formato immagine panoramico
+1536x1024: entrambi abbandonati. L'architettura attuale rispecchia
+volutamente il meccanismo già esistente di "WHY THIS IMAGE?": una scheda
+(`<dialog>`) aperta da un pulsante, non una navigazione.
+
+- **Il pulsante ORACLE apre un dialog**: resta dov'era (`.hero-actions-top-right`,
+  in alto a destra su ogni pagina EMO), ma è un `<button id="oracle-btn">`
+  invece di un link. Apre `<dialog id="oracle-modal">` in `_hero.html`,
+  stesso stile di `#why-modal`: intervallo di date, badge verdetto+colore
+  (stesso schema di `.emotion-tag`/`.emotion-swatch`), immagine, spiegazione.
+  Mostra **sempre e solo la settimana ORACLE più recente** — statico,
+  renderizzato una volta da Jinja, nessun JavaScript necessario per
+  popolarlo. `_hero.html` è condiviso da `index.html` e `day.html`
+  (immutato in questo): `website/build_site.py` passa a entrambi lo stesso
+  `oracle_week` (= `load_weeks(oracle_archive_root)[0]`, `None` se nessuna
+  settimana ancora pubblicata — il modale degrada con grazia in quel caso)
+  più `oracle_image_base`/`oracle_share_image`, calcolati con lo stesso
+  `root` già passato a ciascuna pagina così funzionano da qualunque
+  profondità.
+- **Seconda sezione dinamica nell'archivio** (`archive.html`): sotto la
+  griglia EMO esistente, una propria intestazione "ORACLE" e una propria
+  `gallery-grid` (stesse classi, sezione separata, non interfogliata
+  cronologicamente). Ogni voce è un `<button class="gallery-item
+  oracle-archive-item">` — non un `<a>`, perché non naviga da nessuna
+  parte — che porta l'intera settimana come attributi `data-oracle-*`
+  (`image`, `range`, `verdict`, `verdict-color`, `explanation`,
+  `share-image`, `share-filename`). `button.gallery-item` in `style.css`
+  ha un reset dedicato (`appearance`/`background`/`border`/`padding`/`font`
+  azzerati) perché eredita di default lo stile nativo del browser, diverso
+  da quello di un `<a>` — verificato visivamente, non dato per scontato.
+  Il click chiama `initOracleArchiveModal()` in `script.js`, che legge quei
+  `data-oracle-*` e popola `<dialog id="oracle-archive-modal">` (markup
+  gemello di `#oracle-modal` ma vuoto/generico, con elementi identificati
+  da id fissi) prima di aprirlo.
+- **Meccanismo di condivisione generalizzato**: `initShareButton()` in
+  `script.js` non seleziona più un singolo `#share-btn` fisso, ma tutti gli
+  elementi con classe `.share-trigger` — un listener per ciascuno, che legge
+  `data-share-image`/`data-share-filename` al momento del click (non un
+  `download` statico nel markup). Tre pulsanti oggi portano questa classe:
+  il SHARE originale di EMO, "SHARE THIS ORACLE" dentro `#oracle-modal`
+  (statico, settimana più recente) e "SHARE THIS ORACLE" dentro
+  `#oracle-archive-modal` (dinamico — `initOracleArchiveModal()` riscrive
+  `dataset.shareImage`/`dataset.shareFilename` su quel pulsante prima di
+  aprire il dialog, così il listener generico, già attaccato una sola
+  volta, legge gli attributi aggiornati senza bisogno di logica dedicata).
+  Tutti e tre aprono lo stesso `<dialog id="share-modal">`, ora estratto nel
+  partial `_share_modal.html` e incluso sia da `_hero.html` sia da
+  `archive.html` — necessario perché `archive.html` non include
+  `_hero.html` e quindi non avrebbe altrimenti alcun `#share-modal`
+  disponibile (bug reale trovato e corretto durante l'implementazione: senza
+  quel partial, "SHARE THIS ORACLE" nell'archivio non faceva nulla).
+- **`.pixel-btn-small`**: variante proporzionalmente più piccola di
+  `.pixel-btn` (font-size 0.5rem invece di 0.65rem, bordo 1px invece di
+  2px), usata solo per i due pulsanti "SHARE THIS ORACLE".
+- **Asset ancora copiati, pagine no**: `build_site.py` copia comunque
+  `final.png`/`share_card.png` di ogni settimana in
+  `_site/oracle/<data-fine-settimana>/` (senza alcun `index.html` accanto),
+  perché i dialog li referenziano direttamente via `{{ root }}oracle/<data>/...`.
+  `write_robots_and_sitemap` è tornata alla sua forma originale pre-ORACLE,
+  senza alcun riferimento a `/oracle/`: non esistono pagine ORACLE da
+  elencare in `sitemap.xml`.
+- **Branding**: nessun elemento "brand" dedicato a ORACLE sul sito (niente
+  più `.brand-label`/`.brand-label-inline` con testo ORACLE) — il pulsante
+  "ORACLE" e le intestazioni `<h2>`/`<h1>` dentro i dialog bastano. La card
+  scaricabile (`pipeline/oracle_share_card.py`) resta invece deliberatamente
+  "EMO - ORACLE": deve restare autoesplicativa anche fuori dal contesto del
+  sito (un download o uno screenshot condiviso altrove), dove non c'è alcun
+  contesto di navigazione a chiarirlo.
 
 ## Cronologia architetturale essenziale (per non riproporre idee già scartate)
 
