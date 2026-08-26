@@ -36,9 +36,9 @@ share_card:
   size: 1080
 
 oracle:
-  image_size: "1536x1024"    # unico formato panoramico nativo di gpt-image-1.5 (vedi nota in CLAUDE.md)
-  grid_cols: 144              # 96 * 1.5, stessa densita' di cella di EMO
-  grid_rows: 96                # identico a postprocess.grid_size: stessa altezza in celle di EMO
+  image_size: "1024x1024"
+  grid_cols: 96
+  grid_rows: 96
   positive_color: "#f3ead9"    # bianco panna
   negative_color: "#5c1620"    # rosso scuro
 
