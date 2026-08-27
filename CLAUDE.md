@@ -160,6 +160,37 @@ quel giorno fosse il più recente, e per `sitemap.xml`/`robots.txt`.
   un dispatch manuale su un branch di feature esegue la pipeline e
   committa il risultato su quel branch, ma non pubblica.
 
+### Trigger esterno (Cloudflare Worker) e idempotenza
+
+Lo `schedule:` nativo di GitHub Actions si è dimostrato inaffidabile
+(il 27/08/2026 non è scattato all'orario previsto — mancato trigger
+dello scheduler GitHub, non un fallimento della pipeline). Da allora un
+**Cloudflare Worker** (`infra/cloudflare-worker/trigger-daily-emo.js`,
+vedi il README nella stessa cartella per dove incollarlo e come
+configurarlo) affianca un secondo trigger indipendente: un proprio Cron
+Trigger a `3 6 * * *` (06:03 UTC) chiama l'endpoint `workflow_dispatch`
+dell'API GitHub sullo stesso `daily.yml`. Lo `schedule:` delle 06:07
+resta al suo posto come rete di sicurezza residua — non va rimosso.
+
+Con due trigger indipendenti sullo stesso workflow nello stesso giorno,
+`pipeline.main.run()` è **idempotente rispetto alla data odierna
+(UTC)**: prima di chiamare Claude o gpt-image-1.5, controlla se
+`archive/<data-di-oggi>/metadata.json` esiste già; se sì, stampa
+`"Archivio già presente per {data}, salto la generazione."` e ritorna
+subito senza toccare l'archivio esistente, lasciando che gli step
+successivi del workflow (build/deploy del sito) procedano comunque a
+ricostruire da quanto già presente. Questa è una protezione
+**complementare**, non sostitutiva, al guard `if:
+github.event_name != 'push'` già presente sugli step "Run daily
+pipeline"/"Commit new archive entry": quel guard copre i push di
+codice, questa copre due trigger che generano per lo stesso giorno.
+Non rimuovere né l'uno né l'altro pensando che si siano resi ridondanti
+a vicenda.
+
+Il token `GITHUB_PAT` che il Worker usa per autenticarsi vive solo come
+variabile d'ambiente **Encrypt** nel dashboard Cloudflare del Worker,
+mai in questo repository.
+
 ## File per giorno in `archive/<data>/` (oltre a `metadata.json`)
 
 - `final.png` — l'immagine pubblicata.
@@ -224,6 +255,12 @@ di card) deve degradare con grazia, non assumere che sia sempre presente.
 - Il guard `github.ref == 'refs/heads/main'` sul job `deploy` in
   `daily.yml` — è l'unica cosa che impedisce a un dispatch manuale su un
   branch di feature di pubblicare per sbaglio.
+- Il controllo di idempotenza in `pipeline/main.py` (skip se
+  `archive/<data>/metadata.json` esiste già) e il guard `if:
+  github.event_name != 'push'` in `daily.yml` — sono due protezioni
+  complementari per due problemi diversi (trigger duplicati nello stesso
+  giorno vs. push di codice), non rimuoverne una pensando che l'altra
+  basti.
 
 ## Protocollo di sicurezza (sempre)
 
@@ -244,3 +281,8 @@ di card) deve degradare con grazia, non assumere che sia sempre presente.
 `ANTHROPIC_API_KEY` e `OPENAI_API_KEY` sono secret di GitHub Actions sul
 repository, mai nel codice. Il credito Anthropic si ricarica su
 console.anthropic.com.
+
+`GITHUB_PAT` (usato dal Cloudflare Worker per innescare `workflow_dispatch`,
+vedi "Automazione" sopra) è una variabile Encrypt nel dashboard Cloudflare
+del Worker, non un secret di questo repository — non va mai gestito da
+Claude Code in questa sessione né in nessun'altra.
