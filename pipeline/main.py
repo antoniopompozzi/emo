@@ -39,13 +39,19 @@ def load_config() -> dict:
 
 def run() -> Path:
     config = load_config()
+    date_str = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    archive_root = REPO_ROOT / config["paths"]["archive_dir"]
+    day_dir = archive_root / date_str
+
+    if (day_dir / "metadata.json").exists():
+        print(f"Archivio già presente per {date_str}, salto la generazione.")
+        return day_dir
+
     anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY")
     openai_api_key = os.environ.get("OPENAI_API_KEY")
 
     logger = ExchangeLogger()
-    date_str = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
 
-    archive_root = REPO_ROOT / config["paths"]["archive_dir"]
     exclude_links = archive.previously_used_links(
         archive_root, window_days=config["news"].get("dedup_window_days")
     )
