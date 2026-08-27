@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-27",
+  "concept": "A massive glacier face collapsing and calving into churning floodwaters below, with fractured ice blocks tumbling downward. The composition is vertical and dynamic, showing the moment of rupture—jagged shards suspended mid-fall against a backdrop of dark water surging through a mountain valley. Cool blues and grays dominate, with white highlights on the broken ice. The style is stark and geological, like a cross-section of catastrophe, rendered with strong contrasts and bold angular shapes that read clearly when pixelated.",
+  "explanation": "Today's news is dominated by cascading disasters: glacier collapse triggering devastating floods killing hundreds, wildfires sweeping through Algeria, a hospital fire killing babies, violence erupting across multiple continents. While there are bright spots (cancer treatment breakthrough, Dolly Parton's legacy), the weight of the day is environmental collapse and human suffering accelerating. The glacier collapse felt like the most vivid visual metaphor—a literal breaking point of the natural world, triggering a chain reaction of destruction.",
+  "emotion": "sadness",
+  "emotion_color": "#2e5c9a",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Collapsed glacier likely caused devastating Nepal-Tibet floods, scientists say",
+      "summary": "Preliminary investigations by scientists have pointed to a collapsed glacier as the cause, highlighting the issue of rapidly melting Himalayan ice.",
+      "link": "https://www.bbc.co.uk/news/articles/cly464k252yo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "What we know about deadly Nepal-Tibet floods",
+      "summary": "Hundreds have died in flooding and landslides on the border of Nepal and Tibet.",
+      "link": "https://www.bbc.co.uk/news/articles/cd948kn02e5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Norway's royal family gathers at King Harald's bedside as his condition worsens",
+      "summary": "The 89-year-old has been in hospital for over a week receiving treatment for a rare blood condition.",
+      "link": "https://www.bbc.co.uk/news/articles/cqxvrnvrr5do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Heart, hope and a steely determination: Dolly Parton's musical legacy",
+      "summary": "BBC music correspondent Mark Savage looks back on the legacy of the \"irreplaceable\" late singer.",
+      "link": "https://www.bbc.co.uk/news/articles/c74k8zwvez0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Door was locked at Pakistan hospital where fire killed 14 babies, witnesses say",
+      "summary": "The hospital tells the BBC the ward door was not locked but manned with security guards, to protect the babies.",
+      "link": "https://www.bbc.co.uk/news/articles/czdz13elezlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Tanzania's VP expelled from ruling party for indiscipline as his successor named",
+      "summary": "Nchimbi announced his resignation earlier this week after reportedly falling out with President Samia.",
+      "link": "https://www.bbc.co.uk/news/articles/cp3kwgyp1vwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump officials threaten Kennedy Center demolition if court blocks renovations",
+      "summary": "The justice department has also asked for Trump's name to be put back on the building after it was removed in June following a court order.",
+      "link": "https://www.bbc.co.uk/news/articles/c62mr97n936o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "At least 12 dead as wildfires sweep through northern Algeria",
+      "summary": "Northern Africa has experienced severe heatwaves this summer, leading to hundreds of fires across the region.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgyd4x6nj4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US drug agency approves breakthrough treatment for pancreatic cancer",
+      "summary": "Experts have hailed the drug, daraxonrasib, as a game changer for one of the world's deadliest cancers.",
+      "link": "https://www.bbc.co.uk/news/articles/clyq4ge4wk9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Two dead and 10 hurt after car rams into crowd in northern France",
+      "summary": "A suspect was arrested after the incident in Caen, police said, following a reported fight at a nearby bar.",
+      "link": "https://www.bbc.co.uk/news/articles/cqxvrl744nyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Far-right Israeli lawmaker damages Palestinian memorial with sledgehammer",
+      "summary": "Zvi Sukkot's actions have drawn widespread condemnation, including from Israeli Prime Minister Benjamin Netanyahu.",
+      "link": "https://www.bbc.co.uk/news/articles/c0lrw8325pzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Parrot eggs hatch after suspected Thai smuggler arrested at South African airport",
+      "summary": "A 50-year-old Thai suspect was arrested with the eggs in a \"homemade incubator\" carried as hand luggage.",
+      "link": "https://www.bbc.co.uk/news/articles/ceq8n04q0gxo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
