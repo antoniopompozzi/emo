@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-28",
+  "concept": "A heavy bronze crown resting on a funeral pyre or stone altar, surrounded by flickering candlelight and shadow. The crown is ornate and weighty, slightly tilted as if just placed down. Dark, somber palette with deep blues and grays, emphasizing loss and transition. Composition is centered and symmetrical. The style is painterly and classical, like a historical commemorative artwork. Include faint silhouettes of mourning figures in the background, out of focus.",
+  "explanation": "King Harald's death and the passing of the Norwegian throne to Haakon VIII dominates the emotional weight of today's news cycle. While one nation celebrates continuity and duty (the new king's motto), the world also absorbs reports of genocide investigations, escalating violence in multiple regions, territorial disputes, and a pattern of instability and loss. The crown—transferring between hands—became a natural symbol for how leadership changes amid chaos, and how traditions persist even as the world fractures around them.",
+  "emotion": "sadness",
+  "emotion_color": "#2e5c9a",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Norway mourns King Harald as Haakon VIII ascends throne",
+      "summary": "Mourners gather outside the palace as royals, politicians and citizens remember a beloved king, whose son has adopted the family motto \"all for norway\".",
+      "link": "https://www.bbc.co.uk/news/articles/cm2rzxrdr71o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Oslo mayor calls off wedding ceremony after death of Norway's king",
+      "summary": "Anne Lindboe, the mayor of Norway's capital, had planned to marry her fiance on Friday.",
+      "link": "https://www.bbc.co.uk/news/articles/c5ydgk3v60eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russia ramps up rhetoric but wants to avoid war with Nato, Western officials say",
+      "summary": "But they say Moscow will likely continue its \"hybrid activity\" against Nato members, short of direct military action.",
+      "link": "https://www.bbc.co.uk/news/articles/cz0zm2j7ld1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Right-wing commentator Milo Yiannopoulos detained by ICE",
+      "summary": "The British citizen, who lives and works in the US, has supported Trump and ICE agents in the past.",
+      "link": "https://www.bbc.co.uk/news/articles/cj06jgq62v9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Thieves steal 600-diamond necklace from Vienna museum in broad daylight",
+      "summary": "Police are hunting two suspects they believe bought a ticket for the exhibition to get at the jewellery.",
+      "link": "https://www.bbc.co.uk/news/articles/cqxvwpe0plro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Greenland says findings on genocide allegation not final",
+      "summary": "Experts examined the use of forced contraception on the Inuit community during the 1960s and 70s.",
+      "link": "https://www.bbc.co.uk/news/articles/czxzv29p12lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Violence breaks out in Ceuta as migrant crisis continues",
+      "summary": "A group of migrants is accused of throwing stones at a military vehicle, while some locals set fire to their camps on the beach.",
+      "link": "https://www.bbc.co.uk/news/articles/cy9zj11gwzxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "World's youngest reigning traditional monarch dies aged 34",
+      "summary": "King Oyo ascended to the throne of Uganda's Tooro kingdom when he was just three years old.",
+      "link": "https://www.bbc.co.uk/news/articles/c0j38d9v40po?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump signs order to rename Lake Ontario as Lake America",
+      "summary": "Canada has rejected the new name of the lake, which straddles both countries, as their row deepens.",
+      "link": "https://www.bbc.co.uk/news/articles/ckgwdn1g58yo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Two-year curfew lifted in Sudan's capital",
+      "summary": "The military authorities retook control of the city 18 months ago, but the conflict continues elsewhere.",
+      "link": "https://www.bbc.co.uk/news/articles/c2076gxr0llo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Shootings surge as drug gangs torment Brussels",
+      "summary": "This year alone there have been more than 65 shootings in the Belgian capital, as drug crime soars.",
+      "link": "https://www.bbc.co.uk/news/articles/c9w4r7e7z4ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Dutch court sentences man to life over Rwanda genocide",
+      "summary": "The court in The Hague convicted the 66-year-old of war crimes and the crime of genocide.",
+      "link": "https://www.bbc.co.uk/news/articles/ce8x96rw79ro?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
