@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-29",
+  "concept": "A large concrete dam or wall in shades of gray and deep blue, with water rising rapidly behind it, beginning to overflow at the top. The water is rendered in thick, bold brushstrokes suggesting turbulent movement. Dark pixelated blocks form jagged fractures spreading across the structure. The composition is symmetrical and imposing, with the wall dominating the frame from bottom to top. The sky above is obscured or darkened. Style: modernist, industrial, ominous.",
+  "explanation": "Today's headlines reveal a cascade of crises—floods hidden from view in Tibet and Nepal, geopolitical instability in the Middle East, energy and economic pressures from tariffs and resource deals, cyber threats, piracy, and military withdrawals. Rather than depicting any single event, this image captures the overwhelming sense of pressures mounting globally: barriers failing, systems straining, information dammed up or breaking loose. The wall represents control, denial, and infrastructure pushed to its breaking point.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Footage of Tibet floods isn't being shown in China - and we know little about victims there",
+      "summary": "Some of the most dramatic footage from the deadly flash flooding is hidden from public view in China.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2z415w2gpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump hails 'historic' deal for US to control 65bn barrels of Venezuela's oil",
+      "summary": "Venezuelan interim president says the unusual agreement will help revive her country's economy.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2zlwe7qj1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Landlady to 9/11 hijackers reveals their links to alleged Saudi spy",
+      "summary": "A woman who rented out homes to two al-Qaeda members speaks publicly for the first time - to the BBC.",
+      "link": "https://www.bbc.co.uk/news/articles/c99dvm39mreo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Close race as Iceland votes on whether to restart talks on joining EU",
+      "summary": "Turbulent international affairs have brought the vote forward, but the campaign has focused more on Iceland's vital fishing industry.",
+      "link": "https://www.bbc.co.uk/news/articles/cn45vdxyvvlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Canada poaches dozens of top US researchers for its universities",
+      "summary": "Researchers in fields like climate and medicine are being lured north by new research funding.",
+      "link": "https://www.bbc.co.uk/news/articles/c209gd5jnq1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Berlin is being blackmailed by hackers, mayor says",
+      "summary": "Kai Wegner says the German capital and city-state would not cave in to a ransom demand for data stolen in a cyber-attack.",
+      "link": "https://www.bbc.co.uk/news/articles/cm2q7gv3l5qo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US plans to cut off military aid to key Middle East ally, BBC told",
+      "summary": "Iraqi Kurdistan fears the Trump administration's plan will make the region more vulnerable to further attacks from Iran.",
+      "link": "https://www.bbc.co.uk/news/articles/cn74m8e5rleo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Somali piracy surges as the impact of the US-Iran war ripples outwards",
+      "summary": "Two ships were seized within four days last week raising to at least 13 the number attacked since January.",
+      "link": "https://www.bbc.co.uk/news/articles/cr4vx4pneydo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "How 'Book Queen' Dolly Parton inspired millions of children with gift of reading",
+      "summary": "Families across the globe share how free books from Parton's Imagination Library helped their children.",
+      "link": "https://www.bbc.co.uk/news/articles/cpwlrrzp8eeo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Forget Starbucks coffee - Gen Z like their drinks ice cold",
+      "summary": "Young consumers are choosing cold, customisable drinks and coffee chains are racing to catch up.",
+      "link": "https://www.bbc.co.uk/news/articles/cm2r9n2mrp8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "What tariffs will really cost Canadians and Americans",
+      "summary": "Households and businesses have become used to tariffs impacting the cost of living for more than year now, so what will change now?",
+      "link": "https://www.bbc.co.uk/news/articles/cx2z4dv6vn2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Satellite images reveal scale of flood devastation in Nepal villages",
+      "summary": "Before-and-after images show villages, bridges and a key Nepal-Tibet border crossing washed away by devastating floodwaters.",
+      "link": "https://www.bbc.co.uk/news/articles/cd68vpjv21do?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
