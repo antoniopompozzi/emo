@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-30",
+  "concept": "A split-screen composition: on the left, a massive ornate crown floating in dark, turbulent water with cracks spreading through it like broken glass; on the right, the same crown being carefully placed on a younger head emerging from calm, clear water. The overall mood is somber and transitional, with heavy shadows and a sense of weight and responsibility. Rendered in a classical, almost Renaissance painting style but with bold, angular forms and stark contrasts suitable for pixelation.",
+  "explanation": "Today's news is dominated by the death of Norway's King Harald and the ascension of King Haakon, bookending a day of global instability—election uncertainty in Iceland, violence in Ukraine, corruption scandals, and even ecological collapse (the cuttlefish). The Norwegian succession feels like the emotional anchor: a beloved figure passing the burden of monarchy to his son at a moment when that crown feels heavier than ever. It's a meditation on continuity and burden during times of fracture.",
+  "emotion": "sadness",
+  "emotion_color": "#2e5c9a",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Iceland EU referendum on a knife edge as counting continues",
+      "summary": "A vote on whether to resume membership talks with the European Union is too close to call.",
+      "link": "https://www.bbc.co.uk/news/articles/c70le8ed1plo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "WhatsApp chat used to send cash for crime and extremism",
+      "summary": "The WhatsApp money launderers arranged cash transfers in the UK and around the world with no paper trail.",
+      "link": "https://www.bbc.co.uk/news/articles/cgk57lg7566o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "At least 37 dead and hundreds evacuated after strike on Kyiv weapons depot",
+      "summary": "An investigation has begun into the storage of weapons for Ukraine's military near a residential area.",
+      "link": "https://www.bbc.co.uk/news/articles/c86xwqez4npo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Right-wing commentator Milo Yiannopoulos deported from US to UK",
+      "summary": "The self-styled provocateur had been detained by Immigration and Customs Enforcement (ICE).",
+      "link": "https://www.bbc.co.uk/news/articles/cqlw52vr0dwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Canada installs large Lake Ontario sign in latest jab at US",
+      "summary": "Ontario Premier Doug Ford unveiled a billboard on Canada's shoreline with the message: \"Lake Ontario. Now and Always.\"",
+      "link": "https://www.bbc.co.uk/news/articles/cpq09594vw7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Norway's new king remembers 'my dear father' in first speech",
+      "summary": "Haakon VIII pays emotional tribute to his late father, Harald V, before outlining how he wishes to reign.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgy79wmv4jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Former Ecuadorian president imprisoned for corruption",
+      "summary": "Lenín Moreno denies taking bribes from a Chinese firm to secure a contract to build a hydroelectric plant.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgym9rz07zo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Ex-White House teleprompter operator ordered to pay $172,000 for Trump speech bets",
+      "summary": "The staffer was found to have used his prior knowledge of the president's speeches to place lucrative bets.",
+      "link": "https://www.bbc.co.uk/news/articles/c4gj2dl4x52o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Dutch health institute issues 'red alert' over Trump-shaped ecstasy pills",
+      "summary": "The drugs have a delayed effect which \"increases the risk of overdose\", the health institute says.",
+      "link": "https://www.bbc.co.uk/news/articles/cy8z9084d00o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Australia usually hosts the world's biggest cuttlefish mating event - not this year",
+      "summary": "According to official figures only 1,811 cuttlefish turned up to mate this year, down 97% on last year.",
+      "link": "https://www.bbc.co.uk/news/articles/c75gyw0nkzno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Norway's King Harald dies aged 89: A beloved monarch buffeted by family crises",
+      "summary": "The late king, who reigned for 35 years, broke with tradition by marrying a commoner and was widely loved by Norwegians.",
+      "link": "https://www.bbc.co.uk/news/articles/clykn5p5172o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "King Haakon begins reign after turbulent year for Norwegian monarchy",
+      "summary": "Haakon becomes the king at a turbulent time for Norway's monarchy.",
+      "link": "https://www.bbc.co.uk/news/articles/cp841114eg6o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
