@@ -122,9 +122,12 @@ body {
    corner offset on the opposite side, but plain text with no box: it
    must stay legible while reading as clearly secondary to EMO/the
    pixel-btn actions, which is also why it uses a system sans-serif
-   instead of the pixel font. */
+   instead of the pixel font. position: fixed (like .brand-label and
+   .hero-actions) rather than absolute: the archive index page has no
+   full-viewport positioned ancestor to anchor an absolute corner to,
+   unlike .hero on the other pages. */
 .ai-disclosure-label {
-  position: absolute;
+  position: fixed;
   top: 1.25rem;
   right: 1.25rem;
   background: none;

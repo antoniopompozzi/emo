@@ -11,7 +11,7 @@
 
   <div class="brand-label"><a class="brand-text" href="{{ root }}index.html">EMO</a></div>
 
-  <button type="button" class="ai-disclosure-label" id="ai-disclosure-btn">AI-generated<span class="ai-disclosure-sep"> &middot; </span><br class="ai-disclosure-break">updated daily</button>
+  {% include "_ai_disclosure.html" %}
 
   <div class="hero-actions-left">
     <button type="button" class="pixel-btn" id="share-btn" data-share-image="{{ image_base }}share_card.png">
@@ -65,9 +65,4 @@
     {% endfor %}
   </ul>
   {% endif %}
-</dialog>
-
-<dialog id="ai-disclosure-modal" class="why-modal">
-  <button type="button" class="modal-close" id="ai-disclosure-close" aria-label="Close">&times;</button>
-  <p class="explanation">Every image and caption on this page is produced automatically by AI, once a day, from that day's news headlines — with no human review of the outcome. Nothing here is meant to depict real people or events accurately, or to offend or mock anyone. It's an automated interpretation, and its unpredictability is part of what this project studies.</p>
 </dialog>
