@@ -26,6 +26,19 @@ function initWhyModal() {
   closeOnBackdropClick(dialog);
 }
 
+// The AI-disclosure modal, opened from the small "AI-generated ·
+// updated daily" label on every hero page.
+function initAiDisclosureModal() {
+  const dialog = document.getElementById("ai-disclosure-modal");
+  const openBtn = document.getElementById("ai-disclosure-btn");
+  const closeBtn = document.getElementById("ai-disclosure-close");
+  if (!dialog || !openBtn || !closeBtn) return;
+
+  openBtn.addEventListener("click", () => dialog.showModal());
+  closeBtn.addEventListener("click", () => dialog.close());
+  closeOnBackdropClick(dialog);
+}
+
 // The SHARE modal: card preview, download link, copy-link button.
 // Deliberately not using the native Web Share API -- its picker varies
 // unpredictably across browsers (a full app list on Windows/Edge,
@@ -67,5 +80,6 @@ function initShareButton() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initWhyModal();
+  initAiDisclosureModal();
   initShareButton();
 });
