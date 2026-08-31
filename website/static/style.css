@@ -238,6 +238,15 @@ body {
   -webkit-hyphens: auto;
 }
 
+/* ai-disclosure-modal has no <h2> like why-modal does, so its
+   .explanation would otherwise start flush with the dialog's padding
+   and collide with .modal-close. Reserve the same vertical space
+   why-modal's heading occupies (its line-height plus margin-bottom)
+   so both modals give the close button the same clearance. */
+#ai-disclosure-modal .explanation {
+  margin-top: 2.35rem;
+}
+
 .fallback-note {
   font-size: 0.85rem;
   font-style: italic;
