@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-01",
+  "concept": "A courtroom in deep shadow, a single harsh spotlight illuminating an empty witness stand, with judicial scales tipping dangerously off-balance in the foreground. Behind, a montage of fragmented imagery: silhouettes of people falling through dark water, explosions against a hillside, an empty chair, a stage with no performer. The overall palette is muted and heavy, rendered in bold angular blocks with stark lighting creating deep shadows. Style: expressionist, contemporary noir, high contrast.",
+  "explanation": "Today's news is dominated by violent finality and systems failing those who depend on them. From Tupac's killer finally facing justice after decades, to trapped workers requiring explosives to reach them, to children disappearing in a ferry disaster, to a young defendant losing his legal team—there's a pervasive sense of delayed justice, lost lives, and institutional breakdown. Messi's retirement and Dolly Parton's death mark the end of eras. The image captures the weight of these moments: the courtroom as the central stage where systems are meant to work, but surrounded by the wreckage of systems that failed.",
+  "emotion": "sadness",
+  "emotion_color": "#2e5c9a",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "What it was like inside court for Tupac Shakur’s murder trial verdict",
+      "summary": "BBC presenter Anoushka Mutanda-Dougherty describes what it was like when Duane \"Keffe D\" Davis was found guilty of murdering the famous rapper.",
+      "link": "https://www.bbc.co.uk/news/videos/cz6zp2pwzx5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Nepal rescuers blast hillside in search of hydropower workers as families wait anxiously",
+      "summary": "Rescuers have resorted to explosives as they struggle to reach trapped workers, as the flooding death toll reaches 939.",
+      "link": "https://www.bbc.co.uk/news/articles/c5ylvgq9q71o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US army secretary resigns after months of tension",
+      "summary": "Dan Driscoll, the youngest-ever army secretary, was about 18 months into his post.",
+      "link": "https://www.bbc.co.uk/news/articles/czjz31dk1xmo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'I've never been to Afghanistan': Six million deportees forced to start over under the Taliban",
+      "summary": "As of August, the number forced to return this year from Pakistan and Iran had reached another million.",
+      "link": "https://www.bbc.co.uk/news/articles/c2e074nn8eko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Shein shares fall in long-awaited stock market debut",
+      "summary": "The firm's Hong Kong listing on Tuesday comes after a years-long quest to sell shares in New York and London.",
+      "link": "https://www.bbc.co.uk/news/articles/c3v0qrz7z25o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US singer D4vd's celebrity lawyers withdraw from murder case",
+      "summary": "The singer, 21, will be now represented by a public defender in the murder trial of 14-year-old Celeste Rivas Hernandez. He has pleaded not guilty.",
+      "link": "https://www.bbc.co.uk/news/articles/crr451lpl4no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'She slipped out of my hand' - children missing after ferry sinks off northern Cyprus",
+      "summary": "Ayten and Hayri Bicer's two young children are among 20 missing in an incident that killed eight people.",
+      "link": "https://www.bbc.co.uk/news/articles/c1mv5ggg1l8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Man arrested after Swiss rave shooting that killed woman",
+      "summary": "A 22-year-old Italian woman was killed and several injured at a techno rave in Aarau.",
+      "link": "https://www.bbc.co.uk/news/articles/cddv92n194vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US Supreme Court clears way for Trump to keep building White House ballroom",
+      "summary": "But Chief Justice John Roberts dissents, writing that \"construction is likely unlawful\".",
+      "link": "https://www.bbc.co.uk/news/articles/c9w457e7ydlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Festival honouring Dolly Parton set for Nashville and London",
+      "summary": "Dolly Parton's estate says DollyFest will take the place of a traditional public memorial for the artist, just as she wanted.",
+      "link": "https://www.bbc.co.uk/news/articles/c5ywd9q3ywvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Ex-congressman George Santos banned from betting platform for life",
+      "summary": "The prediction market operator Kalshi says Santos made barred trades and misleading comments that influenced prices.",
+      "link": "https://www.bbc.co.uk/news/articles/cpwlxy49225o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Messi retires from international football with 'nothing left to give'",
+      "summary": "Argentina great Lionel Messi announces his retirement from international football, saying it was a decision that \"hurt\" but he understands \"the time has come\".",
+      "link": "https://www.bbc.co.uk/sport/football/articles/ceq89y38elro?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
