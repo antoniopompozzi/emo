@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-03",
+  "concept": "A massive, oversized inflatable boat constructed from a patchwork of stitched fabric scraps and mismatched materials, listing heavily to one side in dark choppy water. Multiple shadowy figures cling to its sides. The boat is being piloted by faceless silhouettes in business suits standing at the helm, indifferent. Storm clouds loom overhead. Dark, documentary-style realism with harsh lighting, reminiscent of contemporary social realism painting. The composition emphasizes the grotesque scale of the vessel against the vulnerability of the passengers.",
+  "explanation": "Today's news is dominated by humanitarian crises, violence, and institutional failure across multiple continents—from smuggling operations forced into dangerous mega-boats, to attacks on shipping, migrant abandonment, murders both past and present, mob killings fueled by misinformation, and environmental disasters. The oversized, unstable vessel serves as a metaphor for systems buckling under pressure, criminal pragmatism overriding safety, and the disconnect between those steering crises and those suffering them. The patchwork construction reflects desperation and forced collaboration born from scarcity.",
+  "emotion": "sadness",
+  "emotion_color": "#2e5c9a",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Channel smuggling gangs resort to 'mega-dinghies' as crackdown limits small boat supply",
+      "summary": "Once-rival criminal groups are being forced to work together because of a shortage of small boats, a BBC investigation has found.",
+      "link": "https://www.bbc.co.uk/news/articles/ce3rn93de9eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Iranian attack on Saudi tanker killed two Filipino sailors, Saudi Arabia says",
+      "summary": "The kingdom condemns the targeting of Sidr, which was reportedly hit by unknown projectiles in the Strait of Hormuz on Monday.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2zxgg4mx9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Protests in Spain against government's handling of Ceuta migrant crisis",
+      "summary": "Spanish opposition parties accuse Prime Minister Pedro Sánchez of abandoning the residents of Ceuta.",
+      "link": "https://www.bbc.co.uk/news/articles/c1mvn2yp9n2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Will the Lindsay Clancy trial end in a mistrial? Here are the jury's options",
+      "summary": "Jurors have five options before them as they decide the fate of the former nurse charged with murdering her three children.",
+      "link": "https://www.bbc.co.uk/news/articles/c93vgv4kr49o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump $1 coin makes him first living president on US currency in a century",
+      "summary": "The US Mint special edition is stamped with a portrait of Trump alongside the words \"LIBERTY\" and \"IN GOD WE TRUST\"",
+      "link": "https://www.bbc.co.uk/news/articles/c7507g9v992o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Maltese tycoon acquitted of orchestrating murder of renowned journalist",
+      "summary": "Daphne Caruana Galizia exposed corruption and money laundering schemes in Malta before she was killed by a car bomb in 2017.",
+      "link": "https://www.bbc.co.uk/news/articles/c5ye295pxgxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'Below the dignity of the office': Canadian officials condemn Pete Hegseth cadet post",
+      "summary": "The US Defence Secretary is facing criticism for his apparent online mocking of members of Canada's cadet programme.",
+      "link": "https://www.bbc.co.uk/news/articles/clyk32nr1emo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Protests in Spain against government's handling of Ceuta migrant crisis",
+      "summary": "Spanish opposition parties accuse Prime Minister Pedro Sánchez of abandoning the residents of Ceuta.",
+      "link": "https://www.bbc.co.uk/news/articles/c1mvn2yp9n2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "EU and Nato vow to step up pressure on Russia after 'new escalation' in Germany",
+      "summary": "Russia is accused of growing increasingly reckless after Berlin blamed Russia for a failed drone attack on Leipzig airport.",
+      "link": "https://www.bbc.co.uk/news/articles/ce9e810pg7ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "LA Clippers fined $30m by NBA over Leonard scandal",
+      "summary": "The LA Clippers are fined $30m (£22.2m) by the NBA for violating salary rules over the acquisition of star player Kawhi Leonard.",
+      "link": "https://www.bbc.co.uk/sport/basketball/articles/czjze2jj8dro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Why Nepal floods should worry India",
+      "summary": "The disaster comes as a warning as climate change raises shared Himalayan risks.",
+      "link": "https://www.bbc.co.uk/news/articles/cn8e940gz10o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'The crowd shouted that we'd stolen someone's genitals' - deadly rumours spread on social media",
+      "summary": "More than 80 people have been killed in the mob violence, the BBC finds after gathering data from six African nations.",
+      "link": "https://www.bbc.co.uk/news/articles/ckg8lw7n2ddo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
