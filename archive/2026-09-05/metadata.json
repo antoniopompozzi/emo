@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-05",
+  "concept": "A fragmented mirror or shattered glass surface, each shard reflecting a different turbulent scene—war machinery, a gavel, a map being torn, barbed wire, a drone silhouette, flames. The shards are arranged chaotically across a dark background, some reflecting light, others dark. The composition is angular and dissonant, with bold geometric shapes and high contrast. The overall mood is fractured, uncertain, and tense.",
+  "explanation": "Today's headlines fragment into competing crises: judicial limbo in a family tragedy, stalled peace efforts amid active warfare, sabotage and far-right political gains in Europe, explosions and drone strikes, trafficking charges, territorial disputes, and loss. Rather than depict any single story, this image captures the sense of a world splintering—no single narrative dominates, but the accumulation of deadlock, violence, and uncertainty creates a picture of systemic fracture. Each reflected shard represents one breaking point.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Mistrial declared in Lindsay Clancy murder case, after jury deadlocks",
+      "summary": "The mistrial now puts the murder case - and Clancy's future - in limbo as to whether she will be held criminally liable in the deaths of her three kids.",
+      "link": "https://www.bbc.co.uk/news/articles/cpwlrj2je1po?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump's peace envoys to visit Moscow and Kyiv over weekend",
+      "summary": "Steve Witkoff and Jared Kushner have led President Donald Trump's efforts to end the Russia-Ukraine war - but talks have stalled.",
+      "link": "https://www.bbc.co.uk/news/articles/c23x0z48x0no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Europe targeted by spiralling campaign of sabotage - and Russia is the chief suspect",
+      "summary": "Germany has blamed Russia for an attack on Leipzig airport but there has been a series of suspicious incidents elsewhere.",
+      "link": "https://www.bbc.co.uk/news/articles/c5y4g6meekro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "UN votes to adopt new world map to reflect Africa's true size",
+      "summary": "The Togo-sponsored resolution was backed by 164 nations - with the US as the only nation to vote against it.",
+      "link": "https://www.bbc.co.uk/news/articles/ce30vp55dnlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "At least two dead in blast at Bolivia military barracks",
+      "summary": "Authorities fear the death toll in Viacha will rise and warn people to stay away from the barracks due to a risk of further explosions.",
+      "link": "https://www.bbc.co.uk/news/articles/c3v45xy67g5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Germany's far-right AfD bids for first taste of power in eastern vote",
+      "summary": "If it wins an outright majority in Saxony-Anhalt, it would be the first time a far-right party has held state-level power in Germany since World War Two.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgypkzgy4wo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russia hits Ukrainian security headquarters in drone attack, Zelensky says",
+      "summary": "The unmanned aerial vehicle struck without warning in the heart of the Ukrainian capital.",
+      "link": "https://www.bbc.co.uk/news/articles/c5yep7y48x2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'A rare moment of joy': Nepal tunnel rescues bring hope for more flood survivors",
+      "summary": "There are still hundreds of workers trapped in a network of tunnels that run along the Trishuli river.",
+      "link": "https://www.bbc.co.uk/news/videos/cd79vp91321o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Tate brothers charged with further trafficking and sex crimes in Romania",
+      "summary": "Andrew and Tristan Tate are currently in a Miami jail fighting extradition to the UK over separate charges and deny all the allegations.",
+      "link": "https://www.bbc.co.uk/news/articles/c7v4npv1m22o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "UK support for Falkland Islands 'unwavering' after Argentina restates claims, No 10 says",
+      "summary": "The comments come as Argentinian president Javier Milei says the \"winds of change\" favoured his country's claim on the British overseas territory.",
+      "link": "https://www.bbc.co.uk/news/articles/cn45jg3zlz4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Argentine couple to return Nazi-looted painting to rightful owner",
+      "summary": "The late-baroque Portrait of a Lady was lost for 80 years until it was spotted in photographs of a house for sale near Buenos Aires.",
+      "link": "https://www.bbc.co.uk/news/articles/cy0zxjp50j6o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Body of world's youngest traditional king returns home to Uganda amid succession row",
+      "summary": "King Oyo died in the US last week aged 34 after receiving treatment for an aggressive form of cancer.",
+      "link": "https://www.bbc.co.uk/news/articles/clylwgn8jk3o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
