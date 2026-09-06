@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-06",
+  "concept": "A massive volcanic ash cloud erupting from a crater, rendered in bold geometric shapes and stark silhouettes. The eruption fills the upper two-thirds of the composition as a towering, billowing form in deep charcoal and ash-grey tones. Below, a landscape of airports, ships, and human infrastructure rendered as tiny, fragile geometric blocks being engulfed or obscured by the spreading ash. The composition emphasizes scale and inevitability—nature's indifference to human systems. Style: minimalist, high-contrast, graphic, reminiscent of disaster art or WPA-era industrial prints.",
+  "explanation": "Today's headlines are fractured across multiple crises—diplomatic negotiations, military tensions, judicial brutality, natural disasters, and climate disruption—yet one image recurs that crystallizes the theme: the volcano in Indonesia halting an entire airport, stranding thousands. It represents something larger than itself: the way nature and uncontrollable forces simply render human systems, borders, agreements, and institutions temporarily irrelevant. The ash cloud is indifferent to politics, language bans, endangered species protections, or who is negotiating with whom. It's the day's most honest metaphor.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "US envoys set for Ukraine talks after meeting Putin in Russia",
+      "summary": "Steve Witkoff and Jared Kushner left Moscow having \"discussed substantive plans for next steps\" with Putin, according to the White House.",
+      "link": "https://www.bbc.co.uk/news/articles/c6248nvqy8po?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US and Iran trade retaliatory attacks on ships as conflict flares",
+      "summary": "The US says it hit three Iranian oil tankers, while Iran says it targeted three US-linked ships.",
+      "link": "https://www.bbc.co.uk/news/articles/cj64rrne643o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "TV presenter among 11 sentenced to death in Egypt drugs case",
+      "summary": "Sarah Khalifa is best known for her TV programme Mission Impossible which dealt with crime issues.",
+      "link": "https://www.bbc.co.uk/news/articles/c5y7gk9knnlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Volcano eruption triggers flight suspensions at Indonesia's main airport",
+      "summary": "More than 20,000 passengers are stranded after ash was detected in airspace near Jakarta following volcanic eruptions.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgy5k4n07ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Watch: Moment 64-year-old Nepali woman is found alive in mud-buried home",
+      "summary": "Chandika Shrestha was airlifted to hospital after spending more than 10 days in her partially buried house.",
+      "link": "https://www.bbc.co.uk/news/videos/c4gd24d1d0do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Prince William to attend King Harald's funeral in Norway",
+      "summary": "The Prince of Wales will represent the King at the funeral of Harald V in Oslo next week.",
+      "link": "https://www.bbc.co.uk/news/articles/cp301rw6kvro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump signs order to remove endangered species protection for grey wolves",
+      "summary": "The US president says the move will help ranchers, but conservationists say it could derail efforts to recover populations.",
+      "link": "https://www.bbc.co.uk/news/articles/c62k677d4lzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Nepal rescuers try to reach dozens trapped in tunnel after two found alive",
+      "summary": "More than 1,300 people have died and thousands are missing, but rescuers' hopes have risen after finding survivors in a tunnel.",
+      "link": "https://www.bbc.co.uk/news/articles/c7903j1vpe5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'He was a lifeline' - Families at a loss after Haitian caregivers let go in US",
+      "summary": "Haitian immigrants make up a large portion of the already overburdened home-care workforce.",
+      "link": "https://www.bbc.co.uk/news/articles/cg491zp13qqo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Majority Russian-speaking city in Ukraine considers language ban in the arts",
+      "summary": "Ukraine's third-biggest city Odesa decides this week whether to ban Russian-language content in music and literature in public.",
+      "link": "https://www.bbc.co.uk/news/articles/c33kzvgn8pyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Aviation faces hotter, stormier skies – and passengers might have to accept more disruption",
+      "summary": "Are people going to have to increasingly accept more delays and diversions as the effects of climate change intensify?",
+      "link": "https://www.bbc.co.uk/news/articles/cm274p8m88lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "What different world maps get right - and what they get wrong",
+      "summary": "As the UN adopts a new world map to reflect Africa's true size, let's take a closer look at what different maps get right and wrong.",
+      "link": "https://www.bbc.co.uk/news/articles/cly5r60v4mro?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
