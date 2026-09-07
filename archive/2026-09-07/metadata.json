@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-07",
+  "concept": "A massive concrete wall or barrier crumbling and fragmenting into falling blocks and dust, rendered in stark geometric shapes with sharp angular breaks. Dark storm clouds gather above. Bold silhouettes of cracks splitting the structure. Composed as a monumental collapse caught mid-fall, with heavy shadows and a single authoritative light source creating drama. Style: brutalist architecture meeting disaster photography, high contrast, minimal color palette.",
+  "explanation": "Today's news presents a confluence of systemic failures and fracturing—political extremism gaining ground in Europe, tragic infrastructure collapses in Delhi and Miami, escalating military tensions between Russia and Ukraine and Iran and the US, and multiple crises of institutional trust. Rather than depicting any single story, this image captures the broader sense of foundational structures—political, physical, social—coming apart simultaneously. The wall represents both literal building failures and the metaphorical collapse of democratic norms, international stability, and public trust.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Germany's far-right AfD hails big victory in east, but falls short of majority",
+      "summary": "Alternative for Germany hails a \"historic\" success as preliminary results show a big margin of victory with almost 44% of the vote.",
+      "link": "https://www.bbc.co.uk/news/articles/cy4zejgz3z9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Europe wrestles with impact of historic regional gains for Germany's AfD",
+      "summary": "The BBC's Europe editor Katya Adler sees the far-right win in Saxony-Anhalt state ringing alarm bells for the EU and traditional parties.",
+      "link": "https://www.bbc.co.uk/news/articles/c986w38r4j5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Five dead after Amazon cargo plane crashes at Miami airport",
+      "summary": "Five people are dead and five seriously injured after a Boeing 767-300 cargo plane \"overran\" the runway and caught fire, officials say.",
+      "link": "https://www.bbc.co.uk/news/articles/c0e3p1j7n3ro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Peace talks rich in symbolism but fundamental differences between Russia and Ukraine remain",
+      "summary": "Despite talks between US envoys and both Putin and Zelensky, the expectation in Kyiv is the fighting will continue, writes James Landale.",
+      "link": "https://www.bbc.co.uk/news/articles/c980j5m8mpro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Austria's Islamic headscarf ban in force as under-14s go back to school",
+      "summary": "The government says the law is intended to protect the rights of young girls, but critics say it is fuelling anti-Muslim feeling.",
+      "link": "https://www.bbc.co.uk/news/articles/cwyz74xn8q8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "China to pump $54bn into state banks and insurers to boost economy",
+      "summary": "It comes as Beijing is aiming to reshape its economy in the face of a number of challenges.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2z37qj4wno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Six dead and more feared trapped in collapsed building in Delhi",
+      "summary": "Eyewitnesses say two-to-four dozen are thought to have been inside the five-storey hostel when it came down.",
+      "link": "https://www.bbc.co.uk/news/articles/c8r6ezx1jmro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Australians will be able to switch off social media algorithms under planned legislation",
+      "summary": "Firms like Meta, Google and TikTok should face \"substantial\" penalties if they don't give the option, minister says.",
+      "link": "https://www.bbc.co.uk/news/articles/cn9wyvxn95vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Iran warns of 'faster, heavier, more painful response' to US attacks",
+      "summary": "The comments came a day after Washington said it had struck Iranian oil tankers in response to Tehran's attacks on US warships in the region.",
+      "link": "https://www.bbc.co.uk/news/articles/cp8d56w7d9po?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "The volunteers risking their lives to defuse Indonesia's wildfire 'carbon bombs'",
+      "summary": "Peat fires in Borneo are releasing ancient stores of carbon - and sending a toxic smog across South East Asia.",
+      "link": "https://www.bbc.co.uk/news/articles/c1kx4lgy4z4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "India's high-stakes exam system faces a crisis of trust",
+      "summary": "As exam scandals persist, critics ask whether fixing the centralised testing agency is enough or if the model needs to change.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgy1g7egy9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Lindsay Clancy murder trial has divided US on whether she's victim or criminal",
+      "summary": "Some say the case shed light on the mental health struggles of mothers, while others argue it's no excuse for murder.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2z0xnw2d6o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
