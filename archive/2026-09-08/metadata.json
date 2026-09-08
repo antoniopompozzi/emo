@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-08",
+  "concept": "A monumental concrete barrier or wall fragmenting into jagged, falling blocks against a dark crimson sky, with cracks spreading like veins across the structure. Silhouettes of figures on either side, separated and reaching but unable to connect. The composition emphasizes rupture, division, and collapse. Apocalyptic, architectural, brutalist aesthetic with sharp geometric forms and stark high contrast.",
+  "explanation": "Today's news is overwhelmingly fractured—violence splitting communities (Palestine, Lebanon, Mexico), democratic institutions under siege (Germany, Ukraine), and foundational structures of trust breaking down (privacy, trade, governance). The barrier represents these multiplying divisions: physical walls, political schisms, erosion of safety and cooperation. Rather than depicting any single tragedy, the image captures the broader condition of fragmentation permeating the day's events.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Flight recorders recovered from Amazon cargo plane crash",
+      "summary": "Five people were killed and five others seriously injured when the Boeing 767-300 overshot the runway at Miami International Airport.",
+      "link": "https://www.bbc.co.uk/news/articles/ce8e32n8epeo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Palestinian parents fear for children's lives at school as settler attacks grow",
+      "summary": "A headteacher in the occupied West Bank has installed new barbed wire fencing after three pupils were killed this year.",
+      "link": "https://www.bbc.co.uk/news/articles/c3wj45g73g1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Germany's far-right AfD says 'democracy demands' parties work with them after state election win",
+      "summary": "The far-right party is trying to form a government in the state after falling three seats short of a majority.",
+      "link": "https://www.bbc.co.uk/news/articles/cpd0113082eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Eiffel Tower shut by staff protest after female workers moved for religious visit",
+      "summary": "An investigation will be launched into the incident, which left female employees \"humiliated\", a union representative says.",
+      "link": "https://www.bbc.co.uk/news/articles/clyenxp540vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Ukraine's chief prosecutor resigns over call centre corruption scandal",
+      "summary": "In his resignation letter, Ruslan Kravchenko denied the allegations against him, saying he did not want his office \"to be used as a tool in political confrontation\".",
+      "link": "https://www.bbc.co.uk/news/articles/c780nlgyd79o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "UK government expected to announce restrictions on trade with West Bank settlements",
+      "summary": "Foreign Secretary Ed Miliband is set to outline the proposals today, in a move which could prompt Israel to retaliate.",
+      "link": "https://www.bbc.co.uk/news/articles/c4grdjnle22o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump threatens to stop sale of Canadian Bombardier jets in US",
+      "summary": "The threat against one of Canada's largest companies comes amid an escalating trade war between the two neighbours.",
+      "link": "https://www.bbc.co.uk/news/articles/c4gj8xx5010o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "North Korea and Russia open first road bridge linking both countries",
+      "summary": "It comes as relations between both countries have strengthened since the start of the Ukraine war.",
+      "link": "https://www.bbc.co.uk/news/articles/cj9xvg1kz0mo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trial over alleged murders of Australian surfer brothers starts in Mexico",
+      "summary": "The bodies of Jake and Callum Robinson and their US friend were found with gunshot wounds to their heads.",
+      "link": "https://www.bbc.co.uk/news/articles/crernpv433vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Thousands turn out in Serbia for funeral of  'Butcher of Bosnia' Ratko Mladić",
+      "summary": "Mladić was jailed for genocide during the 1990s Bosnian war and the EU warned Serbia not to glorify the convicted war criminal.",
+      "link": "https://www.bbc.co.uk/news/articles/cn5dkk7yw74o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Israeli strikes in southern Lebanese village kill 12",
+      "summary": "Lebanon says a recent Israeli escalation is jeopardising a US-brokered ceasefire meant to end the conflict between Israel and Hezbollah.",
+      "link": "https://www.bbc.co.uk/news/articles/c5yl96vz0edo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Grindr to pay £26m to settle claims it allegedly shared users' HIV status",
+      "summary": "The long-running claim alleges Grindr breached UK privacy laws by sharing data with third parties.",
+      "link": "https://www.bbc.co.uk/news/articles/cn8e63qdqwzo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
