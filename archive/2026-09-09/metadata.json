@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-09",
+  "concept": "A fractured oil derrick mid-collapse, silhouetted against a blood-red sky, surrounded by concentric rings of fire and smoke in thick, bold strokes. The structure tilts at a dangerous angle, its geometric framework decomposing into abstract shards. Heavy, brooding color palette dominated by deep crimson, charcoal black, and burnt orange. Composition emphasizes instability and cascading destruction, with sharp angular forms suggesting both industrial collapse and geopolitical rupture. Style: industrial modernist with apocalyptic undertones, painted in stark, high-contrast shapes suitable for pixelation.",
+  "explanation": "Today's headlines are dominated by escalating confrontation—US-Iran strikes pushing oil toward $100, trade wars between allies, drone attacks on civilians, territorial claims reignited, and multiple acts of aggression or exploitation. The oil derrick serves as a visual nexus: literal symbol of the energy crisis driving geopolitical tension, metaphor for fragile infrastructure under siege, and embodiment of the cascading instability across multiple regions. The collapsing structure captures the sense that established order is breaking down simultaneously on multiple fronts.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "US strikes Iranian oil tankers as Tehran targets American base in Jordan",
+      "summary": "Oil prices edged closer to $100 a barrel after an escalation in the tit-for-tat strikes between the US and Iran.",
+      "link": "https://www.bbc.co.uk/news/articles/cyvznqypz0yo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Paul Adams: British-Israeli relations at lowest ebb in decades",
+      "summary": "Israel's response to London's trade ban with Israeli settlements in the occupied West Bank shows how important this moment is.",
+      "link": "https://www.bbc.co.uk/news/articles/c5ydlex9yn3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US slaps import ban on Canadian alcohol, motorbikes and other goods",
+      "summary": "It is the latest strike in a long trade war, and comes as Canadian counter-tariffs on US goods come into force.",
+      "link": "https://www.bbc.co.uk/news/articles/c99dm1000p7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'Constantly on my mind' - 9/11 agony endures for bereaved, 25 years on",
+      "summary": "As the 25th anniversary approaches, the wait for the alleged mastermind of the attack to be put on trial goes on.",
+      "link": "https://www.bbc.co.uk/news/articles/clyrjw1yj75o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "South Park creators rename show 'South America' in apparent dig at Trump",
+      "summary": "Since beginning his second term, the US president has said he wanted to use the word 'America' to rename a lake, a gulf and even a US state.",
+      "link": "https://www.bbc.co.uk/news/articles/cp9340rg7k8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Meta continues to run ads promoting child sexual abuse material in India - report",
+      "summary": "The report follows a BBC Eye investigation that found Instagram running paid ads promoting such material in India.",
+      "link": "https://www.bbc.co.uk/news/articles/cqxv2vwjjq3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Renoir paintings worth millions stolen in French museum heist",
+      "summary": "It is the latest in a string of high-profile art thefts in Europe that has again put the security of museums and galleries in the spotlight.",
+      "link": "https://www.bbc.co.uk/news/articles/c70drp0pyw2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Ukrainian TV channel building hit by Russian drone as five killed in Kyiv",
+      "summary": "President Zelensky describes the daytime drone attack in Ukraine's capital as a \"new page in Russian degradation\"",
+      "link": "https://www.bbc.co.uk/news/articles/cn8m1k7p3v7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Hong Kong's first leader after British handover dies",
+      "summary": "The tenure of Tung Chee-hwa, Hong Kong's first leader after Britain handed over the city to China, was marked by crises and protests.",
+      "link": "https://www.bbc.co.uk/news/articles/cn457lq938jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Argentina to file criminal case against oil company operating in Falklands",
+      "summary": "The move comes days after President Javier Milei stepped up Argentina's claims of sovereignty over the Falklands.",
+      "link": "https://www.bbc.co.uk/news/articles/c8jd14glvneo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "British widow faces deportation from Sweden after 22 years",
+      "summary": "A 78-year-old British woman is facing deportation for failing to fill out a Brexit residence application on time.",
+      "link": "https://www.bbc.co.uk/news/articles/c62k0d4px6ro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Saudi Arabia vows to respond after Houthis attack cities and energy facilities",
+      "summary": "The Iran-backed Yemeni group's attacks have injured 73 people and caused fires at oil facilities, Saudi authorities say.",
+      "link": "https://www.bbc.co.uk/news/articles/cp849n2nz01o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
