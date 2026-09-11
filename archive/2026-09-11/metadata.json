@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-11",
+  "concept": "A vast, dark shipping container port at night viewed from above, with a single strategic chokepoint—a narrow strait rendered as a glowing red line—surrounded by concentric rings of military vessels, each represented as stark silhouettes. Flames billow from distant structures. The composition emphasizes control, constriction, and the fragility of global supply lines. Bold geometric forms. High contrast. Apocalyptic industrial mood.",
+  "explanation": "Today's headlines converge on a theme of control, loss, and vulnerability: Houthis seizing a Red Sea port to dominate a critical shipping lane; Russians striking civilian infrastructure; catastrophic transport failures across planes, coaches, and ships; families fractured by violence and succession disputes. The image abstracts these into a single metaphor—the global economy and stability strangled at its chokepoints by military ambition, accident, and chaos.",
+  "emotion": "fear",
+  "emotion_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Yemen's Houthis reportedly seize strategic Red Sea port of Mokha",
+      "summary": "Mokha's capture would bring the Iran-backed group closer to controlling the Bab al-Mandab Strait waterway, a key shipping route.",
+      "link": "https://www.bbc.co.uk/news/articles/c4g7vr0lngwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Five killed and 67 injured in Russian strike on shopping centre, Ukraine says",
+      "summary": "The attack in Pavlohrad city centre was the third Russian strike on a mall within days, local media report.",
+      "link": "https://www.bbc.co.uk/news/articles/cpvelrmp1vmo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Pilot warned Amazon cargo plane going too fast before deadly crash, data shows",
+      "summary": "One pilot told the other about the aircraft's \"excessive speed\" but received an uneven response even as alarms sounded.",
+      "link": "https://www.bbc.co.uk/news/articles/cj4jynv59ddo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Israel's Netanyahu to sue newspaper over claim UAE warned him of 7 October attack",
+      "summary": "The paper said it stood by its reporting, after publishing extracts from a book where the claim appears.",
+      "link": "https://www.bbc.co.uk/news/articles/c1kxwm870g1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "More than 20 children killed in DR Congo school fire",
+      "summary": "Officials say there was a stampede as they fled a fire that engulfed two schools in the eastern rebel-held city of Bukavu.",
+      "link": "https://www.bbc.co.uk/news/articles/cgjq15j7318o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Man jailed after threatening to kill son's teacher in French village",
+      "summary": "The father had threatened to behead a female primary school teacher near Toulouse.",
+      "link": "https://www.bbc.co.uk/news/articles/c62jln7n2vvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Coach crash kills several people in Swiss Alps",
+      "summary": "The tourist coach was carrying dozens of Dutch passengers when it overturned in the south-eastern Swiss Alps.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2z70xr0y3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Can Trump really pay $5,000 to every American adult?",
+      "summary": "Analysts question if the US president's election year offer is workable, legal or affordable.",
+      "link": "https://www.bbc.co.uk/news/articles/c8r6vj7r8rko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Royal family rift after popular TV news presenter chosen to succeed Ugandan king",
+      "summary": "King Oyo's family say he left a will naming his young son as heir to the Tooro kingdom.",
+      "link": "https://www.bbc.co.uk/news/articles/c8jdpj4ydm2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Apple's new boss starts with big gamble on £1,999 first folding iPhone",
+      "summary": "Apple showed off at an event the first major design change to the iPhone in almost 20 years.",
+      "link": "https://www.bbc.co.uk/news/articles/clyjd1jnd03o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Twenty-five dead after fire on cargo ship in eastern China",
+      "summary": "Of the 42 people on board, 17 were were evacuated, CCTV reports.",
+      "link": "https://www.bbc.co.uk/news/articles/cj4jyv7l92eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Ukraine's fortress cities under fire as Russia bids to seize rest of Donbas",
+      "summary": "Kramatorsk and Slovyansk are now the main focus of Russian ground assaults, and residents are being told to leave.",
+      "link": "https://www.bbc.co.uk/news/articles/cwyz89w59l3o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
