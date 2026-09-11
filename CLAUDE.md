@@ -124,10 +124,14 @@ richiesta esplicita dell'autore. Finora:
 | 2026-09-11 | fear | la sorgente più scura dell'archivio (L media 25.5/255): 88% → 66% di celle nei due livelli più scuri |
 | 2026-08-28 | sadness | la seconda più scura (L media 38.9/255): 76% → 34% |
 
-Tutti gli altri giorni restano con la resa con cui erano stati
-pubblicati. Non "correggerli" in blocco senza che l'autore lo chieda,
-e aggiungere una riga a questa tabella ogni volta che se ne rielabora
-un altro.
+**La lista è chiusa.** Dopo il 2026-08-28 l'autore ha dichiarato
+esplicitamente che non vuole rielaborare altri giorni precedenti:
+tutti gli altri restano per sempre con la resa con cui erano stati
+pubblicati. Non riproporre di allinearli, né singolarmente né in
+blocco — la differenza di resa fra i due giorni rielaborati e il
+resto dell'archivio è una scelta, non un residuo da sistemare. Se un
+giorno l'autore cambiasse idea e ne chiedesse un altro, aggiungere
+una riga alla tabella qui sopra.
 
 ## Rielaborare un giorno già archiviato (`pipeline/rerender.py`)
 
