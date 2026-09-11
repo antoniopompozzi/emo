@@ -1,7 +1,12 @@
+from pathlib import Path
+
 import numpy as np
+import yaml
 from PIL import Image
 
-from pipeline.postprocess import pixelate, quantize_grid, render_grid
+from pipeline.postprocess import TONE_CURVE_GAMMA, pixelate, quantize_grid, render_grid
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 WHITE = "#ffffff"
 
@@ -88,3 +93,42 @@ def test_render_grid_is_consistent_with_pixelate():
     rendered = render_grid(grid, px_per_cell=6, hue_hex=hue)
     combined = pixelate(source, grid_size=8, gray_levels=5, px_per_cell=6, hue_hex=hue)
     assert np.array_equal(np.array(rendered), np.array(combined))
+
+
+def test_tone_curve_leaves_the_endpoints_alone():
+    # Pure black and pure white must survive the curve untouched, so
+    # the duotone keeps both its black and the full emotion color.
+    pixels = np.zeros((100, 100, 3), dtype=np.uint8)
+    pixels[:, 50:] = 255
+    source = Image.fromarray(pixels)
+    grid = quantize_grid(source, grid_size=2, gray_levels=10)
+    assert grid[0, 0] == 0
+    assert grid[0, 1] == 255
+
+
+def test_tone_curve_lifts_midtones_into_higher_levels():
+    source = Image.new("RGB", (64, 64), color=(70, 70, 70))
+    curved = quantize_grid(source, grid_size=4, gray_levels=10)
+    flat = quantize_grid(source, grid_size=4, gray_levels=10, tone_curve_gamma=1.0)
+    assert curved[0, 0] > flat[0, 0]
+
+
+def test_gamma_one_reproduces_the_pre_curve_behaviour():
+    # The explicit escape hatch used to re-render or compare against
+    # the look EMO had before 2026-09-11.
+    rng = np.random.default_rng(7)
+    noise = rng.integers(0, 256, size=(128, 128, 3), dtype=np.uint8)
+    source = Image.fromarray(noise, mode="RGB")
+    grayscale = np.array(
+        source.convert("L").resize((16, 16), resample=Image.BOX), dtype=np.float64
+    )
+    bucket = np.clip(np.floor(grayscale / 256.0 * 6), 0, 5)
+    expected = (bucket * (255.0 / 5)).round().astype(np.uint8)
+    assert np.array_equal(quantize_grid(source, 16, 6, tone_curve_gamma=1.0), expected)
+
+
+def test_default_gamma_matches_config():
+    # config.yaml is what main.py actually passes; the module default
+    # exists only so other callers render identically. They must agree.
+    config = yaml.safe_load((REPO_ROOT / "config.yaml").read_text(encoding="utf-8"))
+    assert config["postprocess"]["tone_curve_gamma"] == TONE_CURVE_GAMMA

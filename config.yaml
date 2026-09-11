@@ -24,9 +24,10 @@ openai_image:
   retry_backoff_seconds: 10
 
 postprocess:
-  grid_size: 96      # cells per side of the pixelation grid
-  gray_levels: 10    # number of quantized gray tones
-  px_per_cell: 10    # output pixels per cell -> final image is grid_size * px_per_cell
+  grid_size: 96             # cells per side of the pixelation grid
+  gray_levels: 10           # number of quantized gray tones
+  px_per_cell: 10           # output pixels per cell -> final image is grid_size * px_per_cell
+  tone_curve_gamma: 0.7     # midtone lift applied before quantization; 1.0 = no curve (pre-2026-09-11 look)
 
 site:
   title: "EMO"
