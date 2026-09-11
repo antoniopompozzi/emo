@@ -3,7 +3,8 @@
   "concept": "A heavy bronze crown resting on a funeral pyre or stone altar, surrounded by flickering candlelight and shadow. The crown is ornate and weighty, slightly tilted as if just placed down. Dark, somber palette with deep blues and grays, emphasizing loss and transition. Composition is centered and symmetrical. The style is painterly and classical, like a historical commemorative artwork. Include faint silhouettes of mourning figures in the background, out of focus.",
   "explanation": "King Harald's death and the passing of the Norwegian throne to Haakon VIII dominates the emotional weight of today's news cycle. While one nation celebrates continuity and duty (the new king's motto), the world also absorbs reports of genocide investigations, escalating violence in multiple regions, territorial disputes, and a pattern of instability and loss. The crown—transferring between hands—became a natural symbol for how leadership changes amid chaos, and how traditions persist even as the world fractures around them.",
   "emotion": "sadness",
-  "emotion_color": "#2e5c9a",
+  "emotion_color": "#3d7acc",
+  "emotion_base_color": "#2e5c9a",
   "concept_used_fallback": false,
   "image_used_fallback": false,
   "headlines": [
@@ -71,7 +72,8 @@
   "render_params": {
     "grid_size": 96,
     "gray_levels": 10,
-    "px_per_cell": 10
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
   },
   "image_provider_params": {
     "provider": "openai",
