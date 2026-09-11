@@ -42,9 +42,9 @@ progetto — due affidati all'IA, uno deterministico:
    panoramico.
 3. `pipeline/postprocess.py` **[deterministico]** — trasformazione fissa
    (Pillow/numpy): scala di grigi, downsampling a griglia fitta
-   (box filter), quantizzazione dei livelli di grigio, duotono nero +
-   colore dell'emozione, bordi netti (nearest-neighbour, nessun
-   antialiasing).
+   (box filter), **curva tonale** (vedi sotto), quantizzazione dei
+   livelli di grigio, duotono nero + colore dell'emozione, bordi netti
+   (nearest-neighbour, nessun antialiasing).
 
 A valle, non tra i tre passaggi: `pipeline/archive.py` scrive tutto su
 `archive/<data>/` (vedi elenco file sotto), `website/build_site.py` genera
@@ -54,17 +54,92 @@ il sito statico da lì.
 
 Sei delle sei emozioni base di Ekman (non la "contempt" a volte aggiunta
 come settima), più una categoria pratica "neutral" per quando nessuna
-emozione domina o per i fallback:
+emozione domina o per i fallback.
 
-| Emozione | Colore |
-|---|---|
-| anger | #c0392b |
-| sadness | #2e5c9a |
-| fear | #5b2c6f |
-| joy | #d4a017 |
-| surprise | #1a9e8f |
-| disgust | #556b2f |
-| neutral (default) | #555555 |
+**Dal 2026-09-11 le palette sono due**, la seconda derivata dalla prima
+con una regola fissa (vedi "Regola di luminosità" sotto).
+`EMOTION_PALETTE` è il colore d'identità dell'emozione, quello di
+riferimento per la tesi; `RENDER_PALETTE` è quello che finisce davvero
+dentro `final.png`. Non aggiungere colori a mano alla seconda: si
+ricava dalla prima.
+
+| Emozione | Base (`EMOTION_PALETTE`) | Resa (`RENDER_PALETTE`) |
+|---|---|---|
+| anger | #c0392b | #e04232 |
+| sadness | #2e5c9a | #3d7acc |
+| fear | #5b2c6f | #9649b7 |
+| joy | #d4a017 | #eab019 |
+| surprise | #1a9e8f | #22cebb |
+| disgust | #556b2f | #90b550 |
+| neutral (default) | #555555 | #aaaaaa |
+
+In `metadata.json` sono archiviati entrambi: `emotion_color` è il
+colore effettivamente dipinto (quello di resa), `emotion_base_color`
+quello da cui deriva. I giorni archiviati prima del 2026-09-11 hanno
+solo `emotion_color`, col valore base — vedi "degradare con grazia"
+più sotto.
+
+## Regola di luminosità (introdotta il 2026-09-11)
+
+Prima di questa data le immagini risultavano troppo scure: le sorgenti
+di gpt-image-1.5 tendono al buio e sull'archivio la sorgente più scura
+(proprio quella dell'11 settembre) piazzava l'88% delle celle nei due
+livelli più bassi dei dieci disponibili, cioè leggeva come nero piatto.
+La correzione è in due metà, **entrambe regole fisse e deterministiche
+applicate a ogni giorno futuro** — nessuna delle due guarda il
+contenuto del giorno per decidere quanto intervenire:
+
+1. **Curva tonale** (`postprocess.quantize_grid`, parametro
+   `postprocess.tone_curve_gamma` in `config.yaml`, default `0.7`):
+   `valore ** 0.7` sui valori normalizzati fra 0 e 1, applicata alle
+   medie di cella **dopo il box filter e prima della quantizzazione** —
+   l'ordine conta, così la curva ridistribuisce le celle fra i dieci
+   livelli invece di limitarsi a ricolorare quelli in cui erano già
+   cadute. Gli estremi restano fermi (0 → 0, 255 → 255): il nero del
+   duotono e il colore pieno dell'emozione non si spostano.
+   `tone_curve_gamma: 1.0` ripristina esattamente la resa precedente.
+2. **Sollevamento del colore** (`emotions.brighten_for_render`,
+   costante `BRIGHTNESS_LIFT = 0.5`): `V' = V + 0.5 * (1 - V)` in HSV,
+   con tinta (H) e saturazione (S) **invariate**. È un sollevamento
+   *relativo* dello spazio che resta, non un valore assoluto di
+   luminosità: così può solo schiarire — `joy`, già a V 0.83, non
+   viene tirata in basso per incontrare `fear` a V 0.44 — e ogni
+   emozione conserva la propria famiglia cromatica e resta distinta
+   dalle altre (fear resta un viola, disgust resta un verde oliva).
+   0.5 è la costante che porta `fear` su #9649b7, il valore validato
+   sull'anteprima dell'11 settembre.
+
+Attenzione: una normalizzazione automatica sull'istogramma del singolo
+giorno darebbe numeri migliori di una gamma fissa, ed è stata scartata
+apposta — sposterebbe controllo dalla regola fissa al contenuto, che è
+esattamente la distinzione su cui si regge il progetto (vedi
+"Principio metodologico centrale").
+
+**L'archivio è volutamente misto**: solo il 2026-09-11 è stato
+rielaborato con la nuova regola (vedi sotto). I giorni dal 2026-08-18
+al 2026-09-10 restano con la resa con cui erano stati pubblicati — non
+"correggerli" in blocco senza che l'autore lo chieda.
+
+## Rielaborare un giorno già archiviato (`pipeline/rerender.py`)
+
+`python -m pipeline.rerender <YYYY-MM-DD> [--backup-dir DIR]` ridisegna
+un giorno già in archivio partendo dalla sua `source.png`, **senza
+nessuna chiamata a Claude o a OpenAI**. Riscrive `final.png`,
+`grid_values.json`, le share card che quel giorno ha già (non ne
+inventa di nuove) e i soli campi derivati di `metadata.json`
+(`emotion_color`, `emotion_base_color`, `render_params`). Non tocca
+`source.png`, notizie, concept, explanation, emozione, flag di
+fallback, `exchange_log.json`: il *contenuto* del giorno è stato
+deciso da Claude quel giorno e resta deciso, si rigioca solo la
+trasformazione fissa a valle.
+
+È deliberatamente un entry point separato da `pipeline/main.py`: non
+chiama `run()` e non passa dal controllo di idempotenza sulla data
+odierna. Quel controllo protegge il workflow quotidiano da due trigger
+nello stesso giorno, e la rielaborazione non deve diventare un modo per
+aggirarlo — c'è un test che lo verifica. Rielaborare non genera mai un
+giorno nuovo, e la pipeline quotidiana non rielabora mai un giorno
+vecchio.
 
 ## Fallback: due flag indipendenti in ogni `metadata.json`
 
@@ -206,8 +281,9 @@ mai in questo repository.
   dover ricostruire cosa è successo da altrove.
 
 I giorni archiviati prima dell'esistenza di una feature (es. `share_card.png`,
-`instagram_card.png`, il campo `emotion` in `metadata.json`) possono non
-avere quel file/campo: tutto il codice a valle (build del sito, generatori
+`instagram_card.png`, il campo `emotion` in `metadata.json`, o
+`emotion_base_color` e `render_params.tone_curve_gamma`, entrambi dal
+2026-09-11) possono non avere quel file/campo: tutto il codice a valle (build del sito, generatori
 di card) deve degradare con grazia, non assumere che sia sempre presente.
 
 ## Cronologia architetturale essenziale (per non riproporre idee già scartate)
@@ -247,6 +323,11 @@ di card) deve degradare con grazia, non assumere che sia sempre presente.
 
 - L'estetica pixel-art già validata (griglia, font Press Start 2P, alto
   contrasto bianco/nero/colore emozione).
+- Le due metà della regola di luminosità del 2026-09-11 (curva `0.7` e
+  `BRIGHTNESS_LIFT = 0.5`) e il fatto che il sollevamento sia relativo
+  e non un valore assoluto — vedi "Regola di luminosità" sopra.
+- La separazione fra `pipeline/rerender.py` e `pipeline/main.py`: la
+  rielaborazione non deve mai passare dal controllo di idempotenza.
 - I file d'archivio non usati dal sito pubblicato (`grid_values.json`,
   `source.png`, `instagram_card.png`) — vedi "File per giorno" sopra: sono
   materiale grezzo/futuro tenuto di proposito, non codice morto.

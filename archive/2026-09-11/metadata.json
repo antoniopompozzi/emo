@@ -3,7 +3,8 @@
   "concept": "A vast, dark shipping container port at night viewed from above, with a single strategic chokepoint—a narrow strait rendered as a glowing red line—surrounded by concentric rings of military vessels, each represented as stark silhouettes. Flames billow from distant structures. The composition emphasizes control, constriction, and the fragility of global supply lines. Bold geometric forms. High contrast. Apocalyptic industrial mood.",
   "explanation": "Today's headlines converge on a theme of control, loss, and vulnerability: Houthis seizing a Red Sea port to dominate a critical shipping lane; Russians striking civilian infrastructure; catastrophic transport failures across planes, coaches, and ships; families fractured by violence and succession disputes. The image abstracts these into a single metaphor—the global economy and stability strangled at its chokepoints by military ambition, accident, and chaos.",
   "emotion": "fear",
-  "emotion_color": "#5b2c6f",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
   "concept_used_fallback": false,
   "image_used_fallback": false,
   "headlines": [
@@ -71,7 +72,8 @@
   "render_params": {
     "grid_size": 96,
     "gray_levels": 10,
-    "px_per_cell": 10
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
   },
   "image_provider_params": {
     "provider": "openai",

@@ -21,7 +21,7 @@ import yaml
 from dotenv import load_dotenv
 
 from pipeline import archive, concept, image_provider, news, postprocess, share_card
-from pipeline.emotions import DEFAULT_EMOTION, EMOTION_PALETTE
+from pipeline.emotions import DEFAULT_EMOTION, EMOTION_PALETTE, RENDER_PALETTE
 from pipeline.logging_utils import ExchangeLogger
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -78,13 +78,19 @@ def run() -> Path:
         }
 
     emotion = concept_result.get("emotion", DEFAULT_EMOTION)
-    emotion_color = EMOTION_PALETTE.get(emotion, EMOTION_PALETTE[DEFAULT_EMOTION])
+    # The base palette is the emotion's identity color; the render
+    # palette is that same color brightened by a fixed rule (see
+    # pipeline/emotions.py). Both are archived: emotion_color is what
+    # was actually painted, emotion_base_color what it was derived from.
+    emotion_base_color = EMOTION_PALETTE.get(emotion, EMOTION_PALETTE[DEFAULT_EMOTION])
+    emotion_color = RENDER_PALETTE.get(emotion, RENDER_PALETTE[DEFAULT_EMOTION])
 
     pp_cfg = config["postprocess"]
     grid = postprocess.quantize_grid(
         image_result["image"],
         grid_size=pp_cfg["grid_size"],
         gray_levels=pp_cfg["gray_levels"],
+        tone_curve_gamma=pp_cfg["tone_curve_gamma"],
     )
     final_image = postprocess.render_grid(grid, px_per_cell=pp_cfg["px_per_cell"], hue_hex=emotion_color)
     share_image = share_card.render_share_card(final_image, date_str, emotion, emotion_color, config)
@@ -96,6 +102,7 @@ def run() -> Path:
         "explanation": concept_result["explanation"],
         "emotion": emotion,
         "emotion_color": emotion_color,
+        "emotion_base_color": emotion_base_color,
         "concept_used_fallback": concept_result["used_fallback"],
         "image_used_fallback": image_result["used_fallback"],
         "headlines": headlines,

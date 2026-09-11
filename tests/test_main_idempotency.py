@@ -46,7 +46,7 @@ def _config(tmp_path):
             "max_retries": 4,
             "retry_backoff_seconds": 10,
         },
-        "postprocess": {"grid_size": 4, "gray_levels": 4, "px_per_cell": 2},
+        "postprocess": {"grid_size": 4, "gray_levels": 4, "px_per_cell": 2, "tone_curve_gamma": 0.7},
         "site": {"title": "EMO", "base_url": "https://emopixels.xyz/"},
         "share_card": {"size": 64},
         "paths": {
