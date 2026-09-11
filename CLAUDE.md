@@ -115,10 +115,19 @@ apposta — sposterebbe controllo dalla regola fissa al contenuto, che è
 esattamente la distinzione su cui si regge il progetto (vedi
 "Principio metodologico centrale").
 
-**L'archivio è volutamente misto**: solo il 2026-09-11 è stato
-rielaborato con la nuova regola (vedi sotto). I giorni dal 2026-08-18
-al 2026-09-10 restano con la resa con cui erano stati pubblicati — non
-"correggerli" in blocco senza che l'autore lo chieda.
+**L'archivio è volutamente misto**: solo alcuni giorni sono stati
+rielaborati con la nuova regola (vedi sotto), uno per uno e su
+richiesta esplicita dell'autore. Finora:
+
+| Giorno rielaborato | Emozione | Perché |
+|---|---|---|
+| 2026-09-11 | fear | la sorgente più scura dell'archivio (L media 25.5/255): 88% → 66% di celle nei due livelli più scuri |
+| 2026-08-28 | sadness | la seconda più scura (L media 38.9/255): 76% → 34% |
+
+Tutti gli altri giorni restano con la resa con cui erano stati
+pubblicati. Non "correggerli" in blocco senza che l'autore lo chieda,
+e aggiungere una riga a questa tabella ogni volta che se ne rielabora
+un altro.
 
 ## Rielaborare un giorno già archiviato (`pipeline/rerender.py`)
 
