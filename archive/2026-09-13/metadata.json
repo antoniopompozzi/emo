@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-13",
+  "concept": "A split composition: on the left, a massive intricate circuit board or neural network rendered in sharp geometric lines, glowing with cold electric blue, beginning to crack and fray at the edges; on the right, a crumbling brick wall with gaps and missing sections, dust falling, rendered in warm amber and rust tones. The two halves meet in the middle with jagged, unstable seams. The overall mood is one of fragmentation and unraveling systems. Style: digital illustration with hard edges, high contrast, minimalist color palette.",
+  "explanation": "Today's news spans catastrophic human and technological fragmentation: AI development warnings clash with fires, deportations, derailments, and war. The split image represents the tension between our accelerating technological systems (which we're now asking to slow down) and the simultaneous breakdown of physical, social, and legal infrastructure across the globe. The cracking and crumbling suggest systems failing faster than we can repair them, whether computational or human.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Anthropic boss Dario Amodei calls for AI development to slow down",
+      "summary": "The call comes amid growing concerns that AI models may become able to inflict serious damage worldwide.",
+      "link": "https://www.bbc.co.uk/news/articles/c14dpgm0rg4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "They lost their jobs after posting about Charlie Kirk, but some have no regrets",
+      "summary": "Some people fired in the wake of Kirk's assassination have won big settlements from employers, others have had to start over from scratch.",
+      "link": "https://www.bbc.co.uk/news/articles/cj06jgl9qzlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump's comments on a united Ireland may have targeted audience across the Atlantic",
+      "summary": "Nobody could have predicted that today's main global headline would be Trump's desire to see a unified Ireland.",
+      "link": "https://www.bbc.co.uk/news/articles/cwyzppd1d5lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Fire at nursing home in Chile kills 16 residents",
+      "summary": "Ten people were evacuated from the home in Araucanía region in central Chile.",
+      "link": "https://www.bbc.co.uk/news/articles/cy4zpp20w77o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "French officials investigate if malicious act caused train derailment",
+      "summary": "Officials say a rail fragment was found on the tracks after Friday's crash of a passenger train that left 44 people injured.",
+      "link": "https://www.bbc.co.uk/news/articles/c33kp533nn6o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Uganda's King Oyo buried amid calls for unity over his successor",
+      "summary": "A TV news presenter has been named as the traditional kingdom of Tooro's new monarch but the late king's family claim he chose an heir.",
+      "link": "https://www.bbc.co.uk/news/articles/c0lr7k4k4zyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Afghan woman deported from US in first use of 'alien terrorist' court",
+      "summary": "The legal US resident was never charged with a crime, but was deported due to her family links to terrorism.",
+      "link": "https://www.bbc.co.uk/news/articles/c3eqpd9zgl9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Ukraine faces 'toughest winter' since Russia's full-scale invasion, UN official tells BBC",
+      "summary": "A senior UN official tells the BBC there is a race against the clock to ensure access to power and water through winter.",
+      "link": "https://www.bbc.co.uk/news/articles/cwyz59yyqk4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Record heatwaves in France set to make champagne stronger",
+      "summary": "Winemakers can produce bubbly up to 15% ABV following an unusual harvest that produced sweeter grapes.",
+      "link": "https://www.bbc.co.uk/news/articles/cvgydvrlep1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Only Roland Garros towel left, says Ukraine tennis player after Russian strike hits flat",
+      "summary": "Dayana Yastremska says her flat took a \"direct hit\" by a Russian missile in Odesa, and all that left was her Roland Garros towel.",
+      "link": "https://www.bbc.co.uk/news/articles/c4gr33g3evlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Bulgaria investigates fire at weapons  site that owner calls sabotage",
+      "summary": "Officials are not ruling out \"outside interference\", while the company says the blaze at its site was sabotage.",
+      "link": "https://www.bbc.co.uk/news/articles/cd94kj17zvwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Grammy-winning US rapper Lil Durk acquitted in murder-for-hire trial",
+      "summary": "The Chicago rapper was arrested in 2024 and accused of involvement in a shooting that killed the cousin of rival rapper Quando Rondo.",
+      "link": "https://www.bbc.co.uk/news/articles/c1kx0jje18wo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
