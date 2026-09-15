@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-15",
+  "concept": "A large, powerful hand reaching upward through storm clouds, grasping at a glowing kill switch or lever mounted on a receding wall. The hand is illuminated from below by an ominous red glow, while above the clouds darken and fracture like cracks spreading through glass. The composition is claustrophobic and vertical, with the switch always just out of reach, rendered in bold geometric shapes and high contrast between shadow and light.",
+  "explanation": "Today's headlines are dominated by a dangerous abdication of responsibility: leaders rejecting safeguards (AI regulation, emissions limits), restricting freedoms (travel bans, ballot restrictions, censorship threats), and escalating conflicts (space weapons, drone intrusions). The repeated theme is that crucial control mechanisms—whether literal kill switches, democratic processes, or environmental guardrails—are being dismissed, blocked, or weaponized by those in power. The reaching hand captures both desperate hope and futile struggle against forces beyond individual control.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Trump says AI safety fears a 'hoax' as he rejects calls for greater safeguards",
+      "summary": "The US president's comments come after Anthropic co-founder Jack Clark told the BBC an AI \"kill switch\" may need to be mandatory.",
+      "link": "https://www.bbc.co.uk/news/articles/cw980n0nd0qjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Welsh actor Matthew Rhys makes Emmy Awards history with double win",
+      "summary": "He becomes the first person to win two lead acting prizes in one night at the prestigious TV ceremony.",
+      "link": "https://www.bbc.co.uk/news/articles/cqlykdx48xrpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Nato jets down drone that entered Lithuanian airspace",
+      "summary": "The origin of the drone is currently unknown, but authorities say it likely entered Lithuania from neighbouring Belarus, an ally of Russia.",
+      "link": "https://www.bbc.co.uk/news/articles/cjx2zgk7edlzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US confirms for first time it has deployed space weapons",
+      "summary": "The US Air Force Secretary says the weapons are necessary to defend the country against enemy action.",
+      "link": "https://www.bbc.co.uk/news/articles/ck790xg41ygro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Wild dogs record 2,500-mile trek across Zambia in search of a mate",
+      "summary": "Scientists say the record-breaking journey by three brothers offers hope wildlife can survive growing pressures.",
+      "link": "https://www.bbc.co.uk/news/articles/cy459y5y9yxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Legendary costume designer Bob Mackie dies aged 87",
+      "summary": "The \"Sultan of Sequins\" created iconic and dazzling costumes for stars including Cher, Tina Turner and Elton John.",
+      "link": "https://www.bbc.co.uk/news/articles/cmpq04wx8l4eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "AI regulation faces political deadlock as calls grow for Congress to act",
+      "summary": "With Trump opposed and Congress divided, new safety legislation on AI is unlikely to pass anytime soon despite mounting pressure.",
+      "link": "https://www.bbc.co.uk/news/articles/ck20989806e9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "China criticises idea it is in 'malicious competition' over AI",
+      "summary": "It follows the Anthropic CEO's calls for a slowdown in AI development - but in a way that prevents China from pulling ahead in the race.",
+      "link": "https://www.bbc.co.uk/news/articles/cn8me133119o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Supreme Court blocks Trump's plan to restrict mail-in ballots",
+      "summary": "The Trump administration had asked the court to lift a federal judge's temporary block on new rules for mail-in ballots.",
+      "link": "https://www.bbc.co.uk/news/articles/c5yjpdy4gjlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "China tightens travel restrictions for citizens",
+      "summary": "Observers say the new rules will further tighten the Chinese government's control over its citizens.",
+      "link": "https://www.bbc.co.uk/news/articles/cqe8x6gkk250o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Israeli minister threatens to revoke filmmakers' citizenship over Gaza documentary",
+      "summary": "The film accuses the Israeli army of mass civilian killing in Gaza, and Israeli officials say it could be treasonous.",
+      "link": "https://www.bbc.co.uk/news/articles/c9vgy8d8256go?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US scraps limits on emissions from coal and gas power plants",
+      "summary": "The Environment Protection Agency says the move will save the country billions of dollars and reduce energy prices.",
+      "link": "https://www.bbc.co.uk/news/articles/cmly433ke05vo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
