@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-17",
+  "concept": "A stark, shadowy silhouette of a hand reaching upward from beneath crumbling rubble and fragmented concrete blocks, rendered in bold, pixelated forms. Dark grays and blacks dominate, with a single thin line of blood-red light breaking through the debris above. The composition is vertical and claustrophobic, with jagged edges and fractured geometric planes suggesting destruction and entrapment. The overall mood is desperate and suffocating, with no clear path to escape or rescue visible.",
+  "explanation": "Today's news is dominated by violence, coercion, and collapse—a Syrian regime's calculated kidnapping of a journalist, Iranian attacks destroying US military infrastructure, and a Gaza building collapsing on families with children. While there are lighter items (the Snapchat announcement, Wiles' health recovery), the weight of the day settles on systematic brutality and loss of life. The reaching hand symbolizes both victimhood and the struggle to survive under rubble both literal and metaphorical.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Assad regime planned US journalist's kidnap for weeks, BBC finds",
+      "summary": "Austin Tice’s abduction was approved by Syria’s former leader Bashar al-Assad, a source claims.",
+      "link": "https://www.bbc.co.uk/news/articles/cv0lrxw6ygl2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US interest rates raised for first time in three years",
+      "summary": "Rates were hiked in a unanimous decision despite fierce opposition from President Donald Trump, who had called for a cut.",
+      "link": "https://www.bbc.co.uk/news/articles/cw4gmlyvj422o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Snapchat open to putting time limits on teens, boss tells BBC",
+      "summary": "Evan Spiegel says it would be \"an important step forward for the industry\" in an interview with the BBC.",
+      "link": "https://www.bbc.co.uk/news/articles/cr3wjz3edd10o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Rosenberg: Russia's elections will have few surprises, but for the Kremlin they matter",
+      "summary": "There is no doubt over the outcome of this vote, but for the Kremlin they are still an important moment.",
+      "link": "https://www.bbc.co.uk/news/articles/ck62m0r4r1y3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Photos show widespread damage at US sites from Iranian attacks",
+      "summary": "A wrecked air force plane and destroyed buildings are among the images obtained by the BBC's partner CBS News.",
+      "link": "https://www.bbc.co.uk/news/articles/c8g49e0gwxeno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "EU chief backs plan for Canada to become 'associate member'",
+      "summary": "Trump, who has frequently clashed with Canada's PM, threatens to cut trade with the European Union in response to the proposal.",
+      "link": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "International students, 'visa hoppers' and backpackers targeted in Australia migration crackdown",
+      "summary": "The government wants to reduce net overseas migration to 225,000 people by 2028.",
+      "link": "https://www.bbc.co.uk/news/articles/cm986j81ky55o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US House votes to hold billionaire Epstein associate Leon Black in contempt",
+      "summary": "Black - who had business ties to Epstein - declined to appear and provide documents related to the convicted sex offender.",
+      "link": "https://www.bbc.co.uk/news/articles/c62l8g8qlr0ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Eight children among 21 killed after war-damaged Gaza building collapses, rescuers say",
+      "summary": "Some 10 families had reportedly been living in the six-storey building in Gaza City that was hit by an Israeli strike last year.",
+      "link": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Michelin-starred Seoul restaurant fined for using ants as garnish",
+      "summary": "The owner of the acclaimed establishment avoids jail but is made to pay 15 million won (£8,144; $10,965).",
+      "link": "https://www.bbc.co.uk/news/articles/c639m42y43v4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Eight German state premiers back Merz amid speculation over future",
+      "summary": "Christian Democratic Union leadership throws its weight behind the chancellor ahead of two state elections this weekend.",
+      "link": "https://www.bbc.co.uk/news/articles/c6dj4nn0n97ro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump chief of staff Susie Wiles announces she's cancer-free",
+      "summary": "The 69-year-old White House chief of staff is a powerful figure and particularly close to the US president.",
+      "link": "https://www.bbc.co.uk/news/articles/c6j9xrx80ekro?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
