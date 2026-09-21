@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-21",
+  "concept": "A monumental archway in harsh midday sun, its classical stone form casting deep shadows, with surveillance drones circling overhead like mechanical vultures. The architecture is beautiful but ominous, pristine facades cracked by military hardware bolted onto every surface. Composition: wide, symmetrical view with the arch dominating the center, sky bleached and hostile, ground littered with fragmented debris and indistinct figures fleeing or cowering. Style: digital painting, bold geometric blocks of light and shadow, apocalyptic realism.",
+  "explanation": "Today's news cycles between institutional collapse and the weaponization of symbols—a political party in freefall, a democratic monument being militarized, boardroom revolts, secret imprisonments, and violence escalating at every scale from beaches to cities to international waters. The archway represents both the grandeur of systems meant to endure and their rapid conversion into tools of control and fear. The circling drones symbolize modern surveillance masquerading as security. Everything beautiful here carries a threat.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "German Chancellor Merz calls state election a 'disaster' for his party but vows to stay on",
+      "summary": "Exit polls show damaging losses for Merz's centre-right CDU party in the state of Mecklenburg-Vorpommern and Berlin.",
+      "link": "https://www.bbc.co.uk/news/articles/cvwyz29n0nn2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump says triumphal arch will be military complex with drones and snipers",
+      "summary": "Trump said the updated plans were at the request of the US military and for national security purposes.",
+      "link": "https://www.bbc.co.uk/news/articles/cqdj4pez00dzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Man, 82, dies after beach fight with 76-year-old over sunlounger in Greece",
+      "summary": "One eyewitness said the scene was so chaotic that screaming could be heard from the other end of the beach.",
+      "link": "https://www.bbc.co.uk/news/articles/cqm27pnyd294o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Sister of Pakistan's ex-PM Imran Khan arrested",
+      "summary": "Aleema Khanum is accused of mobilising her brother’s supporters ahead of country-wide protests.",
+      "link": "https://www.bbc.co.uk/news/articles/cm36l2pye2kwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'I don't even know if my parents are alive' - the war heroes jailed 25 years ago",
+      "summary": "The children of key politicians jailed 25 years ago without a trace in Eritrea want answers.",
+      "link": "https://www.bbc.co.uk/news/articles/cx1l6762jeq4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump escalates media fight after week of setbacks",
+      "summary": "An embattled Trump has injected his fight with the news media with new acrimony, writes the BBC's Anthony Zurcher.",
+      "link": "https://www.bbc.co.uk/news/articles/cmn8ed1xpxnyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Tata Sons: India's corporate crown braces for upheaval amid boardroom revolt",
+      "summary": "The Tata boardroom battle has intensified over a re-appointment of its chairman and a diktat to go public.",
+      "link": "https://www.bbc.co.uk/news/articles/c670lkvdzkn2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Watch: Dramatic moment a cargo ship crashes into another vessel",
+      "summary": "Verified footage appears to show a cargo ship colliding with a fishing boat near Singapore, with investigators still working to establish exactly when and how the crash happened.",
+      "link": "https://www.bbc.co.uk/news/videos/cq0lr24x3ep1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Watch: BBC tracks down abusive teacher secretly released early",
+      "summary": "BBC Eye has discovered a teacher who was imprisoned for sexually assaulting a student in Indonesia has been secretly released early.",
+      "link": "https://www.bbc.co.uk/news/videos/c5gmrlm7pm0vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Watch: Fans react as Ed Sheeran speaks out over Macklemore controversy at show",
+      "summary": "Ed Sheeran told the crowd he had made mistakes after Macklemore was dropped from his tour for making pro-Palestinian remarks.",
+      "link": "https://www.bbc.co.uk/news/videos/ck980m0pr1e0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'Enough is enough': Women protest after string of murders near Johannesburg",
+      "summary": "The police have since set up a task team to investigate the murders and have urged women in the Kempton Park area to avoid walking or running alone \"particularly in isolated areas\".",
+      "link": "https://www.bbc.co.uk/news/videos/cm4gjxq1dx2eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Is the Kennedy Center losing 'hundreds of millions of dollars'?",
+      "summary": "Records in 2024 show the venue had a surplus of millions of dollars once contributions and grants had been factored in.",
+      "link": "https://www.bbc.co.uk/news/videos/cqy4zw4xr717o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
