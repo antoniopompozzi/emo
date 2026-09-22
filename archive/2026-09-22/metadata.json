@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-22",
+  "concept": "A vast, turbulent sea rendered in bold geometric shapes and strong silhouettes. Multiple small boats and figures in the water, some reaching toward distant shores represented as thin lines on the horizon. Dark storm clouds loom overhead in sharp, angular forms. The composition emphasizes the scale of displacement—tiny human forms against enormous waves and threatening sky. Use a style of hard-edged, blocky abstraction with dramatic contrasts. Include elements suggesting both danger (jagged waves, dark masses) and desperate movement (leaning figures, boats tilted at angles). The overall mood is one of chaos and urgency.",
+  "explanation": "Today's headlines are dominated by displacement, threat, and instability across multiple regions: Lithuanians bracing for invasion, Yemenis fleeing across the Red Sea, evacuations, sanctions, political upheaval, natural disaster, and institutional corruption. Rather than depicting any single conflict, I chose to represent the universal human experience threading through nearly all these stories—the experience of being uprooted, threatened, and forced to move. The turbulent sea becomes a metaphor for the global instability that permeates the news cycle.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Lithuania ready to 'fight back' but has evacuation plans in face of Russia threats, PM tells BBC",
+      "summary": "Sinkevičius told BBC Newsnight Lithuanians feel \"constantly threatened\" by Moscow, but the nation was prepared to \"fight back\" if attacked.",
+      "link": "https://www.bbc.co.uk/news/articles/ck5yw8npxzrlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Yemenis flee across Red Sea as Houthis and Saudi-backed forces escalate war",
+      "summary": "The BBC's Frank Gardner speaks to some of those who have fled the war by crossing the Red Sea to Djibouti.",
+      "link": "https://www.bbc.co.uk/news/articles/cw4gm7l742dmo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Iran must stop arming Houthis in Yemen, G7 says ahead of UN General Assembly",
+      "summary": "The G7 also condemns \"in the strongest terms\" Houthi attacks on Saudi Arabia, saying that the escalation in fighting in Yemen jeopardises global energy security.",
+      "link": "https://www.bbc.co.uk/news/articles/cwm2qpmepmlzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "CNN, MS NOW and Politico file lawsuit against Trump's White House ban",
+      "summary": "Major US networks later suspended White House TV coverage of Trump as he headed to New York for a UN summit.",
+      "link": "https://www.bbc.co.uk/news/articles/cm0e32rwvrryo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Merz vows to keep coalition together for Germany's 'democratic future'",
+      "summary": "The chancellor has come under increasing pressure after resounding state election defeats, but says the results \"go far beyond my own person\"",
+      "link": "https://www.bbc.co.uk/news/articles/cqm27p8enwmko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "First UK charges brought over 1994 Rwanda genocide",
+      "summary": "Dr Vincent Brown, formerly Dr Vincent Bajinya, 65, will appear at Westminster Magistrates’ Court on Tuesday charged with seven offences.",
+      "link": "https://www.bbc.co.uk/news/articles/cr2092216nywo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Four dead after powerful Typhoon Dujuan lashes Japan",
+      "summary": "The storm pulled away from Japan after bringing heavy rains and strong winds to Tokyo and surrounding areas.",
+      "link": "https://www.bbc.co.uk/news/articles/cm3wj2lexl97o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Infantino says he is open to talks over Fifa reform",
+      "summary": "Fifa president Gianni Infantino has proposed an external review of how world football's governing body operates. shifting tone as he seeks support to stay on.",
+      "link": "https://www.bbc.co.uk/sport/football/articles/c639m2yggm1ro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russia's elections had few surprises - but how the Kremlin uses the results will be crucial",
+      "summary": "Vladimir Putin will likely use the result to claim most Russians back the so-called special military operation in Ukraine, writes the BBC's Steve Rosenberg.",
+      "link": "https://www.bbc.co.uk/news/articles/cx4gqv239043o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Seven Ethiopian rebel groups form new alliance",
+      "summary": "The groups have been active in Ethiopia's most populous regions for years and now say they will work together.",
+      "link": "https://www.bbc.co.uk/news/articles/ckp84pj8zpngo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US strikes on alleged drug boats could be crimes against humanity, says UN",
+      "summary": "A report says the attacks, of which there have been at least 68, were not self-defence.",
+      "link": "https://www.bbc.co.uk/news/articles/ck5ye7v88qy7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Airlines criticise air traffic control as second glitch causes more disruption in UK",
+      "summary": "Prime Minister Andy Burnham said further issues \"cause even greater concern\" about the UK's air traffic control and the head of the organisation that runs it.",
+      "link": "https://www.bbc.co.uk/news/articles/cqp80p78mxx5o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
