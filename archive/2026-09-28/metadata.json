@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-28",
+  "concept": "A vast, fractured mountain peak half-buried in avalanche snow and rubble, with small human figures scattered across its slopes in silhouette—some climbing, some falling, some frozen mid-motion. Dark storm clouds overhead. The composition emphasizes scale and helplessness, rendered in bold, high-contrast forms with heavy shadows. Style: dramatic minimalist landscape with expressionist undertones, suitable for pixelation into stark blocks of tone.",
+  "explanation": "Today's headlines reveal a world under multiple forms of pressure: military conflict, political upheaval, natural disaster, gun violence, and systemic corruption. The avalanche—a sudden, indifferent force of nature—serves as a metaphor for the broader collapse happening across multiple fronts. Rather than illustrate each crisis, the mountain embodies them all: the tragic loss of life, the struggle against overwhelming odds, the helplessness of individuals caught in forces beyond their control.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Inside Yemen's front-line city as Houthis battle for control",
+      "summary": "In rare access to Yemen's conflict zone the BBC travels to the front line with pro-government soldiers.",
+      "link": "https://www.bbc.co.uk/news/articles/cw98005ndz7no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Embattled Serbian president resigns, paving way for early elections",
+      "summary": "Aleksandar Vučić's administration has been dogged by prolonged protests over allegations of corruption.",
+      "link": "https://www.bbc.co.uk/news/articles/ckpq0g7z5pjjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Two bodies found after avalanche hits Himalayan climbing group",
+      "summary": "Rescuers are looking for at least 10 Nepalese people who were preparing to take climbers up the Himlung Himal peak.",
+      "link": "https://www.bbc.co.uk/news/articles/cwjdvml9e897o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Two mass shootings in South Africa leave 27 dead",
+      "summary": "The two attacks hours apart come as the country struggles to stop high levels of gang-related armed violence.",
+      "link": "https://www.bbc.co.uk/news/articles/ck5ywnp075d1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Venezuela releases dozens of political prisoners as election calls grow",
+      "summary": "A slew of dissidents being released from long-term detention comes days after the nation's interim leader met the US president.",
+      "link": "https://www.bbc.co.uk/news/articles/c620lrw2xr12o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Switzerland rejects stricter interpretation of its neutrality",
+      "summary": "The initiative would have prevented the nation from imposing sanctions unless approved by the UN.",
+      "link": "https://www.bbc.co.uk/news/articles/cm750plvwy9vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Pope says 'scourge' of abuse must be rooted out as he visits Lourdes",
+      "summary": "Pope Leo spoke to bishops before leading a service attended by thousands of worshippers in France.",
+      "link": "https://www.bbc.co.uk/news/articles/cm5y5nj8ejj8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Woman charged with stealing from patients and staff at hospitals across Ontario",
+      "summary": "The 34-year-old is under investigation for incidents that began in February 2024 up until as recently as last month.",
+      "link": "https://www.bbc.co.uk/news/articles/c3ew9e5lg01vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Why some Indian civil servants become heroes for doing their jobs",
+      "summary": "In a system often marked by red tape and exhausting delays, officers seen to be following the rules get adulation.",
+      "link": "https://www.bbc.co.uk/news/articles/cw980vje6l3eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "News media must stay relevant or 'society will struggle', says World News Day organiser",
+      "summary": "World News Day aims to highlight the role of news providers in investigating and explaining important events.",
+      "link": "https://www.bbc.co.uk/news/articles/cmwyz9q3l6pno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Before BTS and Blackpink, there was Big Bang: Now the Kings of K-pop are back",
+      "summary": "Big Bang played London's Tottenham Hotspur Stadium, marking a long-awaited return for the group that helped build the blueprint for modern K-pop.",
+      "link": "https://www.bbc.co.uk/news/articles/cq39me84zrkdo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Young people in China are fangirling over a professor who gets their anxiety",
+      "summary": "China's economy and tech have developed at breakneck speed, but there is plenty worrying its Gen Z.",
+      "link": "https://www.bbc.co.uk/news/articles/cq70dgdndr46o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
