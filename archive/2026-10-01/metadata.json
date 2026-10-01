@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-01",
+  "concept": "A stark, brutalist composition of a single bare lightbulb suspended in darkness, its filament glowing pale yellow against deep shadow. The bulb is cracked but still illuminated, surrounded by concentric rings of black void. The style is stark and architectural, resembling a architectural photograph or minimalist drawing, with harsh geometric lines and extreme contrast between light and dark.",
+  "explanation": "Today's headlines span execution failures, violence in transit, escalating warfare, ecological collapse, human trafficking, climate disaster, and widespread civilian casualties across multiple continents. The overarching sensation is one of systems failing at every scale—bodies that won't die, planes that aren't safe, glaciers that cannot hold, boats that sink, energy grids that shatter. The cracked but still-glowing bulb represents fragile persistence amid pervasive breakdown: the resilience of individual survival or hope persisting within a darkening world.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "US death row inmate Christa Pike taken to hospital after surviving two lethal injections, says lawyer",
+      "summary": "Her lawyer says Pike is being \"provided life-saving measures\" after two syringes of pentobarbital.",
+      "link": "https://www.bbc.co.uk/news/articles/cq8r6rjdvlx6o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Too early to say what motive for Dubai-Tel Aviv flight attack was, Israeli PM says",
+      "summary": "A pilot who stabbed another pilot on an Israel-bound plane is under investigation in Saudi Arabia, Benjamin Netanyahu says.",
+      "link": "https://www.bbc.co.uk/news/articles/cqgmrm7xd8wyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "What we know about stabbing on Flydubai flight to Israel",
+      "summary": "A pilot has been arrested and is being questioned after another pilot was stabbed, officials say.",
+      "link": "https://www.bbc.co.uk/news/articles/cqjdv7pmj9dno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Putin shows no sign of stopping the war as Russia doubles down on Ukraine",
+      "summary": "A foreign policy speech by the Russian president will be keenly watched, but all signs point to the full-scale invasion continuing.",
+      "link": "https://www.bbc.co.uk/news/articles/cqx2ze420kpyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Swiss glaciers suffer 'disastrous' year of ice loss, threatening water supplies",
+      "summary": "Scientists say such rapid melting is no longer surprising given the pace of climate change.",
+      "link": "https://www.bbc.co.uk/news/articles/c6n9w0ypjwl9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Six smugglers jailed for manslaughter over worst Channel small boats disaster",
+      "summary": "Thirty-one migrants died when their boat went down in November 2021. The trial found that the guilty men were part of two smuggling networks.",
+      "link": "https://www.bbc.co.uk/news/articles/c6n8m33pn9djo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Tiny image sparks big backlash in Nikon photo contest",
+      "summary": "Dr Ning Xu denies he broke the rules of Nikon's annual Small World In Motion contest.",
+      "link": "https://www.bbc.co.uk/news/articles/ck4gjn1yzprno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "California bans child marriage, a practice still legal in 32 US states",
+      "summary": "Gov Gavin Newsom called it a \"long overdue measure to protect young Californians\".",
+      "link": "https://www.bbc.co.uk/news/articles/c6rm9mnn0w3eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trekkers helicoptered off mountains as more deadly landslides hit Nepal",
+      "summary": "A month after mass catastrophic flooding, around 30 people have died in landslides and heavy rain.",
+      "link": "https://www.bbc.co.uk/news/articles/c607l4l3vn0eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russia launches largest attack on Ukraine energy infrastructure since spring",
+      "summary": "In total 11 regions of the country were attacked overnight, with residential buildings and railways also targeted, the Ukrainian PM says.",
+      "link": "https://www.bbc.co.uk/news/articles/ckjw5jx2l393o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Last UK and US troops leave Iraq as anti-Islamic State mission ends",
+      "summary": "The withdrawal of coalition forces, under a deal agreed two years ago, was a key demand of the Iraqi government.",
+      "link": "https://www.bbc.co.uk/news/articles/c65ym1dyn92mo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Ethiopia fighting escalates in Tigray killing 52 civilians, medic tells the BBC",
+      "summary": "The deadly fighting has also spread to neighbouring regions, stranding tourists in Lalibela.",
+      "link": "https://www.bbc.co.uk/news/articles/c6grveejg1e2o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
