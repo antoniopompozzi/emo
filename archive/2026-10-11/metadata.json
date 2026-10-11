@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-11",
+  "concept": "A stark, chaotic composition showing a fragmented city skyline fractured into broken geometric shards, with dark smoke and fire erupting from multiple points simultaneously. Silhouettes of falling figures and ascending debris create a sense of simultaneous collapse and upheaval. The foreground shows cracked pavement with deep fissures spreading outward. Heavy use of angular, jagged lines contrasting against solid blocks of shadow and orange-red flame. The palette should be dominated by blacks, grays, and burning amber tones. Style: brutalist geometry meets catastrophic realism, viewed from ground level as chaos unfolds overhead.",
+  "explanation": "Today's headlines paint a portrait of systemic collapse: military violence, political instability, institutional corruption, environmental destruction, and technological breaches occurring in parallel across continents. Rather than depicting any single event, this image captures the sensation of living through multiple cascading crises simultaneously—a world fragmenting under pressure from warfare, failed institutions, criminal systems, and forces both human and natural that overwhelm existing structures. The fractured city becomes a metaphor for the fracturing of safety, trust, and order.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Twelve killed and 300 injured in attack on airport in Saudi capital Riyadh",
+      "summary": "Saudi and US officials blame the attack on Yemen's Houthis, who have not commented on the latest strike.",
+      "link": "https://www.bbc.co.uk/news/articles/cw33x4y8k82no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'Time for Ukraine to get new president,' says Trump after Zelensky condemns diesel deal",
+      "summary": "Ukraine's leader had said the deal with Russia to release diesel into the US would help Moscow fund the war.",
+      "link": "https://www.bbc.co.uk/news/articles/cqe8r5l7n92jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Young men live in fear of being snatched off the streets and sold to Myanmar's army",
+      "summary": "A desperate junta is in a war of attrition against ethnic militias and and civilian resistance.",
+      "link": "https://www.bbc.co.uk/news/articles/c680zlny0gk4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US murderer Christa Pike discharged from hospital 10 days after failed execution",
+      "summary": "Pike's lawyers say she is \"grateful\" to the medical team who cared for her after she survived two lethal injections last month.",
+      "link": "https://www.bbc.co.uk/news/articles/cmlyle97pqd7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russian glide bomb attack on Zaporizhzhia kills at least 20 people",
+      "summary": "Volodymyr Zelensky says the attack, which left children dead, was Russia expressing its \"thanks\" for a US diesel deal.",
+      "link": "https://www.bbc.co.uk/news/articles/cwvgdpv642g5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Four dead and thousands without power after Hurricane Isaias lashes US",
+      "summary": "Roofs were ripped off buildings after Isaias barrelled into the US on Friday evening, before it weakened to a post-tropical cyclone.",
+      "link": "https://www.bbc.co.uk/news/articles/cmje5x80yg70o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Expedition hopes to find aviator Amelia Earhart's plane on remote island",
+      "summary": "The team en route to the suspected crash site aim finally to solve the mystery of her 1937 disappearance.",
+      "link": "https://www.bbc.co.uk/news/articles/c3y0e871rk4vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Headmaster detained after BBC investigation into alleged sexual abuse of students",
+      "summary": "Former students launched their own investigation, spending years collecting evidence and testimonies from others who say they were abused by the headteacher.",
+      "link": "https://www.bbc.co.uk/news/articles/cwy8lx1r2vrro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Woman injures three people in third Poland school knife attack in a week",
+      "summary": "Polish police had already deployed to schools after a female caretaker was killed and several others injured in two earlier attacks in two days.",
+      "link": "https://www.bbc.co.uk/news/articles/cv8ezd246z1wo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Nobel peace laureate says US sanctions on ICC 'unacceptable'",
+      "summary": "Navi Pillay says the Trump administrations' sweeping penalties on the international tribunal were \"unheard of\".",
+      "link": "https://www.bbc.co.uk/news/articles/cqkgjrpmr47vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'Cockroach' group leaders among hundreds detained in Delhi protest",
+      "summary": "The group - who are not registered as a political party in India - want electoral reforms ahead of crucial state elections.",
+      "link": "https://www.bbc.co.uk/news/articles/c65yn7xvde7vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Rogue Anthropic AI agent gave police fake tip in unsolved murder case",
+      "summary": "Philadelphia police said the tip was \"flagged as spam\", but criticised the tech company for taking more than two months to detect and report the breach.",
+      "link": "https://www.bbc.co.uk/news/articles/cqkg50j1yd5lo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
