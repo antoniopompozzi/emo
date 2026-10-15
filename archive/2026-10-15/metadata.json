@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-15",
+  "concept": "A thick, suffocating wall of orange-brown smog rolling across a landscape, obscuring buildings and figures below in murky, impenetrable haze. The composition shows the smog as an overwhelming force descending from above, with silhouettes of people and structures barely visible beneath. Dark, industrial color palette dominated by browns, oranges, and grays. Style: dystopian, heavy, claustrophobic. Medium: digital painting with a sense of choking atmosphere and lost visibility.",
+  "explanation": "While today's news spans many crises—political instability, labor unrest, corporate layoffs, credibility failures, and regulatory concerns—the Indonesian wildfire haze stood out as the single most visceral image: an environmental catastrophe that literally renders the world invisible and uninhabitable. It's a rare moment where the news offers a perfect visual metaphor for the broader suffocation and confusion apparent across multiple stories: an orange fog that no one can escape, that affects everyone equally, and that no individual actor controls.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Musk says US government may be behind slowdown of Ukraine drone speeds",
+      "summary": "Ukraine says Starlink access has improved but it is still facing speed limits which are disrupting its battlefield \"missions\".",
+      "link": "https://www.bbc.co.uk/news/articles/c8wy9veedgygo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Student protesters attack government buildings in Albania",
+      "summary": "Buildings were set alight on the second day of demonstrations from thousands of students who want better university conditions and job prospects.",
+      "link": "https://www.bbc.co.uk/news/articles/cq80zk5k2ep4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Retired US generals call on Pentagon to cancel 'barbaric' execution livestream",
+      "summary": "Livestreaming the execution of Nidal Hasan \"will taint the honor of the military that employs it, and a nation that allows it,\" 72 former officers said in a letter.",
+      "link": "https://www.bbc.co.uk/news/articles/cmp3gnngv3e9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "White House defends new press secretary amid questions about her legal credentials",
+      "summary": "Katie Zacharia does not appear to be registered to the legal bar in any state where she has lived.",
+      "link": "https://www.bbc.co.uk/news/articles/ckqxne2evqreo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'Nowhere to escape' - Indonesians share footage of orange haze blanketing towns",
+      "summary": "Thick orange smog descended on the Indonesian city of Palangka Raya as wildfires continue raging nearby.",
+      "link": "https://www.bbc.co.uk/news/videos/c63dj4p4k5dlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Brooklyn novelty shop reeling from 'surreal' row with Kelly Clarkson over mechanical bird",
+      "summary": "Art of Play says its staff have been threatened after the singer complained online about how she was treated.",
+      "link": "https://www.bbc.co.uk/news/articles/cxvgdneplgzeo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Sally Rooney books withdrawn in UK over Palestine Action support",
+      "summary": "The Irish writer is best known for novels such as Normal People, Intermezzo and Conversations With Friends.",
+      "link": "https://www.bbc.co.uk/news/articles/cmx23q4g307vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Anthropic flags revenue surge to investors ahead of stock market debut",
+      "summary": "It comes as some investors have become concerned about the amount of money being spent on AI infrastructure.",
+      "link": "https://www.bbc.co.uk/news/articles/cqzjx448vxkgo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Netflix to shed 1,000 jobs in steepest cuts since 2022",
+      "summary": "The cuts equate to around 6% of the streaming giant's total workforce worldwide.",
+      "link": "https://www.bbc.co.uk/news/articles/c6zxj0gzk4x4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Australia's first-ever Michelin stars go to 11 restaurants in one state",
+      "summary": "All of the spots are in South Australia, reportedly because the state government paid for incognito inspectors to visit.",
+      "link": "https://www.bbc.co.uk/news/articles/crje5we583qwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Hundreds of thousands of workers on strike across Republic of Ireland",
+      "summary": "It comes amidst an an ongoing pay dispute between public sector workers and the Irish government.",
+      "link": "https://www.bbc.co.uk/news/articles/cjn5vxlrgqn4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US inflation rises more than expected - here's what is happening with prices",
+      "summary": "The pace of price rises increased to 3.7% in the year to September, driving by higher motor fuel costs.",
+      "link": "https://www.bbc.co.uk/news/articles/cwy8lx3pg4k2o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
