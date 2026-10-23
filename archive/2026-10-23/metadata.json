@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-23",
+  "concept": "A collage of fractured medical symbols—stethoscopes, hospital crosses, syringes—shattering and falling like broken glass against a dark, stormy sky. In the foreground, silhouettes of people reaching upward through the debris, their hands grasping at dissolving fragments. The color palette shifts from clinical white and red to deep blacks and bruised purples, with occasional flashes of amber representing flickering hope. The composition is chaotic and asymmetrical, with sharp diagonal lines suggesting collapse and urgency. Medium: digital painting with rough, gestural brushstrokes.",
+  "explanation": "Today's headlines are dominated by preventable human suffering—hospitals deliberately targeted in Sudan, newborns fighting for survival in Yemen's hunger crisis, mass violence in South Africa, and natural disasters compounding tragedy. While there are numerous stories of technological and political maneuvering, they pale against the visceral desperation of people unable to access basic healthcare, food, and safety. The image captures both the destruction of systems meant to protect life and the persistent human struggle to survive when those systems fail or are weaponized.",
+  "emotion": "sadness",
+  "emotion_color": "#3d7acc",
+  "emotion_base_color": "#2e5c9a",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Hospitals deliberately targeted by Sudan's RSF fighters, BBC investigation finds",
+      "summary": "The UN human rights chief Volker Türk says the multiple attacks may amount to war crimes.",
+      "link": "https://www.bbc.co.uk/news/articles/c54g1kxw4nvvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Powerful earthquake hits Tibet killing 16 people, reports say",
+      "summary": "The quake hit a mountainous, sparsely-populated area in what China calls the Tibet Autonomous Region.",
+      "link": "https://www.bbc.co.uk/news/articles/ck5ynd1z6e83o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump says Musk has restored access to Ukraine's Starlink network",
+      "summary": "Ukraine relies on Starlink for a range of military uses - its owner Elon Musk has repeatedly denied restricting access.",
+      "link": "https://www.bbc.co.uk/news/articles/cq74pjpmx0e8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "L'Oreal says weight loss drugs are impacting beauty and skincare sales",
+      "summary": "The beauty giant's CEO says the use of GLP-1s is \"a very important phenomenon for us\".",
+      "link": "https://www.bbc.co.uk/news/articles/cvglwgwpgrlpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump ordered to answer questions under oath in BBC lawsuit",
+      "summary": "Trump is suing the BBC over an episode of Panorama that edited together two different sections of a speech he gave in 2021.",
+      "link": "https://www.bbc.co.uk/news/articles/cmy0ryjx7741o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Nigeria and Kenya Ebola patients may have crossed paths at Uganda airport, officials say",
+      "summary": "Officials say they both travelled through Entebbe International Airport on 3 October.",
+      "link": "https://www.bbc.co.uk/news/articles/cmwy4wlzqz3zo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Newborn twins fight for survival as conflict fuels Yemen's hunger crisis",
+      "summary": "Raghad and Raad's family had to flee their home on foot because of the fighting between pro-government forces and the Houthis.",
+      "link": "https://www.bbc.co.uk/news/articles/cr5ynl63v0pyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Race to update services' computer systems after cyber-security flaw found",
+      "summary": "Websites were taken offline after the developers of programming language PHP said \"critical vulnerabilities\" had been discovered.",
+      "link": "https://www.bbc.co.uk/news/articles/c9j34zgmkxx1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Crowd of 50 beats foreigner to death in South Africa",
+      "summary": "The attack on the unidentified victim follows a wave of anti-migrants protests in South Africa this year.",
+      "link": "https://www.bbc.co.uk/news/articles/ck5yn9z3vnego?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Germany target of 'intensive' espionage, Merz says after suspected Russian spy arrest",
+      "summary": "A Ukrainian man was arrested on suspicion of spying for Russia - one of several such cases in Germany this year.",
+      "link": "https://www.bbc.co.uk/news/articles/cmx28y5e04ggo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "At least four dead after storm brings flooding to southern France",
+      "summary": "The deaths include two women found drowned in a cellar in the Bouches-du-Rhône region.",
+      "link": "https://www.bbc.co.uk/news/articles/cm5ynl4v4wgwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Lula says rival should be disqualified over alleged Meta interference ahead of Brazil vote",
+      "summary": "The Brazilian president accuses the tech firm of favouring Flávio Bolsonaro, which it denies.",
+      "link": "https://www.bbc.co.uk/news/articles/c6pwgve2lk5go?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
