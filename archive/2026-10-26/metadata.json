@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-26",
+  "concept": "A monumental stone statue of a young figure with raised fist, standing on a pedestal, surrounded by the fragmented remains of authoritarian monuments crumbling at its base. The statue is cracked but unbroken, emerging from shadow into light. Bold, heroic silhouette against a turbulent sky. Carved in the style of socialist realism but with clean, modern geometric lines. The broken pieces form a swirling pattern around the base suggesting movement and upheaval.",
+  "explanation": "Today's news oscillates between moments of democratic rupture and authoritarian persistence. Serbia's rejection of Vučić after 12 years, coupled with the return of Venezuelan opposition leaders and Gabon's restoration of social media access, speaks to resistance movements gaining unexpected momentum. Yet this is countered by Israel's military escalations, Russia's normalization through sports, and persistent violence across Nigeria and Haiti. I chose to depict the youth-led uprising in Serbia as the emotional anchor—a symbol of generational power overthrowing entrenched rule—while the fractured monuments suggest that such victories are fragile and contested globally.",
+  "emotion": "joy",
+  "emotion_color": "#eab019",
+  "emotion_base_color": "#d4a017",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Celebrations in Serbia after veteran ruler Vučić loses election to student-led protest movement",
+      "summary": "The populist right-wing leader of 12 years says it is \"clear\" his party has lost the vote billed as a referendum on the country's future.",
+      "link": "https://www.bbc.co.uk/news/articles/cw5yn3xlprpmo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Venezuelan opposition leader María Machado returns after months in exile",
+      "summary": "Machado had left the country just a month before the US government seized Venezuelan President Nicolás Maduro.",
+      "link": "https://www.bbc.co.uk/news/articles/cq8ez592pp0eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Deeply divided Israel braces for pivotal election",
+      "summary": "After three years of regional war, this is a battle Israel always knew was coming, writes Lucy Williamson.",
+      "link": "https://www.bbc.co.uk/news/articles/ckpdgy6pl7xlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Australian murderer loses bid to eat Vegemite in prison",
+      "summary": "Andre McKechnie, who murdered a property developer, argued it was his right to enjoy Australian culture.",
+      "link": "https://www.bbc.co.uk/news/articles/cvwy7wz9x12go?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Suspect in deadly Paris suburb shooting sent for psychiatric observation",
+      "summary": "He will be observed to evaluate whether his \"psychiatric health is compatible with pursuing his interrogation\", authorities said.",
+      "link": "https://www.bbc.co.uk/news/articles/c6e3xek2457wo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russia to host first Olympic federation world event since Ukraine invasion",
+      "summary": "The International Weightlifting Federation becomes the first Olympic federation to choose Russia to host a world championships since its invasion of Ukraine.",
+      "link": "https://www.bbc.co.uk/sport/olympics/articles/cmq5ny00gzy0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Rapper Nicki Minaj joins Trump onstage at Michigan rally",
+      "summary": "The Super Bass singer is the latest big name to campaign in Michigan, where a tight Senate race is playing out ahead of the 3 November midterms.",
+      "link": "https://www.bbc.co.uk/news/articles/cqrmyl1mljppo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Musk says SpaceX restricted Ukraine's Starlink connection as service restored",
+      "summary": "The tech billionaire accuses Ukraine of violating its terms of service by using the network for military activity.",
+      "link": "https://www.bbc.co.uk/news/articles/cvx28ljp8n4xo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Israel to close West Bank crossings on election day as crackdown escalates",
+      "summary": "The Israeli Defense Forces announces restrictions on the movement of Palestinian workers in the run-up to Tuesday's election.",
+      "link": "https://www.bbc.co.uk/news/articles/c6y93ylpl5p2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Gabon says access to social media restored after eight-month ban",
+      "summary": "The authorities had justified the ban by saying online content was fuelling conflict, while the opposition had condemned it as an abuse of power.",
+      "link": "https://www.bbc.co.uk/news/articles/c6x2w0ngejneo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "El Salvador president says bodies found in Haiti are not those of hostages",
+      "summary": "Nayib Bukele says bodies delivered to soldiers are \"not our men\" amid search for Salvadorans abducted last week.",
+      "link": "https://www.bbc.co.uk/news/articles/c8ly097zw1xwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Death toll in Nigeria village raided by gunmen rises to 48, police say",
+      "summary": "Unidentified gunmen on motorcycles swooped on a remote village on Friday, looting shops and setting houses ablaze.",
+      "link": "https://www.bbc.co.uk/news/articles/cq1kdlm1ze7do?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
