@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-06",
+  "concept": "A vast digital landscape fragmenting into separate chunks and blocks, like corrupted computer memory or pixelated terrain. In the foreground, a cracking foundation or breaking ice sheet splitting into jagged pieces. Muted, industrial color palette—grays, steels, and cold blues—with hints of red fractures running through. The composition should feel destabilized, unmoored, with power structures literally coming apart. Style: dystopian digital art, reminiscent of glitch aesthetics or brutalist architecture mid-collapse.",
+  "explanation": "Today's headlines reveal systemic fracturing across multiple domains: financial markets collapsing on AI fears, political institutions destabilizing through impeachment threats and unexpected electoral shifts, violence erupting in Turkey, and hoax threats destabilizing transportation. Even traditionally stable symbols—the Oval Office's permanence being legislatively frozen, the papacy weakened by illness—are fractured or vulnerable. The only unifying thread is instability itself: governments resigning, death row populations being commuted en masse, and labor movements surging. The world feels like it's breaking along multiple fault lines simultaneously.",
+  "emotion": "fear",
+  "emotion_color": "#9649b7",
+  "emotion_base_color": "#5b2c6f",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Global tech stocks plunge as US midterms add to AI slowdown fears",
+      "summary": "Investors have reacted to possible tougher scrutiny of data centre construction and the AI industry.",
+      "link": "https://www.bbc.co.uk/news/articles/cmn04705rd8jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trump signs order preventing future presidents from changing Oval Office",
+      "summary": "The order comes after Trump made a series of big changes to the decor of the Oval Office and tore down the White House East Wing.",
+      "link": "https://www.bbc.co.uk/news/articles/cmy0eeg101djo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "White House denies Hegseth and Rubio to leave jobs after Republican election losses",
+      "summary": "US media reports there are calls to replace Pete Hegseth, who also faces a possible impeachment vote, while Mark Rubio is rumoured to be eyeing a presidential run.",
+      "link": "https://www.bbc.co.uk/news/articles/cqg7xxg4jdv5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Pope begins lengthy trip to Latin America weeks after lung cancer surgery",
+      "summary": "Pope Leo, who had part of a lung removed last month, will visit Uruguay, Argentina and Peru.",
+      "link": "https://www.bbc.co.uk/news/articles/cqn06j0y61k6o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Hoax bomb threats target European airlines and airports for second time in a week",
+      "summary": "At least 21 flights across Europe are affected in what the UK government calls a \"malicious hoax threat\".",
+      "link": "https://www.bbc.co.uk/news/articles/cmpqg08nz3pqo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "California governor commutes sentences for state's 548 death row inmates",
+      "summary": "California has historically had the largest population of people on death row in the US.",
+      "link": "https://www.bbc.co.uk/news/articles/cqrkyyd2j8mvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Paraguay President Santiago Peña resigns after bank collapse",
+      "summary": "The move follows a bank collapse and after the lower house of congress voted in favour of pursuing an impeachment trial against him.",
+      "link": "https://www.bbc.co.uk/news/articles/c6p9g39vln3yo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "French protests see numbers surge as unions join strikes over high cost of living",
+      "summary": "The interior ministry estimates 600,000 people joined protests across France, while the unions say the number was far higher.",
+      "link": "https://www.bbc.co.uk/news/articles/ckx2qzv835pgo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Democratic socialist defeats incumbent Karen Bass in Los Angeles mayor's race",
+      "summary": "The results mean America's two most populous cities - New York and Los Angeles - will be led by democratic socialists.",
+      "link": "https://www.bbc.co.uk/news/articles/c6e3xxwk3k11o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Eight killed in series of shootings in western Turkey",
+      "summary": "Victims are found in several locations in three separate vehicles, according to local reports.",
+      "link": "https://www.bbc.co.uk/news/articles/cvj6jj21pd2ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Who could be behind hoax bomb threats to European air travel?",
+      "summary": "There is no hard evidence so far linking airline bomb threats to Russia, Iran or any proxy groups.",
+      "link": "https://www.bbc.co.uk/news/articles/cx8dzzjg3g9zo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Melania Trump calls for lasting Ukraine truce as she hosts Russian and Ukrainian officials",
+      "summary": "The US first lady was credited by all for playing a key though unspecified role in the ceasefire.",
+      "link": "https://www.bbc.co.uk/news/articles/c9p8g085mz07o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
