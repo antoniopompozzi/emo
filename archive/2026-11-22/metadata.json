@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-22",
+  "concept": "A massive tree being felled mid-fall, its trunk splitting diagonally across the frame, surrounded by concentric rings of light and shadow suggesting both growth rings and shock waves. The tree's severed top tumbles through space. Dark storm clouds gather overhead. A single candle flame flickers at the base. Rendered in bold, geometric shapes with strong contrasts between light wood tones and deep shadows, almost like a woodcut. The composition is chaotic yet balanced, suggesting both destruction and remembrance.",
+  "explanation": "Today's news swings between catastrophe and fragile hope—climate talks on the brink, escalating conflict in Ukraine and the Gulf, crime and security breaches, yet also small gestures of gratitude and cultural continuity. The felling of Oslo's gift tree—a symbol of wartime alliance and peacetime thanks—crystallizes this tension: something beautiful and meaningful is being cut down, yet it represents a profound human connection. The tree becomes a metaphor for how quickly alliances, stability, and hope can topple, while its rings and the candle suggest memory and resilience endure.",
+  "emotion": "sadness",
+  "emotion_color": "#3d7acc",
+  "emotion_base_color": "#2e5c9a",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "New draft deal aims to avert collapse of talks at climate summit",
+      "summary": "The UN COP31 meeting in Turkey enters a second day of overtime as countries struggle to reach an agreement.",
+      "link": "https://www.bbc.co.uk/news/articles/cq7827z2841zo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Zelensky says Crimean Bridge strikes 'fair response' as he meets UK's Streeting",
+      "summary": "Ukraine's president says Kyiv acted after 109 separate Russian aerial attacks on bridges in Ukraine.",
+      "link": "https://www.bbc.co.uk/news/articles/c6wy0qj7w5zqo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Russia-bound ship attacked in Gulf of Finland",
+      "summary": "Finnish defence forces say that Ukraine was likely behind the drone attack on the vessel.",
+      "link": "https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Mexican drug lord on FBI's 10 most wanted list arrested in shoot-out",
+      "summary": "Fausto Isidro \"Chapo Idisro\" Meza Flores, who is accused of drug trafficking and torture, is detained after gun fight with authorities.",
+      "link": "https://www.bbc.co.uk/news/articles/ckz749ey0r75o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "FBI reportedly investigating apparent hack of its criminal database",
+      "summary": "The National Crime Information Center database is used by federal and local law enforcement to share information.",
+      "link": "https://www.bbc.co.uk/news/articles/cvze7de86pk3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Lock of former US President George Washington's hair sells for $4,000",
+      "summary": "The hair was given as a sign of friendship shortly before Washington's death in 1799, according to a descendent of its former owner.",
+      "link": "https://www.bbc.co.uk/news/articles/cwe9k23dpz0do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Deal with EU not dependent on tuition fees agreement, Miliband says",
+      "summary": "Brussels sources had previously suggested the bloc might not apply the wider deal until fees were lowered for EU students in Britain.",
+      "link": "https://www.bbc.co.uk/news/articles/cm9w9p4geke8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Trafalgar Square Christmas tree felled in Norway",
+      "summary": "The 21m tree is Oslo’s annual thank you for Britain’s support during World War Two.",
+      "link": "https://www.bbc.co.uk/news/articles/cx8dv4327dnpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US declassifies more UFO footage filmed in the Middle East",
+      "summary": "The Pentagon has released an eighth tranche of UFO records, which includes three video clips recorded in 2020, 2023 and 2026.",
+      "link": "https://www.bbc.co.uk/news/videos/cqdr1x8mypnko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Miami or Vice City? Tour the real-world inspiration for GTA 6",
+      "summary": "BBC News Mundo’s Rafael Rojas visits the real-life Miami locations that inspired Vice City, GTA 6’s fictionalised setting.",
+      "link": "https://www.bbc.co.uk/news/videos/c8wy5d43zp9qo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "What the new UK-EU deal could mean for future post-Brexit relations",
+      "summary": "The BBC's political and Europe editors analyse the new agreements between the UK and EU.",
+      "link": "https://www.bbc.co.uk/news/videos/c90k6gl3lyxeo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Cost of living protests sweep across Europe",
+      "summary": "Thousands marched across European cities on Friday to protest against the cost of living and other issues.",
+      "link": "https://www.bbc.co.uk/news/videos/c6dx12ppeqn4o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
