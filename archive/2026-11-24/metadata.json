@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-24",
+  "concept": "A grand chessboard viewed from above, mid-game, with pieces in chaotic disarray—some toppled, some frozen mid-move, the board tilted at an angle as if the table is collapsing. Pieces rendered as abstract geometric forms in blacks, grays, and deep reds. The sky above fractured into jagged sections, some glowing with nuclear light, others darkened by smoke. Bold, blocky shadows cast across the board. High contrast, cold palette with flashes of warning crimson. Composition emphasizes instability and the illusion of control.",
+  "explanation": "Today's headlines describe a world of escalating conflicts, naked power plays, and collapsing institutions—from Trump's self-aggrandizing claims and geopolitical tensions (Russian nuclear satellites, Ukraine's expanding war theater, NATO posturing) to failures in climate governance, human rights abuses, and corporate scandals. The chessboard metaphor captures the sense that powerful actors believe they control outcomes, yet chaos and moral degradation are the real pattern. The tilting table suggests the game itself is breaking down.",
+  "emotion": "anger",
+  "emotion_color": "#e04232",
+  "emotion_base_color": "#c0392b",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Trump faces backlash after saying he 'convinced' Nvidia to reinstate CEO Jensen Huang",
+      "summary": "Nvidia had come under pressure from President Trump to reappoint Huang, whose comeback helped add $1tn to the company's stock value.",
+      "link": "https://www.bbc.co.uk/news/articles/cq5y1k8ez407o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "US to blacklist Asian AI firm Megaspeed after Nvidia scandal",
+      "summary": "Megaspeed has been accused of funneling AI chips to China after a former executive's affair with Jensen Huang became public.",
+      "link": "https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Nato chief vows defence against space threat after Russian nuclear satellite reports",
+      "summary": "German media said Russia planned to launch a satellite with a nuclear warhead into space in coming weeks.",
+      "link": "https://www.bbc.co.uk/news/articles/c9x2er1ry2mzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "India's 'cockroach' party leader says he was stopped from flying to UK",
+      "summary": "Saurav Das said that immigration authorities at Delhi airport told him that his passport had been \"flagged\".",
+      "link": "https://www.bbc.co.uk/news/articles/cm5y1ezx2gqyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "What strike on Russian ship in Libya says about spread of Ukraine war",
+      "summary": "Ukraine's sinking of a Russian battleship at a port in Libya raises the stakes of the war a notch, writes Frank Gardner.",
+      "link": "https://www.bbc.co.uk/news/articles/cm894p88jzxpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Gisèle Pelicot 'humiliated' after nude photos sent to media to promote book",
+      "summary": "The publisher of an essay on coercive control apologises for \"an unfortunate and inappropriate communication\".",
+      "link": "https://www.bbc.co.uk/news/articles/cm3eg502nxw2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Israeli attacks have turned Gaza into 'toxic wasteland', Oxfam says",
+      "summary": "The report says there are signs of possible contamination across almost all of Gaza as a result of Israel's actions.",
+      "link": "https://www.bbc.co.uk/news/articles/c8r4gzzxvxl3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Iranian authorities flog singer who performed without hijab, lawyers say",
+      "summary": "Parastoo Ahmadi, three musicians and a producer were reportedly given 74 lashes in Qom.",
+      "link": "https://www.bbc.co.uk/news/articles/cq1j6585l5g6o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "King Charles and Elton John pay tribute to Australian music legend Molly Meldrum",
+      "summary": "The promoter and broadcaster helped define the music tastes of Australians for decades.",
+      "link": "https://www.bbc.co.uk/news/articles/c3qj57rkd2k1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Comedian impersonates Trump's dance moves, mocks trade talks at Canada press dinner",
+      "summary": "The impersonator, Canadian comedian Mark Critch, poked fun at the US president's search for a new press secretary and US-Canada trade talks.",
+      "link": "https://www.bbc.co.uk/news/articles/cr930y92dyx4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "What failure of COP31 reveals about a divided world",
+      "summary": "Interests of oil-producing countries, a US boycott and a dispute over finance may have torpedoed climate talks.",
+      "link": "https://www.bbc.co.uk/news/articles/cky970n83rvjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "UK sanctions top Myanmar military leaders after Rohingya genocide ruling",
+      "summary": "The UK is joined by several other nations in recognising an ICJ ruling that Myanmar carried out genocide.",
+      "link": "https://www.bbc.co.uk/news/articles/c6wy4ng1rznxo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
