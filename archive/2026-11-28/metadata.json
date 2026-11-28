@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-28",
+  "concept": "A dark, oppressive interior space with heavy shadows and bolted doors. Silhouettes of figures pressed against walls or barriers, some reaching toward narrow shafts of light from high windows. The composition emphasizes confinement, restriction, and desperation. Muted, desaturated tones with occasional flashes of cold color. The mood is claustrophobic and ominous, suggesting systemic entrapment and silenced voices.",
+  "explanation": "Today's headlines collectively paint a picture of institutional violence, suppression, and human suffering across multiple continents—from press censorship in Turkey to marital rape immunity in South Asia, from cult murders in Kenya to media intimidation in Spain. Rather than depicting any single event, this image attempts to capture the overarching emotional reality: people trapped within systems designed to silence, harm, or exclude them, with limited recourse to justice or freedom.",
+  "emotion": "anger",
+  "emotion_color": "#e04232",
+  "emotion_base_color": "#c0392b",
+  "concept_used_fallback": false,
+  "image_used_fallback": false,
+  "headlines": [
+    {
+      "title": "Spanish PM and rivals rally supporters in final pitch for votes",
+      "summary": "Prime Minister Pedro Sánchez wants to defy the polls, and his main rivals accuse him of not telling the truth and of \"betrayal\".",
+      "link": "https://www.bbc.co.uk/news/articles/c8wy5p4gdnwvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Turkish officials 'destroyed' pro-opposition TV channel, owner tells BBC",
+      "summary": "The headquarters of Halk TV were raided last month, the latest in a series of crackdowns on news sources deemed critical of the government.",
+      "link": "https://www.bbc.co.uk/news/articles/cq36gk151xkdo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Eight killed in Peruvian military helicopter crash",
+      "summary": "The pilot was the sole survivor of the crash during a rescue mission in a remote area known for drug trafficking.",
+      "link": "https://www.bbc.co.uk/news/articles/cwp9d85mlp88o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'Poison seller' Kenneth Law apologises in court to the families of his victims",
+      "summary": "The Canadian man, who pleaded guilty to 14 counts of aiding and abetting suicide earlier this year, said he was remorseful for his actions.",
+      "link": "https://www.bbc.co.uk/news/articles/cmx2898wq2qjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'We couldn't give up that easily': Marching bands scramble to cover costs after Thanksgiving parade rearranged",
+      "summary": "Stormy weather in New York City prompted organisers to push back the Macy's parade by two days - leaving some musicians stuck.",
+      "link": "https://www.bbc.co.uk/news/articles/ckd71ypy9e8eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Millions of wives in South Asia unprotected from marital rape - study",
+      "summary": "More than 100 countries have outlawed marital rape, but a large part of South Asia has not.",
+      "link": "https://www.bbc.co.uk/news/articles/cw074p95ye5do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Canada's top court largely upholds Quebec ban on religious symbols for public servants",
+      "summary": "The law faced legal challenges from a range of groups, including female Muslim, Sikh and Catholic teachers, who argued it violated their fundamental rights.",
+      "link": "https://www.bbc.co.uk/news/articles/cq3dgpy9lem3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Italy's former police chief rejected mafia inquiry allegations before death",
+      "summary": "The contents of an eight-page letter by Gianni De Gennaro have been revealed days after his body was found at his Tuscany home.",
+      "link": "https://www.bbc.co.uk/news/articles/c69q8yjj1v0po?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Kenyan doomsday cult leader convicted over further 123 deaths",
+      "summary": "Paul Mackenzie is found guilty of killing his followers, weeks after being jailed for the mass murder of children.",
+      "link": "https://www.bbc.co.uk/news/articles/cmy49de4xx1zo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Rare turtles found inside baggage at Amsterdam airport",
+      "summary": "The endangered reptiles were bound with duct tape to prevent them moving, officials say.",
+      "link": "https://www.bbc.co.uk/news/articles/cm5y1380q3vgo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "Severe Thanksgiving storms leave roads flooded and trees fallen",
+      "summary": "Hundreds of thousands of people were without power after severe weather hit both coasts of the United States during the Thanksgiving holiday.",
+      "link": "https://www.bbc.co.uk/news/videos/ckvg20y511p4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "title": "'It's impossible': Spain's young people on housing ahead of Sunday's election",
+      "summary": "Europe correspondent Nick Beake speaks to one couple kept apart by high rents in Valencia.",
+      "link": "https://www.bbc.co.uk/news/videos/cm9w9y8947xqo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "render_params": {
+    "grid_size": 96,
+    "gray_levels": 10,
+    "px_per_cell": 10,
+    "tone_curve_gamma": 0.7
+  },
+  "image_provider_params": {
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "claude_model": "claude-haiku-4-5-20251001"
+}
